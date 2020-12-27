@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Grass
+    uniqueID: 1650223289
+    locked: 0
+  - name: Road
+    uniqueID: 3499601607
+    locked: 0
+  - name: Collision
+    uniqueID: 1062507471
+    locked: 0
+  - name: Player
+    uniqueID: 2633703133
+    locked: 0
