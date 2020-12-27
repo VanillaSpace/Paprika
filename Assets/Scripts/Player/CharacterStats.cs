@@ -43,9 +43,7 @@ public class CharacterStats : MonoBehaviour
                 currentValue = value;
             }
 
-          
             currentFill = currentValue / MyMaxValue;
-
             statValue.text = currentValue + " / " + MyMaxValue;
         }
     }
