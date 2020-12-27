@@ -19,6 +19,7 @@ public class BasicMovement : MonoBehaviour
     {
         //Player Controller (up, down, left and right)
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
 
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");

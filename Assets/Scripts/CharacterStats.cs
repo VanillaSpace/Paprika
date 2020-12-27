@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class CharacterStats : MonoBehaviour
 {
     private Image content;
+    
+    [SerializeField]
+    private Text statValue;
 
     [SerializeField]
     private float lerpSpeed;
@@ -42,13 +45,10 @@ public class CharacterStats : MonoBehaviour
 
           
             currentFill = currentValue / MyMaxValue;
+
+            statValue.text = currentValue + " / " + MyMaxValue;
         }
     }
-
-
-
-    
-
 
 
     // Start is called before the first frame update
@@ -60,6 +60,7 @@ public class CharacterStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this will make the animation smoother when increasing and decreasing
         if (currentFill != content.fillAmount)
         {
             content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
