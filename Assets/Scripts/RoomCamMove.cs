@@ -48,7 +48,7 @@ public class RoomCamMove : MonoBehaviour
     {
         text.SetActive(true);
         Location_TXT.text = placeName;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.5f);
         text.SetActive(false);
     }
 }

@@ -50,6 +50,12 @@ TagManager:
   - name: Collision
     uniqueID: 1062507471
     locked: 0
+  - name: HouseDetails
+    uniqueID: 1603367469
+    locked: 0
+  - name: Signs
+    uniqueID: 2694555351
+    locked: 0
   - name: Player
     uniqueID: 2633703133
     locked: 0
