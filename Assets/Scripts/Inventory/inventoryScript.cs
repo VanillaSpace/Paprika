@@ -19,7 +19,7 @@ public class inventoryScript : MonoBehaviour
         return instance;
         }
 
-}
+    }
 
     //Debugging purposes
     [SerializeField]
@@ -44,13 +44,13 @@ public class inventoryScript : MonoBehaviour
     {
         //Debugging purposes
         
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log("Increase bag size by 4");
-            Bags bag = (Bags)Instantiate(items[0]);
-            x += 4;
-            bag.Initialize(x);
-            bag.Use();
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    Debug.Log("Increase bag size by 4");
+        //    Bags bag = (Bags)Instantiate(items[0]);
+        //    x += 4;
+        //    bag.Initialize(x);
+        //    bag.Use();
+        //}
     }
 }

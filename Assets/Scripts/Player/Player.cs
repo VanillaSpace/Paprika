@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float maxStamina;
 
+  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,17 +29,19 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    Debug.Log("Should be losing HP");
-        //    health.myCurrentValue -= 10;
-        //    stamina.myCurrentValue -= 10;
-        //}
-        //if (Input.GetKeyDown(KeyCode.O))
-        //{
-        //    Debug.Log("Should be gaining HP");
-        //    health.myCurrentValue += 10;
-        //    stamina.myCurrentValue += 10;
-        //}
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            Debug.Log("Should be losing HP");
+            health.myCurrentValue -= 10;
+            stamina.myCurrentValue -= 10;
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Debug.Log("Should be gaining HP");
+            health.myCurrentValue += 10;
+            stamina.myCurrentValue += 10;
+        }
+
+       
     }
 }
