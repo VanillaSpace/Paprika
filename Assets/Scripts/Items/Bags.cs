@@ -22,8 +22,13 @@ public class Bags : Item, IUseable
 
     public void Use()
     {
-        MyBagsScript = Instantiate(bagPrefab, inventoryScript.MyInstance.transform).GetComponent<bagScript>();
-        MyBagsScript.AddSlots(slots);
-        //throw new System.NotImplementedException();
+        if (inventoryScript.MyInstance.CanAddBag)
+        {
+            MyBagsScript = Instantiate(bagPrefab, inventoryScript.MyInstance.transform).GetComponent<bagScript>();
+            MyBagsScript.AddSlots(slots);
+
+            inventoryScript.MyInstance.AddBag(this);
+        }
+      
     }
 }

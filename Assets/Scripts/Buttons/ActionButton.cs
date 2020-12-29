@@ -29,10 +29,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         MyButton = GetComponent<Button>();
-        // MyButton.onClick.AddListener(OnClick);
-       // MyButton.onClick.AddListener(chopping);
-      //  MyButton.onClick.AddListener(water);
-        //MyButton.onClick.AddListener(attack);
+        //MyButton.onClick.AddListener(OnClick);
     }
 
     // Update is called once per frame

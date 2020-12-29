@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //health
 
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -42,6 +43,12 @@ public class Player : MonoBehaviour
             stamina.myCurrentValue += 10;
         }
 
+        //bags - close and open all bags
+
+        if  (Input.GetKeyDown(KeyCode.B))
+        {
+            inventoryScript.MyInstance.OpenClose();
+        }
        
     }
 }

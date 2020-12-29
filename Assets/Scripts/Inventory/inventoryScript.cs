@@ -4,53 +4,82 @@ using UnityEngine;
 
 public class inventoryScript : MonoBehaviour
 {
-    int x;
+  
 
     public static inventoryScript instance;
 
-    public static inventoryScript MyInstance 
+    public static inventoryScript MyInstance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<inventoryScript>();       
+                instance = FindObjectOfType<inventoryScript>();
             }
-        return instance;
+            return instance;
         }
 
     }
+
+    private List<Bags> bags = new List<Bags>();
+
+    [SerializeField]
+    private BagButton[] bagButtons;
 
     //Debugging purposes
     [SerializeField]
     private Item[] items;
 
+    public bool CanAddBag
+    {
+        get { return bags.Count < 4; }
+    }
+
     //Debugging purposes
     private void Awake()
     {
         Bags bag = (Bags)Instantiate(items[0]);
-        bag.Initialize(4);
+        bag.Initialize(8);
         bag.Use();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Bags bag = (Bags)Instantiate(items[0]);
+            bag.Initialize(8);
+            bag.Use();
+        }
+    }
+    
+    public void AddBag(Bags bag)
+    {
+        foreach (BagButton bagButton in bagButtons)
+        {
+            if(bagButton.MyBag == null)
+            {
+                bagButton.MyBag = bag;
+                bags.Add(bag);
+                break;
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenClose()
     {
-        //Debugging purposes
-        
-        //if (Input.GetKeyDown(KeyCode.I))
-        //{
-        //    Debug.Log("Increase bag size by 4");
-        //    Bags bag = (Bags)Instantiate(items[0]);
-        //    x += 4;
-        //    bag.Initialize(x);
-        //    bag.Use();
-        //}
+        //if closed bag == true, then open all closed bags
+        //if closed bag == false, then close all closed bags
+
+        bool closedBag = bags.Find(X => !X.MyBagsScript.IsOpen);
+
+        foreach (Bags bag in bags)
+        {
+            if (bag.MyBagsScript.IsOpen != closedBag)
+            {
+                bag.MyBagsScript.OpenClose();
+            }
+        }
     }
+   
 }
