@@ -16,7 +16,7 @@ public abstract class Item : ScriptableObject
     private slotScript slot;
 
 
-    public Sprite Icon 
+    public Sprite MyIcon 
     {
         get
         { 
@@ -33,7 +33,7 @@ public abstract class Item : ScriptableObject
         }
     }
 
-    protected slotScript Slot 
+    public slotScript MySlot 
     {
         get 
         { 
@@ -46,5 +46,12 @@ public abstract class Item : ScriptableObject
         }
     }
 
+    public void Remove()
+    {
+        if(MySlot != null)
+        {
+            MySlot.RemoveItem(this);
+        }
+    }
 
 }

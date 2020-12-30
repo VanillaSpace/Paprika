@@ -46,8 +46,12 @@ public class BasicMovement : MonoBehaviour
         Vector3 playerMovement = new Vector3(moveHorizontal, moveVertical, 0.0f);
 
         transform.position = transform.position + playerMovement * Time.deltaTime * playerSpeed;
-
-
+         
+        if (Player.MyInstance.MyHealth.myCurrentValue == 0)
+        {
+            isBusy = true;
+            animator.SetBool("Dead", true);
+        }
         //Sword Attack
         //if (Input.GetButtonDown("Fire1"))
         //{

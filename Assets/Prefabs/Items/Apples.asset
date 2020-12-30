@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6febf1252cbee42acaca8f88616c67, type: 3}
-  m_Name: Bag
+  m_Script: {fileID: 11500000, guid: 22c8599531ba3b7429bfd05ed3cd5139, type: 3}
+  m_Name: Apples
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 8970acec77880ae4cac364577365c71a, type: 3}
-  stackSize: 0
-  bagPrefab: {fileID: 7301382789937369023, guid: 4fa0e8a45b368ea40a7dcadc52146c7d, type: 3}
+  icon: {fileID: 3767446706215961781, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
+  stackSize: 5
+  recoveredHealth: 10

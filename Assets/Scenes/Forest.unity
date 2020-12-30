@@ -15753,7 +15753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.00003, y: -406.32}
+  m_AnchoredPosition: {x: 396.67825, y: -406.32}
   m_SizeDelta: {x: 32.6342, y: 30.0661}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &965460258
@@ -16670,7 +16670,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 135.41336, y: -405.9726}
+  m_AnchoredPosition: {x: 436.09158, y: -405.9726}
   m_SizeDelta: {x: 29.2063, y: 30.7697}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345618901
@@ -17399,7 +17399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -304, y: 43.322006}
+  m_AnchoredPosition: {x: -3.3217773, y: 43.322006}
   m_SizeDelta: {x: 223.4235, y: 86.6432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596165372
@@ -17781,7 +17781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 56.786987, y: -406.56995}
+  m_AnchoredPosition: {x: 357.46533, y: -406.56995}
   m_SizeDelta: {x: 28.8423, y: 29.4422}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664975935
@@ -23630,7 +23630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.3219, y: -405.96698}
+  m_AnchoredPosition: {x: 397, y: -405.96704}
   m_SizeDelta: {x: 529.3093, y: 225.2501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129378975
@@ -23880,6 +23880,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1434562169}
     m_Modifications:
+    - target: {fileID: 7446659107897499980, guid: fd793e79e2ab46e43a87a4fd39dca23a, type: 3}
+      propertyPath: items.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446659107897499980, guid: fd793e79e2ab46e43a87a4fd39dca23a, type: 3}
+      propertyPath: items.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: fa571fdbfdcd0024c96dd074c0ef28d5, type: 2}
+    - target: {fileID: 7446659107897499980, guid: fd793e79e2ab46e43a87a4fd39dca23a, type: 3}
+      propertyPath: items.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9bb8fef9f5786d04a88e479520d106e0, type: 2}
+    - target: {fileID: 7446659107897499980, guid: fd793e79e2ab46e43a87a4fd39dca23a, type: 3}
+      propertyPath: items.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: aa8342f195587924ead339039d4b7b00, type: 2}
+    - target: {fileID: 7446659107897499980, guid: fd793e79e2ab46e43a87a4fd39dca23a, type: 3}
+      propertyPath: items.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 996350bbd9c90b44893477399987a96b, type: 2}
     - target: {fileID: 7446659107897499980, guid: fd793e79e2ab46e43a87a4fd39dca23a, type: 3}
       propertyPath: bagButtons.Array.data[0]
       value: 

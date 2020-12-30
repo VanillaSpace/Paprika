@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+  
+
+    public static Player instance;
+
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+            return instance;
+        }
+
+    }
+
+    public CharacterStats MyHealth { get => health; set => health = value; }
+    public CharacterStats MyStamina { get => stamina; set => stamina = value; }
+
     [SerializeField]
     private CharacterStats health;
 
@@ -28,6 +48,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+  
         //health
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -50,5 +72,15 @@ public class Player : MonoBehaviour
             inventoryScript.MyInstance.OpenClose();
         }
        
+    }
+
+    //Items - becomes invisible once used 
+    public void UpdateStackSize(IClickable clickable)
+    {
+        if(clickable.MyCount == 0)
+        {
+            //make icon invisible color (0,0,0,0)
+            clickable.MyIcon.color = new Color(0, 0, 0, 0);
+        }
     }
 }
