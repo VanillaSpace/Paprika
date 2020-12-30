@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable
+public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler,IPointerExitHandler
 {
 
     public static slotScript instance;
@@ -109,5 +109,18 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable
             Debug.Log("Not IUseable");
         }
 
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!IsEmpty)
+        {
+            Player.MyInstance.ShowToolTip(transform.position);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Player.MyInstance.HideToolTip();
     }
 }

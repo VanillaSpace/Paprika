@@ -46,6 +46,8 @@ public abstract class Item : ScriptableObject
         }
     }
 
+   
+
     public void Remove()
     {
         if(MySlot != null)

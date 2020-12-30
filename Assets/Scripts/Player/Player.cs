@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-  
+
 
     public static Player instance;
 
@@ -36,6 +37,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float maxStamina;
 
+    [SerializeField]
+    private GameObject tooltip;
+
+    [SerializeField]
+    private Text DecriptionText;
+
   
 
     // Start is called before the first frame update
@@ -48,8 +55,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-  
+
+
         //health
 
         if (Input.GetKeyDown(KeyCode.I))
@@ -67,20 +74,34 @@ public class Player : MonoBehaviour
 
         //bags - close and open all bags
 
-        if  (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B))
         {
             inventoryScript.MyInstance.OpenClose();
         }
-       
+
     }
 
     //Items - becomes invisible once used 
     public void UpdateStackSize(IClickable clickable)
     {
-        if(clickable.MyCount == 0)
+        if (clickable.MyCount == 0)
         {
             //make icon invisible color (0,0,0,0)
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    //show tool tip for items
+    public void ShowToolTip(Vector3 position)
+    {
+        tooltip.SetActive(true);
+        DecriptionText.text.ToUpper();
+        tooltip.transform.position = position;
+
+    }
+
+    public void HideToolTip()
+    {
+        tooltip.SetActive(false);
     }
 }
