@@ -31,6 +31,8 @@ public class BasicMovement : MonoBehaviour
     public Animator animator;
     public float playerSpeed = 3.5f;
 
+    [SerializeField]
+    private GameObject[] ProjectilePrefab;
 
     // Update is called once per frame
     void Update()
@@ -76,6 +78,7 @@ public class BasicMovement : MonoBehaviour
             else
             {
                 Debug.Log("Chopping!");
+                CastProjectile();
                 StartCoroutine(Chop());
             }
 
@@ -111,6 +114,11 @@ public class BasicMovement : MonoBehaviour
         animator.SetBool("isWatering", false);
         isBusy = false;
 
+    }
+
+    public void CastProjectile()
+    {
+        Instantiate(ProjectilePrefab[0], transform.position, Quaternion.identity);
     }
 
 
