@@ -42,13 +42,6 @@ public class inventoryScript : MonoBehaviour
         bag.Initialize(8);
         bag.Use();
 
-        //HealthPotion potion = (HealthPotion)Instantiate(items[1]);
-        //AddItem(potion);
-
-        //Poison drug = (Poison)Instantiate(items[1]);
-        //AddItem(drug);
-
-
     }
 
     private void Update()
@@ -105,13 +98,51 @@ public class inventoryScript : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        foreach (Bags bag in bags)
+        if (item.MyStackSize > 0)
         {
-            if (bag.MyBagsScript.AddItem(item))
+            if (PlaceInStack(item))
             {
                 return;
             }
         }
+
+        PlaceInEmpty(item);
+
+        //CHANGED 
+        //foreach (Bags bag in bags)
+        //{
+        //    if (bag.MyBagsScript.AddItem(item))
+        //    {
+        //        return;
+        //    }
+        //}
+    }
+
+    private void PlaceInEmpty(Item item)
+    {
+        foreach (Bags bag in bags)
+        {
+            if(bag.MyBagsScript.AddItem(item))
+            {
+                return;
+            }
+        }
+    }
+
+    private bool PlaceInStack(Item item)
+    {
+        foreach (Bags bag in bags)
+        {
+            foreach (slotScript slots in bag.MyBagsScript.MySlots)
+            {
+                if (slots.StackItem(item))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public void OpenClose()

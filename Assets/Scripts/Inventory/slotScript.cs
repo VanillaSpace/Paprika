@@ -24,10 +24,13 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     }
 
     //FILO
-    private Stack<Item> items = new Stack<Item>();
+    private ObservableStacks<Item> items = new ObservableStacks<Item>();
 
     [SerializeField]
     private Image icon;
+
+    [SerializeField]
+    private Text stackSize;
 
     public bool IsEmpty
     {
@@ -67,6 +70,21 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         get {return items.Count; }
     }
 
+    public Text MyStackText
+    {
+        get
+        {
+            return stackSize;
+        }
+    }
+
+    public void Awake()
+    {
+        items.OnPop += new UpdateStackEvent(UpdateSlot);
+        items.OnPush += new UpdateStackEvent(UpdateSlot);
+        items.OnClear += new UpdateStackEvent(UpdateSlot);
+    }
+
     ///<param name ="item">the item to add </param>
     public bool AddItem(Item item)
     {
@@ -82,7 +100,7 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         if (!IsEmpty)
         {
             items.Pop();
-            Player.MyInstance.UpdateStackSize(this);
+           
         }
     }
 
@@ -109,6 +127,23 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
             Debug.Log("Not IUseable");
         }
 
+    }
+
+    public bool StackItem(Item item)
+    {
+        if(!IsEmpty && item.name == MyItem.name && items.Count < MyItem.MyStackSize)
+        {
+            items.Push(item);
+            item.MySlot = this;
+            return true;
+        }
+
+        return false;
+    }
+
+    private void UpdateSlot()
+    {
+        Player.MyInstance.UpdateStackSize(this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

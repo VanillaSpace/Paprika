@@ -84,10 +84,22 @@ public class Player : MonoBehaviour
     //Items - becomes invisible once used 
     public void UpdateStackSize(IClickable clickable)
     {
+        if(clickable.MyCount > 1)
+        {
+            clickable.MyStackText.text = clickable.MyCount.ToString();
+            clickable.MyStackText.color = Color.white;
+            clickable.MyIcon.color = Color.white;
+        }
+        else
+        {
+            //if item is less than 1, no need for text
+            clickable.MyStackText.color = new Color(0, 0, 0, 0);
+        }
         if (clickable.MyCount == 0)
         {
             //make icon invisible color (0,0,0,0)
             clickable.MyIcon.color = new Color(0, 0, 0, 0);
+            clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
     }
 
