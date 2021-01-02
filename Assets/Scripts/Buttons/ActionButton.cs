@@ -45,7 +45,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
             useable.Use();
         }
 
-        BasicMovement.instance.Chop();
+        //BasicMovement.instance.Chop();
     }
 
     public void chopping()
