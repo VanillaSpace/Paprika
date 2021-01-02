@@ -4248,6 +4248,7 @@ GameObject:
   - component: {fileID: 405039244}
   - component: {fileID: 405039243}
   - component: {fileID: 405039242}
+  - component: {fileID: 405039245}
   m_Layer: 9
   m_Name: Red Slime
   m_TagString: Enemy
@@ -4347,6 +4348,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &405039245
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405039241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 584ca4dc97bc6cb4d80e3532647abe06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &430656122
 GameObject:
   m_ObjectHideFlags: 0
@@ -19160,6 +19180,7 @@ GameObject:
   - component: {fileID: 1843555455}
   - component: {fileID: 1843555454}
   - component: {fileID: 1843555456}
+  - component: {fileID: 1843555457}
   m_Layer: 9
   m_Name: Blue Slime
   m_TagString: Enemy
@@ -19259,6 +19280,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.875, y: 0.6875}
   m_EdgeRadius: 0
+--- !u!95 &1843555457
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843555453}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6eeffb6d4b998744b9c9ca776fc79705, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1867982214
 GameObject:
   m_ObjectHideFlags: 0
