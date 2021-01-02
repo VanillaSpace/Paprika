@@ -1,47 +1,38 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+[Serializable]
+public class Projectile
 {
+    [SerializeField]
+    private string name;
 
-    private Rigidbody2D myRigidBody;
+    [SerializeField]
+    private int damage;
+
+    [SerializeField]
+    private Sprite icon;
 
     [SerializeField]
     private float speed;
 
-    public Transform MyTarget { get; set; }
+    [SerializeField]
+    private float castTime;
 
-    private bool alive = true;
+    [SerializeField]
+    private GameObject projectilePrefab;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        myRigidBody = GetComponent<Rigidbody2D>();
-    }
+    [SerializeField]
+    private Color barColor;
 
-    private  void FixedUpdate()
-    {
-        if(MyTarget != null)
-        {
-            Vector2 direction = MyTarget.position - transform.position;
-
-            myRigidBody.velocity = direction.normalized * speed;
-
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        }
-     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "HitBox" && collision.transform == MyTarget)
-        {
-            GetComponent<Animator>().SetTrigger("impact");
-            myRigidBody.velocity = Vector2.zero;
-            MyTarget = null;
-        }
-    }
+    public string MyName { get => name; set => name = value; }
+    public int MyDamage { get => damage; set => damage = value; }
+    public Sprite MyIcon { get => icon; set => icon = value; }
+    public float MySpeed { get => speed; set => speed = value; }
+    public float MyCastTime { get => castTime; set => castTime = value; }
+    public GameObject MyProjectilePrefab { get => projectilePrefab; set => projectilePrefab = value; }
+    public Color MyBarColor { get => barColor; set => barColor = value; }
 }

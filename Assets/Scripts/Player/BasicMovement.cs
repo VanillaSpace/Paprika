@@ -28,9 +28,6 @@ public class BasicMovement : MonoBehaviour
     public float playerSpeed = 3.5f;
 
     [SerializeField]
-    private GameObject[] ProjectilePrefab;
-
-    [SerializeField]
     private Blocks[] blocks;
 
 
@@ -39,10 +36,12 @@ public class BasicMovement : MonoBehaviour
 
     private int exitIndex = 0;
 
+    private projectileBook ProjectileBook;
+
     // Start is called before the first frame update
     void Start()
     {
-       
+        ProjectileBook = GetComponent<projectileBook>();
     }
 
     // Update is called once per frame
@@ -67,13 +66,23 @@ public class BasicMovement : MonoBehaviour
             animator.SetBool("Dead", true);
         }
 
+        //if the player moves, the casting for the projectile stops
         if (moveHorizontal > 0)
         {
+            animator.SetBool("isChopping", false);
+            ProjectileBook.stopCasting();
             exitIndex = 0;
         }
         if (moveHorizontal < 0)
         {
+            animator.SetBool("isChopping", false);
+            ProjectileBook.stopCasting();
             exitIndex = 1;
+        }
+        if (moveVertical < 0 && moveVertical > 0)
+        {
+            animator.SetBool("isChopping", false);
+            ProjectileBook.stopCasting();
         }
         //Sword Attack
         //if (Input.GetButtonDown("Fire1"))
@@ -128,18 +137,23 @@ public class BasicMovement : MonoBehaviour
 
     }
 
-    public IEnumerator Chop(int projectileIndex)
+    public IEnumerator Roll(int projectileIndex)
     {
+        Projectile newProjectile = ProjectileBook.castProjectile(projectileIndex);
+
         isBusy = true;
-        animator.SetBool("isChopping", true);
-  
-        yield return new WaitForSeconds(0.55f);
+        animator.SetBool("isRoll", true);
 
-       Projectile s = Instantiate(ProjectilePrefab[projectileIndex], exitPoint[exitIndex].position, Quaternion.identity).GetComponent<Projectile>();
+        yield return new WaitForSeconds(newProjectile.MyCastTime);
 
-        s.MyTarget = MyTarget;
+        if (MyTarget != null && InLineOfSight())
+        {
+            ProjectileScript s = Instantiate(newProjectile.MyProjectilePrefab, exitPoint[exitIndex].position, Quaternion.identity).GetComponent<ProjectileScript>();
+            s.MyTarget = MyTarget;
+        }
+       
+        animator.SetBool("isRoll", false);
         
-        animator.SetBool("isChopping", false);
         isBusy = false;
 
     }
@@ -168,8 +182,8 @@ public class BasicMovement : MonoBehaviour
 
             if (MyTarget != null && InLineOfSight())
             {
-                Debug.Log("Chopping!");
-                StartCoroutine(Chop(projectileIndex));
+                Debug.Log("Darts!");
+                StartCoroutine(Roll(projectileIndex));
             }
             else
             {
@@ -204,4 +218,6 @@ public class BasicMovement : MonoBehaviour
 
         blocks[exitIndex].Activate();
     }
+
+
 }
