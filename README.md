@@ -5,8 +5,7 @@
 </p>
 
 # Game Controls
-* **UP**: enter doors, go up ropes
-* **DOWN**: go down ropes
+* **W,A,S,D**: player control
 * **E**: interact with objects
 * **LEFT-CLICK**: select a target (Enemy)
 
