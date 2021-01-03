@@ -11,7 +11,7 @@
 * **LEFT-CLICK**: select a target (Enemy)
 
 
-# RoadMap Feature
+# Roadmap Feature
 
 * Paprika
     - [x] Throwing projectile - fire, frost and lightening darts
