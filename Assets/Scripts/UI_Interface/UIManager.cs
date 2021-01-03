@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
 
     private KeyCode action1, action2, action3;
 
+    [SerializeField]
+    private CanvasGroup keybindMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +37,23 @@ public class UIManager : MonoBehaviour
         {
             ActionButtonOnClick(2);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OpenCloseMenu();
+        }
     }
 
     private void ActionButtonOnClick(int btnIndex)
     {
         actionButtons[btnIndex].onClick.Invoke();
+    }
+
+    public void OpenCloseMenu()
+    {
+        keybindMenu.alpha = keybindMenu.alpha > 0 ? 0 : 1;
+        keybindMenu.blocksRaycasts = keybindMenu.blocksRaycasts == true ? false : true;
+        
+        //Pauses the game 
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
     }
 }
