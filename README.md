@@ -45,6 +45,9 @@
     - [ ] Other Dart skills    
     - [ ] Moving and placing dart skills
 
+* Keybinding Menu
+    - [x] Keybinding Action keys
+
 * Gathering System
     - [ ] changing Sprite from full to empty 
     - [ ] Resources
