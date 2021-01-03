@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private BasicMovement playerMovement;
 
+    private NPC currentTarget;
+
     // Update is called once per frame
     void Update()
     {
@@ -25,18 +27,36 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if(hit.collider.tag == "Enemy")
+                if (currentTarget != null)
                 {
-                    Debug.Log("Targeted Enemy");
-                    playerMovement.MyTarget = hit.transform.GetChild(0);
+                    currentTarget.Deselect();
                 }
+
+                currentTarget = hit.collider.GetComponent<NPC>();
+                playerMovement.MyTarget = currentTarget.Select();
+
+                //if(hit.collider.tag == "Enemy")
+                //{
+                //    Debug.Log("Targeted Enemy");
+                //    playerMovement.MyTarget = hit.transform.GetChild(0);
+                //}
 
             }
             else
             {
-                //Detag target
+                if (currentTarget != null)
+                {
+                    currentTarget.Deselect();
+                }
+
+                currentTarget = null;
                 playerMovement.MyTarget = null;
             }
+            //else
+            //{
+            //    //Detag target
+            //    playerMovement.MyTarget = null;
+            //}
         }
         
     }

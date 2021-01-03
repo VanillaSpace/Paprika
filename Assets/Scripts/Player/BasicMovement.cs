@@ -149,7 +149,7 @@ public class BasicMovement : MonoBehaviour
         if (MyTarget != null && InLineOfSight())
         {
             ProjectileScript s = Instantiate(newProjectile.MyProjectilePrefab, exitPoint[exitIndex].position, Quaternion.identity).GetComponent<ProjectileScript>();
-            s.MyTarget = MyTarget;
+            s.Initialize(MyTarget, newProjectile.MyDamage);
         }
        
         animator.SetBool("isRoll", false);
@@ -195,18 +195,19 @@ public class BasicMovement : MonoBehaviour
 
     private bool InLineOfSight()
     {
-        Vector3 targetDirection = (MyTarget.transform.position - transform.position).normalized;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, MyTarget.transform.position),256);
-
-        if(hit.collider == null)
+        if (MyTarget != null)
         {
-            return true;
+            Vector3 targetDirection = (MyTarget.transform.position - transform.position).normalized;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDirection, Vector2.Distance(transform.position, MyTarget.transform.position), 256);
+
+            if (hit.collider == null)
+            {
+                return true;
+            }
+        
         }
-
-        //Debug.DrawRay(transform.position, targetDirection, Color.red);
         return false;
-
     }
 
     public void Block()

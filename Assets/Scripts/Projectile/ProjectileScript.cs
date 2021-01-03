@@ -10,7 +10,9 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField]
     private float speed;
 
-    public Transform MyTarget { get; set; }
+    public Transform MyTarget { get; private set; }
+
+    private int damage;
 
     //private bool alive = true;
 
@@ -18,6 +20,13 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    public void Initialize(Transform target, int damage)
+    {
+        this.MyTarget = target;
+        this.damage = damage;
+
     }
 
     private  void FixedUpdate()
@@ -39,6 +48,8 @@ public class ProjectileScript : MonoBehaviour
     {
         if (collision.tag == "HitBox" && collision.transform == MyTarget)
         {
+            speed = 0;
+            collision.GetComponentInParent<Enemy>().TakeDamage(damage);
             GetComponent<Animator>().SetTrigger("impact");
             myRigidBody.velocity = Vector2.zero;
             MyTarget = null;
