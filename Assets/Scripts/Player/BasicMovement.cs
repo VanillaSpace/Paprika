@@ -137,9 +137,9 @@ public class BasicMovement : MonoBehaviour
 
     }
 
-    public IEnumerator Roll(int projectileIndex)
+    public IEnumerator Roll(string projectileName)
     {
-        Projectile newProjectile = ProjectileBook.castProjectile(projectileIndex);
+        Projectile newProjectile = ProjectileBook.castProjectile(projectileName);
 
         isBusy = true;
         animator.SetBool("isRoll", true);
@@ -168,7 +168,7 @@ public class BasicMovement : MonoBehaviour
 
     }
 
-    public void CastProjectile(int projectileIndex)
+    public void CastProjectile(string projectileName)
     {
 
         Block();
@@ -183,7 +183,7 @@ public class BasicMovement : MonoBehaviour
             if (MyTarget != null && InLineOfSight())
             {
                 Debug.Log("Darts!");
-                StartCoroutine(Roll(projectileIndex));
+                StartCoroutine(Roll(projectileName));
             }
             else
             {

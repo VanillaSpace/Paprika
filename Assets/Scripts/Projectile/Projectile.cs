@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [Serializable]
-public class Projectile
+public class Projectile : IUseable
 {
     [SerializeField]
     private string name;
@@ -35,4 +35,9 @@ public class Projectile
     public float MyCastTime { get => castTime; set => castTime = value; }
     public GameObject MyProjectilePrefab { get => projectilePrefab; set => projectilePrefab = value; }
     public Color MyBarColor { get => barColor; set => barColor = value; }
+
+    public void Use()
+    {
+        BasicMovement.MyInstance.CastProjectile(MyName);
+    }
 }

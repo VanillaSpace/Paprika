@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,27 @@ using UnityEngine.UI;
 
 public class projectileBook : MonoBehaviour
 {
+    public static projectileBook instance;
+
+    public static projectileBook MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<projectileBook>();
+            }
+            return instance;
+        }
+
+    }
+
+
     [SerializeField]
     private Image castingBar;
 
     [SerializeField]
-    private Text dartName;
+    private Text currentProjectile;
 
     [SerializeField]
     private Text castTime;
@@ -35,26 +52,28 @@ public class projectileBook : MonoBehaviour
         
     }
 
-    public Projectile castProjectile(int index)
+    public Projectile castProjectile(string projectileName)
     {
-        castingBar.color = projectiles[index].MyBarColor;
+        Projectile projectile = Array.Find(projectiles, x => x.MyName == projectileName);
+
+        castingBar.color = projectile.MyBarColor;
 
         castingBar.fillAmount = 0;
 
-        dartName.text = projectiles[index].MyName;
+        currentProjectile.text = projectile.MyName;
 
-        projectileRoutine = StartCoroutine(Progress(index));
+        projectileRoutine = StartCoroutine(Progress(projectile));
 
         fadeRoutine = StartCoroutine(FadeBar());
 
-        return projectiles[index];
+        return projectile;
     }
 
-    private IEnumerator Progress(int index)
+    private IEnumerator Progress(Projectile projectile)
     {
         float timePassed = Time.deltaTime;
 
-        float rate = 1.0f / projectiles[index].MyCastTime;
+        float rate = 1.0f / projectile.MyCastTime;
 
         float progress = 0.0f;
 
@@ -66,9 +85,9 @@ public class projectileBook : MonoBehaviour
 
             timePassed += Time.deltaTime;
 
-            castTime.text = (projectiles[index].MyCastTime - timePassed).ToString("F2");
+            castTime.text = (projectile.MyCastTime - timePassed).ToString("F2");
 
-            if (projectiles[index].MyCastTime - timePassed < 0)
+            if (projectile.MyCastTime - timePassed < 0)
             {
                 castTime.text = "0.00";
             }
@@ -108,5 +127,12 @@ public class projectileBook : MonoBehaviour
             StopCoroutine(projectileRoutine);
             projectileRoutine = null;
         }
+    }
+
+    public Projectile GetProjectile(string projectileName)
+    {
+       Projectile projectile =  Array.Find(projectiles, x => x.MyName == projectileName);
+
+        return projectile;
     }
 }

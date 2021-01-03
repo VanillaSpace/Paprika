@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 
-interface IUseable
+public interface IUseable
 {
     Sprite MyIcon
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,48 +6,51 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField]
-    private Button[] actionButtons;
+    public static UIManager instance;
 
-    private KeyCode action1, action2, action3;
+    public static UIManager MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<UIManager>();
+            }
+            return instance;
+        }
+
+    }
+
+
+    [SerializeField]
+    private ActionButton[] actionButtons;
 
     [SerializeField]
     private CanvasGroup keybindMenu;
 
-    // Start is called before the first frame update
+    private GameObject[] keybindButtons;
+
+   private void Awake()
+    {
+        keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
+    }
     void Start()
     {
-        //Keybinds
-        action1 = KeyCode.Alpha1;
-        action2 = KeyCode.Alpha2;
-        action3 = KeyCode.Alpha3;
+        SetUseable(actionButtons[0], projectileBook.MyInstance.GetProjectile("FIRE DART"));
+        SetUseable(actionButtons[1], projectileBook.MyInstance.GetProjectile("FROST DART"));
+        SetUseable(actionButtons[2], projectileBook.MyInstance.GetProjectile("THUNDER DART"));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(action1))
-        {
-            ActionButtonOnClick(0);
-        }
-        if(Input.GetKeyDown(action2))
-        {
-            ActionButtonOnClick(1);
-        }
-        if(Input.GetKeyDown(action3))
-        {
-            ActionButtonOnClick(2);
-        }
+  
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             OpenCloseMenu();
         }
     }
 
-    private void ActionButtonOnClick(int btnIndex)
-    {
-        actionButtons[btnIndex].onClick.Invoke();
-    }
 
     public void OpenCloseMenu()
     {
@@ -55,5 +59,23 @@ public class UIManager : MonoBehaviour
         
         //Pauses the game 
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+    }
+
+    public void UpdateKeyText(string key, KeyCode code)
+    {
+        Text tmp = Array.Find(keybindButtons, x => x.name == key).GetComponentInChildren<Text>();
+        tmp.text = code.ToString();
+    }
+
+    public void ClickActionButton(string buttonName)
+    {
+        Array.Find(actionButtons, x => x.gameObject.name == buttonName).MyButton.onClick.Invoke();
+    }
+
+    public void SetUseable(ActionButton btn, IUseable useable)
+    {
+        btn.MyButton.image.sprite = useable.MyIcon;
+        btn.MyButton.image.color = Color.white;
+        btn.MyUseable = useable;
     }
 }

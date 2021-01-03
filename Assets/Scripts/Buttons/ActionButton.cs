@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour, IPointerClickHandler
 {
-    private IUseable useable;
+    public IUseable MyUseable { get; set; }
+
+    public Button MyButton { get; private set; }
 
     public static ActionButton instance;
 
@@ -24,12 +26,17 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
     }
 
 
-    public Button MyButton { get; private set; }
-    // Start is called before the first frame update
-    void Start()
+
+ 
+
+    private void Awake()
     {
         MyButton = GetComponent<Button>();
-        //MyButton.onClick.AddListener(OnClick);
+        MyButton.onClick.AddListener(OnClick);
+    }
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -40,34 +47,14 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
 
     public void OnClick()
     {
-        if (useable != null)
+        if (MyUseable != null)
         {
-            useable.Use();
+            MyUseable.Use();
         }
-
-        //BasicMovement.instance.Chop();
-    }
-
-    public void chopping()
-    {
-        Debug.Log("chopping called!");
-        BasicMovement.MyInstance.StartCoroutine("Chop");
-    }
-
-    public void attack()
-    {
-        Debug.Log("attack called!");
-        BasicMovement.MyInstance.StartCoroutine("Attack");
-    }
-
-    public void water()
-    {
-        Debug.Log("watering");
-        BasicMovement.MyInstance.StartCoroutine("Water");
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
+       
     }
 }

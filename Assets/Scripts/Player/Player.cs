@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-
 
     public static Player instance;
 
@@ -42,8 +42,9 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private Text DecriptionText;
+    private Vector2 Direction;
 
-  
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +56,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetInput();
 
+    }
+
+    private void GetInput()
+    {
+        Direction = Vector2.zero;
 
         //health
-
         if (Input.GetKeyDown(KeyCode.I))
         {
             Debug.Log("Should be losing HP");
@@ -68,8 +74,28 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("Should be gaining HP");
-            health.myCurrentValue += 10;
+            health.myCurrentValue += 10; if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["UP"]))
+            {
+                Direction += Vector2.up;
+            }
             stamina.myCurrentValue += 10;
+        }
+
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["UP"]))
+        {
+            Direction += Vector2.up;
+        }
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["LEFT"]))
+        {
+            Direction += Vector2.left;
+        }
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["DOWN"]))
+        {
+            Direction += Vector2.down;
+        }
+        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["RIGHT"]))
+        {
+            Direction += Vector2.right;
         }
 
         //bags - close and open all bags
@@ -79,6 +105,13 @@ public class Player : MonoBehaviour
             inventoryScript.MyInstance.OpenClose();
         }
 
+        foreach (string action in KeybindManager.MyInstance.ActionBinds.Keys)
+        {
+            if (Input.GetKeyDown(KeybindManager.MyInstance.ActionBinds[action]))
+            {
+                UIManager.MyInstance.ClickActionButton(action);
+            }
+        }
     }
 
     //Items - becomes invisible once used 
