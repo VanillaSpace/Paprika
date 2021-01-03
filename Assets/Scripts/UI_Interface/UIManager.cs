@@ -28,9 +28,12 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup keybindMenu;
 
+    [SerializeField]
+    private CanvasGroup projBook;
+
     private GameObject[] keybindButtons;
 
-   private void Awake()
+    private void Awake()
     {
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
     }
@@ -47,19 +50,15 @@ public class UIManager : MonoBehaviour
   
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            OpenCloseMenu();
+            OpenClose(keybindMenu);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            OpenClose(projBook);
         }
     }
 
-
-    public void OpenCloseMenu()
-    {
-        keybindMenu.alpha = keybindMenu.alpha > 0 ? 0 : 1;
-        keybindMenu.blocksRaycasts = keybindMenu.blocksRaycasts == true ? false : true;
-        
-        //Pauses the game 
-        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
-    }
 
     public void UpdateKeyText(string key, KeyCode code)
     {
@@ -74,8 +73,14 @@ public class UIManager : MonoBehaviour
 
     public void SetUseable(ActionButton btn, IUseable useable)
     {
-        btn.MyButton.image.sprite = useable.MyIcon;
-        btn.MyButton.image.color = Color.white;
+        btn.MyIcon.sprite = useable.MyIcon;
+        btn.MyIcon.color = Color.white;
         btn.MyUseable = useable;
+    }
+
+    public void OpenClose(CanvasGroup canvasGroup)
+    {
+        canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
+        canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
     }
 }

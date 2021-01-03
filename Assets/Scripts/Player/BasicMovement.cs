@@ -36,12 +36,11 @@ public class BasicMovement : MonoBehaviour
 
     private int exitIndex = 0;
 
-    private projectileBook ProjectileBook;
 
     // Start is called before the first frame update
     void Start()
     {
-        ProjectileBook = GetComponent<projectileBook>();
+
     }
 
     // Update is called once per frame
@@ -70,19 +69,19 @@ public class BasicMovement : MonoBehaviour
         if (moveHorizontal > 0)
         {
             animator.SetBool("isChopping", false);
-            ProjectileBook.stopCasting();
+            projectileBook.MyInstance.stopCasting();
             exitIndex = 0;
         }
         if (moveHorizontal < 0)
         {
             animator.SetBool("isChopping", false);
-            ProjectileBook.stopCasting();
+            projectileBook.MyInstance.stopCasting();
             exitIndex = 1;
         }
         if (moveVertical < 0 && moveVertical > 0)
         {
             animator.SetBool("isChopping", false);
-            ProjectileBook.stopCasting();
+            projectileBook.MyInstance.stopCasting();
         }
         //Sword Attack
         //if (Input.GetButtonDown("Fire1"))
@@ -139,7 +138,7 @@ public class BasicMovement : MonoBehaviour
 
     public IEnumerator Roll(string projectileName)
     {
-        Projectile newProjectile = ProjectileBook.castProjectile(projectileName);
+        Projectile newProjectile = projectileBook.MyInstance.castProjectile(projectileName);
 
         isBusy = true;
         animator.SetBool("isRoll", true);

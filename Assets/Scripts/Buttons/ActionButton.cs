@@ -10,6 +10,9 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
 
     public Button MyButton { get; private set; }
 
+    [SerializeField]
+    private Image icon;
+
     public static ActionButton instance;
 
     public static ActionButton MyInstance
@@ -25,9 +28,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
 
     }
 
-
-
- 
+    public Image MyIcon { get => icon; set => icon = value; }
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler
     }
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
