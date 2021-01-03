@@ -55,7 +55,7 @@ public class KeybindManager : MonoBehaviour
         {
             currentDictionary = ActionBinds;
         }
-        if (!currentDictionary.ContainsValue(keyBind))
+        if (!currentDictionary.ContainsKey(key))
         {
             currentDictionary.Add(key, keyBind);
             UIManager.MyInstance.UpdateKeyText(key, keyBind);
@@ -72,4 +72,24 @@ public class KeybindManager : MonoBehaviour
         UIManager.MyInstance.UpdateKeyText(key, keyBind);
         bindName = string.Empty;
     }
+
+    public void KeyBindOnClick(string bindName)
+    {
+        this.bindName = bindName;
+    }
+
+    private void OnGUI()
+    {
+        if (bindName != string.Empty)
+        {
+            Event e = Event.current;
+
+            if (e.isKey)
+            {
+                Bindkey(bindName, e.keyCode);
+            }
+        }
+    }
+
+       
 }
