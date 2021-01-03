@@ -82,3 +82,6 @@
 
 ### Resource
 * [Font - BitScript](https://opengameart.org/content/bitscript-true-type-font)
+* [Font - Boxy Bold](https://itch.store/assets/other/boxy-bold-font/)
+* [Anim - Slimes](https://reff-sq.itch.io/slime-animations)
+
