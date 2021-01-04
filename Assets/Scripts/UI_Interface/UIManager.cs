@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-
+        OpenClose(projBook);
     }
 
     // Update is called once per frame
