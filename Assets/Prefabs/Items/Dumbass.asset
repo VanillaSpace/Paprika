@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 3946027004081632563, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
   stackSize: 5
+  title: Dumbass David
+  quality: 3
   dumbAssLevel: 100

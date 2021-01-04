@@ -15,4 +15,9 @@ public class Poison : Item, IUseable
         Player.MyInstance.MyHealth.myCurrentValue -= poisonLevel;
         Player.MyInstance.MyStamina.myCurrentValue -= poisonLevel;
     }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\n<color=#00ff00ff>USE: {0} DAMAGE TO HP AND STAMINA</color>", poisonLevel);
+    }
 }

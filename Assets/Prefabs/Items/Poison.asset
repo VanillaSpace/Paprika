@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 25d8728b564390d4397bcc4f959141a6, type: 3}
   stackSize: 5
+  title: Poison
+  quality: 2
   poisonLevel: 100

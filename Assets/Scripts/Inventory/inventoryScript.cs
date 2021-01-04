@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void ItemCountChanged(Item item);
+
 public class inventoryScript : MonoBehaviour
 {
-  
+
+    public event ItemCountChanged itemCountChangedEvent;
 
     public static inventoryScript instance;
 
@@ -37,6 +40,23 @@ public class inventoryScript : MonoBehaviour
         get { return bags.Count < 4; }
     }
 
+    public int MyEmptySlotCount
+    {
+        get
+        {
+            int count = 0;
+
+            foreach (Bags bag in bags)
+            {
+                count += bag.MyBagsScript.MyEmptySlotCount;
+            }
+
+            return count;
+        }
+    }
+
+
+
     public slotScript FromSlot
     {
         get
@@ -60,9 +80,7 @@ public class inventoryScript : MonoBehaviour
     //Debugging purposes
     private void Awake()
     {
-        Bags bag = (Bags)Instantiate(items[0]);
-        bag.Initialize(8);
-        bag.Use();
+      
 
     }
 
@@ -113,9 +131,16 @@ public class inventoryScript : MonoBehaviour
             {
                 bagButton.MyBag = bag;
                 bags.Add(bag);
+                bag.MyBagButton = bagButton;
                 break;
             }
         }
+    }
+
+    public void RemoveBag(Bags bag)
+    {
+        bags.Remove(bag);
+        Destroy(bag.MyBagsScript.gameObject);
     }
 
     public void AddItem(Item item)
@@ -146,6 +171,7 @@ public class inventoryScript : MonoBehaviour
         {
             if(bag.MyBagsScript.AddItem(item))
             {
+                OnItemCountChanged(item);
                 return;
             }
         }
@@ -159,6 +185,7 @@ public class inventoryScript : MonoBehaviour
             {
                 if (slots.StackItem(item))
                 {
+                    OnItemCountChanged(item);
                     return true;
                 }
             }
@@ -183,4 +210,32 @@ public class inventoryScript : MonoBehaviour
         }
     }
    
+    public Stack<IUseable> GetUseables(IUseable type)
+    {
+        Stack<IUseable> useables = new Stack<IUseable>();
+
+        foreach (Bags bag in bags)
+        {
+            foreach (slotScript slot in bag.MyBagsScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.GetType() == type.GetType())
+                {
+                    foreach (Item item in slot.MyItems)
+                    {
+                        useables.Push(item as IUseable);
+                    }
+                }
+            }
+        }
+
+        return useables;
+    }
+
+    public void OnItemCountChanged(Item item)
+    {
+        if (itemCountChangedEvent != null)
+        {
+            itemCountChangedEvent.Invoke(item);
+        }
+    }
 }

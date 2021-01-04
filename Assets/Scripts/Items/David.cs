@@ -12,7 +12,10 @@ public class David : Item, IUseable
     public void Use()
     {
         Remove();
+    }
 
-        Debug.Log("Oopsie, tee hee haha I'm that betch");
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\n<color=#00ff00ff>Oopsie, tee hee haha I'm that betch. \nMy dumb ass level is {0}</color>",dumbAssLevel);
     }
 }

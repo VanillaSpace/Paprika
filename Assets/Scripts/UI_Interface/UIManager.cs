@@ -33,9 +33,18 @@ public class UIManager : MonoBehaviour
 
     private GameObject[] keybindButtons;
 
+    [SerializeField]
+    private GameObject tooltip;
+
+    [SerializeField]
+    private Text DecriptionText;
+
+    private Text tooltipText;
+
     private void Awake()
     {
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
+        tooltipText = tooltip.GetComponentInChildren<Text>();
     }
     void Start()
     {
@@ -73,5 +82,38 @@ public class UIManager : MonoBehaviour
     {
         canvasGroup.alpha = canvasGroup.alpha > 0 ? 0 : 1;
         canvasGroup.blocksRaycasts = canvasGroup.blocksRaycasts == true ? false : true;
+    }
+
+    public void UpdateStackSize(IClickable clickable)
+    {
+        if (clickable.MyCount > 1)
+        {
+            clickable.MyStackText.text = clickable.MyCount.ToString();
+            clickable.MyStackText.color = Color.white;
+            clickable.MyIcon.color = Color.white;
+        }
+        else
+        {
+            clickable.MyStackText.color = new Color(0, 0, 0, 0);
+        }
+        if (clickable.MyCount == 0)
+        {
+            clickable.MyIcon.color = new Color(0, 0, 0, 0);
+            clickable.MyStackText.color = new Color(0, 0, 0, 0);
+        }
+    }
+
+    //show tool tip for items
+    public void ShowToolTip(Vector3 position, IDescribable description)
+    {
+        tooltip.SetActive(true);
+        tooltip.transform.position = position;
+        tooltipText.text = description.GetDescription();
+
+    }
+
+    public void HideToolTip()
+    {
+        tooltip.SetActive(false);
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6febf1252cbee42acaca8f88616c67, type: 3}
   m_Name: Bag
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 8970acec77880ae4cac364577365c71a, type: 3}
+  icon: {fileID: 21300000, guid: 70d276c427ff1164ab24473476ad5165, type: 3}
   stackSize: 0
+  title: Bag
   bagPrefab: {fileID: 7301382789937369023, guid: 4fa0e8a45b368ea40a7dcadc52146c7d, type: 3}

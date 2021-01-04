@@ -33,9 +33,31 @@ public class BagButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (bag != null)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            bag.MyBagsScript.OpenClose();
+            //holding down left shift and clicking will de-equip the bag
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                HandScript.MyInstance.TakeMoveable(MyBag);
+            }
+            else if (bag != null)
+            {
+                bag.MyBagsScript.OpenClose();
+            }
         }
+                
+    }
+
+    public void RemoveBag()
+    {
+        inventoryScript.MyInstance.RemoveBag(MyBag);
+        MyBag.MyBagButton = null;
+
+        foreach (Item item in MyBag.MyBagsScript.GetItems())
+        {
+            inventoryScript.MyInstance.AddItem(item);
+        }
+
+        MyBag = null;
     }
 }

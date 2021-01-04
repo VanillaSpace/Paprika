@@ -14,6 +14,8 @@ public class Bags : Item, IUseable
     private GameObject bagPrefab;
 
     public bagScript MyBagsScript { get; set; }
+
+    public BagButton MyBagButton { get; set; }
     public int Slots { get => slots; }
 
 
@@ -34,5 +36,10 @@ public class Bags : Item, IUseable
 
             inventoryScript.MyInstance.AddBag(this);
         }
+    }
+
+    public override string GetDescription()
+    {
+        return base.GetDescription() + string.Format("\n{0} SLOT BAG", slots);
     }
 }
