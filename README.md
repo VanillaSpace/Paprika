@@ -40,10 +40,10 @@
 
 * Hot-bar UI 
     - [x] Has three slots
-    - [ ] items and skills can be moved in and out
-    - [ ] Action Buttons
+    - [x] items and skills can be moved in and out
+    - [x] Action Buttons
     - [ ] Other Dart skills    
-    - [ ] Moving and placing dart skills
+    - [x] Moving and placing dart skills
 
 * Keybinding Menu
     - [x] Keybinding Action keys
