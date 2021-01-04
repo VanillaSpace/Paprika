@@ -5,11 +5,14 @@ using UnityEngine.EventSystems;
 
 public class ProjectileButton : MonoBehaviour, IPointerClickHandler
 {
+    [SerializeField]
+    private string projName;
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            //pick up the spell
+            Debug.Log("Pressed");
+            HandScript.MyInstance.TakeMoveable(projectileBook.MyInstance.GetProjectile(projName));
         }
     }
 }
