@@ -22,8 +22,17 @@ public class Player : MonoBehaviour
 
     }
 
+    private Vector2 Direction;
+
+    public Animator playerAnim;
+
+    public float speed = 3.5f;
+
+    private bool isBusy = false;
     public CharacterStats MyHealth { get => health; set => health = value; }
     public CharacterStats MyStamina { get => stamina; set => stamina = value; }
+    public Vector2 MyDirection { get => Direction; set => Direction = value; }
+    public bool IsBusy { get => isBusy; set => isBusy = value; }
 
     [SerializeField]
     private CharacterStats health;
@@ -37,8 +46,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float maxStamina;
 
-
-    private Vector2 Direction;
 
 
 
@@ -54,11 +61,24 @@ public class Player : MonoBehaviour
     {
         GetInput();
 
+        PlayerAxis();
+
+        Move();
+
+        StopProjectiles();
+    }
+
+    public void Move()
+    {
+        transform.Translate(MyDirection * speed * Time.deltaTime);
     }
 
     private void GetInput()
     {
-        Direction = Vector2.zero;
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        MyDirection = Vector2.zero;
 
         //health
         if (Input.GetKeyDown(KeyCode.I))
@@ -70,29 +90,39 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("Should be gaining HP");
-            health.myCurrentValue += 10; if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["UP"]))
+            health.myCurrentValue += 10;
             {
-                Direction += Vector2.up;
+                MyDirection += Vector2.up;
             }
             stamina.myCurrentValue += 10;
         }
 
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["UP"]))
+        //player movement 
+        if(Input.GetAxis("Vertical") == 0)
         {
-            Direction += Vector2.up;
+            if (Input.GetKey(KeybindManager.MyInstance.Keybinds["LEFT"]))
+            {
+                MyDirection += Vector2.left;
+            }
+            if (Input.GetKey(KeybindManager.MyInstance.Keybinds["RIGHT"]))
+            {
+                MyDirection += Vector2.right;
+            }
         }
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["LEFT"]))
+
+        if (Input.GetAxis("Horizontal") == 0)
         {
-            Direction += Vector2.left;
+            if (Input.GetKey(KeybindManager.MyInstance.Keybinds["UP"]))
+            {
+                MyDirection += Vector2.up;
+            }
+            if (Input.GetKey(KeybindManager.MyInstance.Keybinds["DOWN"]))
+            {
+                MyDirection += Vector2.down;
+            }
         }
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["DOWN"]))
-        {
-            Direction += Vector2.down;
-        }
-        if (Input.GetKeyDown(KeybindManager.MyInstance.Keybinds["RIGHT"]))
-        {
-            Direction += Vector2.right;
-        }
+
+
 
         //bags - close and open all bags
 
@@ -108,6 +138,51 @@ public class Player : MonoBehaviour
                 UIManager.MyInstance.ClickActionButton(action);
             }
         }
+    }
+
+    public void Death()
+    {
+        if (MyHealth.myCurrentValue == 0)
+        {
+            IsBusy = true;
+            playerAnim.SetBool("Dead", true);
+        }
+    }
+
+    public void PlayerAxis()
+    {
+
+            playerAnim.SetFloat("Vertical", Input.GetAxis("Vertical"));
+            playerAnim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        
+           
+    }
+
+    public void StopProjectiles()
+    {
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        //if the player moves, the casting for the projectile stops
+        if (moveHorizontal > 0)
+        {
+            playerAnim.SetBool("isChopping", false);
+            projectileBook.MyInstance.stopCasting();
+            BasicMovement.MyInstance.ExitIndex = 0;
+            
+        }
+        if (moveHorizontal < 0)
+        {
+            playerAnim.SetBool("isChopping", false);
+            projectileBook.MyInstance.stopCasting();
+            BasicMovement.MyInstance.ExitIndex = 1;
+        }
+        if (moveVertical < 0 && moveVertical > 0)
+        {
+            playerAnim.SetBool("isChopping", false);
+            projectileBook.MyInstance.stopCasting();
+        }
+
     }
 
 }
