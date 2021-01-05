@@ -12,6 +12,8 @@ public class ProjectileScript : MonoBehaviour
 
     public Transform MyTarget { get; private set; }
 
+    private Transform source;
+
     private int damage;
 
     //private bool alive = true;
@@ -22,10 +24,11 @@ public class ProjectileScript : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void Initialize(Transform target, int damage)
+    public void Initialize(Transform target, int damage, Transform source)
     {
         this.MyTarget = target;
         this.damage = damage;
+        this.source = source;
 
     }
 
@@ -48,8 +51,10 @@ public class ProjectileScript : MonoBehaviour
     {
         if (collision.tag == "HitBox" && collision.transform == MyTarget)
         {
+            Character c = collision.GetComponentInParent<Character>();
             speed = 0;
-            collision.GetComponentInParent<Enemy>().TakeDamage(damage);
+            c.TakeDamage(damage, source);
+            //collision.GetComponentInParent<Enemy>().TakeDamage(damage);
             GetComponent<Animator>().SetTrigger("impact");
             myRigidBody.velocity = Vector2.zero;
             MyTarget = null;

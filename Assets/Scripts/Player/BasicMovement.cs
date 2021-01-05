@@ -7,9 +7,9 @@ public class BasicMovement : MonoBehaviour
 
     public bool isBusy = false;
 
-    public static BasicMovement instance;
-
     public Transform MyTarget { get; set; }
+
+    public static BasicMovement instance;
 
     public static BasicMovement MyInstance
     {
@@ -148,7 +148,7 @@ public class BasicMovement : MonoBehaviour
         if (MyTarget != null && InLineOfSight())
         {
             ProjectileScript s = Instantiate(newProjectile.MyProjectilePrefab, exitPoint[exitIndex].position, Quaternion.identity).GetComponent<ProjectileScript>();
-            s.Initialize(MyTarget, newProjectile.MyDamage);
+            s.Initialize(MyTarget, newProjectile.MyDamage, transform);
         }
        
         animator.SetBool("isRoll", false);
@@ -179,14 +179,28 @@ public class BasicMovement : MonoBehaviour
         else
         {
 
-            if (MyTarget != null && InLineOfSight())
+            if (MyTarget != null && (Enemy.MyInstance.IsDead is false) && InLineOfSight())
             {
-                Debug.Log("Darts!");
+                Debug.Log("Throwing dart!");
                 StartCoroutine(Roll(projectileName));
+                
             }
-            else
+            else 
             {
-                Debug.Log("Cannot See or no Target!");
+                if(Enemy.MyInstance.IsDead is true)
+                {
+                    Debug.Log("Enemy is dead");
+                    
+                    
+                }
+                else if (MyTarget is null)
+                {
+                    Debug.Log("No target selected");
+                }
+                else if (!InLineOfSight())
+                {
+                    Debug.Log("Cannot See");
+                }
             }
 
         }
