@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable
+public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler, IPointerExitHandler
 {
     public IUseable MyUseable { get; set; }
 
@@ -84,7 +84,8 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable
 
     public void OnPointerClick(PointerEventData eventData)
     {
-       if (eventData.button == PointerEventData.InputButton.Left)
+ 
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
             if (HandScript.MyInstance.MyMoveable != null && HandScript.MyInstance.MyMoveable is IUseable)
             {
@@ -95,18 +96,33 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (MyUseable != null)
+        IDescribable tmp = null;
+
+        Debug.Log("hover");
+
+        if (MyUseable != null && MyUseable is IDescribable)
         {
-           // UIManager.MyInstance.ShowToolTip(transform.position);
+
+            tmp = (IDescribable)MyUseable;
+            //UIManager.MyInstance.ShowToolTip(transform.position);
+
         }
         else if (useables.Count > 0)
         {
+           
             //UIManager.MyInstance.ShowToolTip(transform.position);
+
+        }
+        if (tmp != null)
+        {
+            UIManager.MyInstance.ShowToolTip(transform.position, tmp);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log("hover"); 
+
         UIManager.MyInstance.HideToolTip();
     }
 

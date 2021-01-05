@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,8 +35,7 @@ public class EvadeState : IState
         //{
         //    parent.SlimeFacing.flipX = true;
         //}
-
-        parent.SlimeFacing.flipX = (parent.enemyLeftLooking) ? false : true;
+         parent.SlimeFacing.flipX = (parent.enemyLeftLooking) ? false : true;
 
         if (distance <= 0)
         {
@@ -47,7 +47,6 @@ public class EvadeState : IState
             //{
             //    parent.SlimeFacing.flipX = false;
             //}
-
             parent.SlimeFacing.flipX = (parent.enemyLeftLooking) ? true : false;
 
             parent.ChangeState(new IdleState());

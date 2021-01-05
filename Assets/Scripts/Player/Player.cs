@@ -98,8 +98,7 @@ public class Player : MonoBehaviour
         }
 
         //player movement 
-        if(Input.GetAxis("Vertical") == 0)
-        {
+
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["LEFT"]))
             {
                 MyDirection += Vector2.left;
@@ -108,10 +107,7 @@ public class Player : MonoBehaviour
             {
                 MyDirection += Vector2.right;
             }
-        }
 
-        if (Input.GetAxis("Horizontal") == 0)
-        {
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["UP"]))
             {
                 MyDirection += Vector2.up;
@@ -120,7 +116,7 @@ public class Player : MonoBehaviour
             {
                 MyDirection += Vector2.down;
             }
-        }
+
 
 
 

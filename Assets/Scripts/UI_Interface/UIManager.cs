@@ -109,7 +109,6 @@ public class UIManager : MonoBehaviour
         tooltip.SetActive(true);
         tooltip.transform.position = position;
         tooltipText.text = description.GetDescription();
-
     }
 
     public void HideToolTip()

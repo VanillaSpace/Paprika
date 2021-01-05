@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [Serializable]
-public class Projectile : IUseable, IMoveable
+public class Projectile : IUseable, IMoveable, IDescribable
 {
     [SerializeField]
     private string name;
@@ -26,6 +26,9 @@ public class Projectile : IUseable, IMoveable
     private GameObject projectilePrefab;
 
     [SerializeField]
+    private string description;
+
+    [SerializeField]
     private Color barColor;
 
     public string MyName { get => name; set => name = value; }
@@ -41,6 +44,11 @@ public class Projectile : IUseable, IMoveable
     public float MyCastTime { get => castTime; set => castTime = value; }
     public GameObject MyProjectilePrefab { get => projectilePrefab; set => projectilePrefab = value; }
     public Color MyBarColor { get => barColor; set => barColor = value; }
+
+    public string GetDescription()
+    {
+        return string.Format("{0}\nCast Time: {1} seocnds\n<color=#ffd111>{2}</color>", name, castTime,description);
+    }
 
     public void Use()
     {

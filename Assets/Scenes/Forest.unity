@@ -9509,10 +9509,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 186894598}
-  - component: {fileID: 186894602}
   - component: {fileID: 186894601}
   - component: {fileID: 186894600}
   - component: {fileID: 186894599}
+  - component: {fileID: 186894602}
   m_Layer: 5
   m_Name: ACT1
   m_TagString: Untagged
@@ -11141,7 +11141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionButtons:
-  - {fileID: 186894602}
+  - {fileID: 0}
   - {fileID: 1358959802}
   - {fileID: 1168747568}
   keybindMenu: {fileID: 1400714814}
@@ -12351,6 +12351,7 @@ MonoBehaviour:
     speed: 5
     castTime: 1.8
     projectilePrefab: {fileID: 7158604610875584359, guid: 9d135a4a300925d49b76bd674a3ba01c, type: 3}
+    description: Throws a fiery spell at the target
     barColor: {r: 0.8784314, g: 0.31764707, b: 0.3019608, a: 1}
   - name: FROST DART
     damage: 10
@@ -12358,6 +12359,7 @@ MonoBehaviour:
     speed: 5
     castTime: 2.3
     projectilePrefab: {fileID: 7158604610875584359, guid: 77140c072e7ccb24795d5987c31733b4, type: 3}
+    description: 
     barColor: {r: 0.11173906, g: 0.7260627, b: 0.8773585, a: 1}
   - name: THUNDER DART
     damage: 10
@@ -12365,6 +12367,7 @@ MonoBehaviour:
     speed: 5
     castTime: 1.5
     projectilePrefab: {fileID: 7158604610875584359, guid: ab9ccd1bfdcac8648b4ce59ba32157bc, type: 3}
+    description: 
     barColor: {r: 0.8867924, g: 0.6786472, b: 0.16313636, a: 1}
 --- !u!1 &698094763
 GameObject:
@@ -50477,6 +50480,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 374398738123145556, guid: e0ae1206a40e356499a80e5f1b190b65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 374398738123145562, guid: e0ae1206a40e356499a80e5f1b190b65, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -50534,6 +50541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Black
       objectReference: {fileID: 0}
+    - target: {fileID: 953813815851961612, guid: e63cef89307c192428b8fd81e9d66ab0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 953813815851962102, guid: e63cef89307c192428b8fd81e9d66ab0, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -50590,6 +50601,10 @@ PrefabInstance:
     - target: {fileID: 2158883846877690451, guid: a03fd9d3440c8a44ca469e5f291f374d, type: 3}
       propertyPath: m_Name
       value: Enemy Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 2158883846877690451, guid: a03fd9d3440c8a44ca469e5f291f374d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2158883846877690457, guid: a03fd9d3440c8a44ca469e5f291f374d, type: 3}
       propertyPath: m_RootOrder
@@ -50691,6 +50706,10 @@ PrefabInstance:
     - target: {fileID: 2334666170564433756, guid: 969da53afb88e394f8a674129e775b77, type: 3}
       propertyPath: m_Name
       value: Enemy Aqua
+      objectReference: {fileID: 0}
+    - target: {fileID: 2334666170564433756, guid: 969da53afb88e394f8a674129e775b77, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 969da53afb88e394f8a674129e775b77, type: 3}
@@ -50962,6 +50981,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Purple
       objectReference: {fileID: 0}
+    - target: {fileID: 5687561984703399153, guid: f6aa19da624a6d140b36d8130e40752a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6aa19da624a6d140b36d8130e40752a, type: 3}
 --- !u!1001 &7201152541696530529
@@ -50974,6 +50997,10 @@ PrefabInstance:
     - target: {fileID: 7201152541048795536, guid: f9097493e13c201448838693bb3a83ee, type: 3}
       propertyPath: m_Name
       value: Enemy White
+      objectReference: {fileID: 0}
+    - target: {fileID: 7201152541048795536, guid: f9097493e13c201448838693bb3a83ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7201152541048795542, guid: f9097493e13c201448838693bb3a83ee, type: 3}
       propertyPath: m_RootOrder
@@ -51075,6 +51102,10 @@ PrefabInstance:
     - target: {fileID: 7748894147279439765, guid: 0cbc2b41c581b0d4699f8cbd6b50711d, type: 3}
       propertyPath: m_Name
       value: Enemy Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748894147279439765, guid: 0cbc2b41c581b0d4699f8cbd6b50711d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cbc2b41c581b0d4699f8cbd6b50711d, type: 3}
