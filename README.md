@@ -7,7 +7,8 @@
 # Game Controls
 * **W,A,S,D**: player control
 * **E**: interact with objects
-* **LEFT-CLICK**: select a target (Enemy)
+* **LEFT-CLICK**: select a target to attack
+* **LEFT-SHIFT**: Deselect bags
 
 
 # Roadmap Feature
@@ -19,7 +20,7 @@
 
 * Animation 
     - [x] Paprika (idle, attack, chop, watering)
-    - [x] Enemy slimes (idle and death)
+    - [x] Enemy slimes (idle, attack, death, hurt)
     - [ ] Enemy Skeleton
 
 * Bag UI 
@@ -29,24 +30,42 @@
     - [x] clickable and usable 
     - [x] bags have different numbers of slots
     - [x] Tool tip for items inside the inventory
-    - [ ] Item  title, rarity and description
-    - [ ] Moveable item
-    - [ ] Merging item
-    - [ ] Dequipping
+    - [x] Moveable item
+    - [x] Merging item
+    - [x] Dequipping Bags
 
 * Enemy 
-    - [x] slime
-    - [ ] skeletons 
+    - [x] slime enemy animation
+    - [x] slime enemy health system and UI
+    - [x] slime enemy health regen when not in combat
+    - [x] slime enemy pathing
+    - [x] slime enemy different IState (attack,aggro, evade)
+
+* Tools / Weapons
+    - [x] Dart system - drag and drop into the hot bar to equip in action bar
+    - [ ] Tool system 
+
 
 * Hot-bar UI 
     - [x] Has three slots
     - [x] items and skills can be moved in and out
-    - [x] Action Buttons
-    - [ ] Other Dart skills    
+    - [x] Action Buttons 
     - [x] Moving and placing dart skills
+    - [ ] Other Dart skills   
+
+* Item tooltip UI
+    - [x] Title
+    - [x] Rarity
+    - [x] Description
 
 * Keybinding Menu
-    - [x] Keybinding Action keys
+    - [x] Changing keybinding actions
+
+* Loot System
+    - [ ] Loot UI
+    - [ ] Item drops
+    - [ ] Looting items
+    - [ ] Loot table
 
 * Gathering System
     - [ ] changing Sprite from full to empty 
@@ -57,12 +76,6 @@
     - [ ] Recipes info
     - [ ] Material count
     - [ ] Crafting items
-
-* Loot System
-    - [ ] Loot UI
-    - [ ] Item drops
-    - [ ] Looting items
-    - [ ] Loot table
 
 * Quest System
     - [ ] UI
