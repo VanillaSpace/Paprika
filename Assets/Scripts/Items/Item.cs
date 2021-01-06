@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Quality {Common, Rare, Epic, Legendary}
+
 
 public abstract class Item : ScriptableObject, IMoveable, IDescribable
 {
@@ -55,25 +55,7 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
 
     public virtual string GetDescription()
     {
-        string color = string.Empty;
-
-        switch (quality)
-        {
-            case Quality.Common:
-                color = "#E7E7E7";
-                break;
-            case Quality.Rare:
-                color = "#0669B5";
-                break;
-            case Quality.Epic:
-                color = "#8006B4";
-                break;
-            case Quality.Legendary:
-                color = "#B48006";
-                break;
-        }
-
-        return string.Format("<color={0}>{1}</color>", color, title);
+      return string.Format("<color={0}>{1}</color>", QualityColor.MyColors[quality],  title);
     }
 
     public void Remove()

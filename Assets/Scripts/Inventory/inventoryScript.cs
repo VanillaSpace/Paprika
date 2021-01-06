@@ -102,7 +102,7 @@ public class inventoryScript : MonoBehaviour
             AddItem(bag);
         }
 
-        //Debugging - Adding Item into Inventory
+        //Debugging - Adding POTIONS into Inventory
         if (Input.GetKeyDown(KeyCode.L))
         {
             //HP Potion
@@ -113,13 +113,26 @@ public class inventoryScript : MonoBehaviour
             Poison poison = (Poison)Instantiate(items[2]);
             AddItem(poison);
 
-            //Potato
-            David potato = (David)Instantiate(items[3]);
-            AddItem(potato);
+        }
 
-            //Apple food
-            Apple apples = (Apple)Instantiate(items[4]);
-            AddItem(apples);
+        //Debugging - Adding FOOD into Inventory
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            //Beer
+            Food beer = (Food)Instantiate(items[2]);
+            AddItem(beer);
+
+            //Apple
+            Food apple = (Food)Instantiate(items[3]);
+            AddItem(apple);
+
+            //David
+            Food dumbass = (Food)Instantiate(items[4]);
+            AddItem(dumbass);
+
+            //Jam
+            Food jam = (Food)Instantiate(items[5]);
+            AddItem(jam);
         }
     }
     

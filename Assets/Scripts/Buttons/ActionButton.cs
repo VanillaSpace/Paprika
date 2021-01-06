@@ -98,8 +98,6 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     {
         IDescribable tmp = null;
 
-        Debug.Log("hover");
-
         if (MyUseable != null && MyUseable is IDescribable)
         {
 
@@ -121,8 +119,6 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("hover"); 
-
         UIManager.MyInstance.HideToolTip();
     }
 

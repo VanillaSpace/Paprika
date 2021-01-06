@@ -47,11 +47,14 @@ public class Projectile : IUseable, IMoveable, IDescribable
 
     public string GetDescription()
     {
-        return string.Format("{0}\nCast Time: {1} seocnds\n<color=#ffd111>{2}</color>", name, castTime,description);
+
+        return string.Format("<color=#{0}>{1}</color>\nCast Time: {2} seconds\n<color=#{0}>{3}</color>", ColorUtility.ToHtmlStringRGB(MyBarColor), name, castTime, description);
     }
 
     public void Use()
     {
         BasicMovement.MyInstance.CastProjectile(MyName);
     }
+
+   
 }

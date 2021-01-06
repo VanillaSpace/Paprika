@@ -9,11 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22c8599531ba3b7429bfd05ed3cd5139, type: 3}
-  m_Name: Apples
+  m_Script: {fileID: 11500000, guid: 492a66bca9f6fff4bb7aa902bcb82e52, type: 3}
+  m_Name: Apple
   m_EditorClassIdentifier: 
-  icon: {fileID: 3767446706215961781, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
+  icon: {fileID: 3983405018662690971, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
   stackSize: 5
-  title: Apples
+  title: Apple
   quality: 1
-  recoveredHealth: 10
+  foodType: 1
+  gainStamina: 0
+  loseStamina: 0
+  DefensePower: 0
+  AttackPower: 0
+  gainHP: 10
+  loseHP: 0
