@@ -110,7 +110,7 @@ public class inventoryScript : MonoBehaviour
             AddItem(potion);
 
             //Poison
-            Poison poison = (Poison)Instantiate(items[2]);
+            Poison poison = (Poison)Instantiate(items[6]);
             AddItem(poison);
 
         }

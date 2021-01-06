@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: -8837891727262127866, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
   stackSize: 5
   title: Awesome Beer
-  quality: 2
+  quality: 3
   foodType: 3
   gainStamina: 0
   loseStamina: 10

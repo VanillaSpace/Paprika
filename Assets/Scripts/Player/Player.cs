@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float maxStamina;
 
+    public SpriteRenderer paprikaFace;
+
 
 
 
@@ -101,11 +103,14 @@ public class Player : MonoBehaviour
 
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["LEFT"]))
             {
+                paprikaFace.flipX = true;
                 MyDirection += Vector2.left;
+                
             }
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["RIGHT"]))
             {
-                MyDirection += Vector2.right;
+                paprikaFace.flipX = false;
+                 MyDirection += Vector2.right;
             }
 
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["UP"]))
