@@ -38402,7 +38402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1049048474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43319,7 +43319,7 @@ MonoBehaviour:
   speed: 0.8
   hitBox: {fileID: 1299061913}
   health: {fileID: 18665282}
-  initHealth: 50
+  initHealth: 20
   animator: {fileID: 1843555457}
   slimeFacing: {fileID: 1843555454}
   healthGroup: {fileID: 1389564169}

@@ -13,4 +13,27 @@ public class NPC : Character
     {
         return hitBox;
     }
+
+    //public void OnHealthChanged(float health)
+    //{
+    //    if (OnHealthChanged != null)
+    //    {
+    //        OnHealthChanged(health);
+    //    }
+    //}
+
+    //public void OnCharacterRemoved()
+    //{
+    //    if (OnCharacterRemoved != null)
+    //    {
+    //        CharacterRemoved();
+    //    }
+
+    //    Destroy(gameObject);
+    //}
+
+    public virtual void Interact()
+    {
+        Debug.Log("dialogue NPC");
+    }
 }

@@ -119,4 +119,22 @@ public class LootWindow : MonoBehaviour
             AddLoot();
         }
     }
+
+    public void TakeLoot(Item loot)
+    {
+        pages[pageIndex].Remove(loot);
+
+        if (pages[pageIndex].Count == 0)
+        {
+            //Remove the empty page
+            pages.Remove(pages[pageIndex]);
+
+            if (pageIndex == pages.Count && pageIndex > 0)
+            {
+                pageIndex--;
+            }
+
+            AddLoot();
+        }
+    }
 }

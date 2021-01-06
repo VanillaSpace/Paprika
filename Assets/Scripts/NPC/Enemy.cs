@@ -146,5 +146,13 @@ public class Enemy : NPC
         
     }
 
-  
+    public override void Interact()
+    {
+        if (IsDead)
+        {
+            Debug.Log("Looting Enemy");
+        }
+        
+    }
+   
 }

@@ -33,13 +33,8 @@ public class GameManager : MonoBehaviour
                 }
 
                 currentTarget = hit.collider.GetComponent<NPC>();
-                playerMovement.MyTarget = currentTarget.Select();
 
-                //if(hit.collider.tag == "Enemy")
-                //{
-                //    Debug.Log("Targeted Enemy");
-                //    playerMovement.MyTarget = hit.transform.GetChild(0);
-                //}
+                playerMovement.MyTarget = currentTarget.Select();
 
             }
             else
@@ -52,12 +47,16 @@ public class GameManager : MonoBehaviour
                 currentTarget = null;
                 playerMovement.MyTarget = null;
             }
-            //else
-            //{
-            //    //Detag target
-            //    playerMovement.MyTarget = null;
-            //}
         }
-        
+       else if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
+
+            if (hit.collider != null && hit.collider.tag == "Enemy") 
+            { 
+                 hit.collider.GetComponent<NPC>().Interact();
+            } 
+
+        }
     }
 }
