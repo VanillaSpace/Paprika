@@ -7,6 +7,21 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
 
+    public static Character instance;
+
+    public static Character MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Character>();
+            }
+            return instance;
+        }
+
+    }
+
     [SerializeField]
     private float speed;
 
@@ -57,11 +72,11 @@ public abstract class Character : MonoBehaviour
     public virtual void TakeDamage(float damage, Transform source)
     {
         health.myCurrentValue -= damage;
-                     
+
         if (health.myCurrentValue <= 0)
         {
-            isDead = true;
             animator.SetTrigger("Dead");
+            isDead = true;
         }
     }
 

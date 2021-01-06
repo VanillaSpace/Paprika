@@ -118,8 +118,6 @@ public class Player : MonoBehaviour
             }
 
 
-
-
         //bags - close and open all bags
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -127,6 +125,7 @@ public class Player : MonoBehaviour
             inventoryScript.MyInstance.OpenClose();
         }
 
+        //Action Button
         foreach (string action in KeybindManager.MyInstance.ActionBinds.Keys)
         {
             if (Input.GetKeyDown(KeybindManager.MyInstance.ActionBinds[action]))

@@ -38396,13 +38396,14 @@ GameObject:
   - component: {fileID: 1049048476}
   - component: {fileID: 1049048475}
   - component: {fileID: 1049048477}
+  - component: {fileID: 1049048478}
   m_Layer: 5
   m_Name: LootWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1049048474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38492,6 +38493,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a08a1b809356c149a9ea48c19f0f0e0, type: 2}
   - {fileID: 11400000, guid: fa571fdbfdcd0024c96dd074c0ef28d5, type: 2}
   - {fileID: 11400000, guid: 9bb8fef9f5786d04a88e479520d106e0, type: 2}
+--- !u!225 &1049048478
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049048473}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1072664013
 GameObject:
   m_ObjectHideFlags: 0
@@ -43184,6 +43197,7 @@ GameObject:
   - component: {fileID: 1843555457}
   - component: {fileID: 1843555458}
   - component: {fileID: 1843555459}
+  - component: {fileID: 1843555460}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -43325,6 +43339,7 @@ MonoBehaviour:
   healthGroup: {fileID: 1389564169}
   enemyAnim: {fileID: 1843555457}
   initAggroRange: 1
+  lootTable: {fileID: 1843555460}
 --- !u!50 &1843555459
 Rigidbody2D:
   serializedVersion: 4
@@ -43346,6 +43361,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1843555460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843555453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6655ac2dcb7224c8c331bc31532ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot:
+  - item: {fileID: 11400000, guid: dd509cb45261eef46bc68afdf03ae7b4, type: 2}
+    dropChance: 100
+  - item: {fileID: 11400000, guid: 4351415a597a9294f87fd8ccc204043a, type: 2}
+    dropChance: 100
+  - item: {fileID: 11400000, guid: fa571fdbfdcd0024c96dd074c0ef28d5, type: 2}
+    dropChance: 100
+  - item: {fileID: 11400000, guid: ef1b8fd1eb1f22f4fae479a56d9ddb3c, type: 2}
+    dropChance: 100
+  - item: {fileID: 11400000, guid: 9bb8fef9f5786d04a88e479520d106e0, type: 2}
+    dropChance: 100
+  - item: {fileID: 11400000, guid: 7a08a1b809356c149a9ea48c19f0f0e0, type: 2}
+    dropChance: 100
 --- !u!1 &1867982214
 GameObject:
   m_ObjectHideFlags: 0

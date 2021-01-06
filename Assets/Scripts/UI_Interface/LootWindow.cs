@@ -5,10 +5,27 @@ using UnityEngine.UI;
 
 public class LootWindow : MonoBehaviour
 {
+    public static LootWindow instance;
+
+    public static LootWindow MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<LootWindow>();
+            }
+            return instance;
+        }
+
+    }
+
     [SerializeField]
     private LootButtons[] lootButtons;
 
     private List<List<Item>> pages = new List<List<Item>>();
+
+    private List<Item> droppedLoot = new List<Item>();
 
     private int pageIndex = 0;
 
@@ -22,38 +39,43 @@ public class LootWindow : MonoBehaviour
     [SerializeField]
     private Item[] items;
 
-    void Start()
+    public bool IsOpen
     {
-        List<Item> tmp = new List<Item>();
-        for (int i = 0; i < items.Length; i++)
-        {
-            tmp.Add(items[i]);
-        }
-
-        CreatePages(tmp);
+        get { return canvasGroup.alpha > 0; }
     }
 
-    void Update()
-    {
+    private CanvasGroup canvasGroup;
 
+    private void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
     }
 
     public void CreatePages(List<Item> items)
     {
-        List<Item> page = new List<Item>();
-
-        for (int i = 0; i < items.Count; i++)
+        if (!IsOpen)
         {
-            page.Add(items[i]);
+            List<Item> page = new List<Item>();
 
-            if (page.Count == 4 || i == items.Count -1)
+            droppedLoot = items;
+
+            for (int i = 0; i < items.Count; i++)
             {
-                pages.Add(page);
-                page = new List<Item>();
+                page.Add(items[i]);
+
+                if (page.Count == 4 || i == items.Count - 1)
+                {
+                    pages.Add(page);
+                    page = new List<Item>();
+                }
             }
+
+            AddLoot();
+
+            Open();
         }
 
-        AddLoot();
     }
 
 
@@ -61,8 +83,6 @@ public class LootWindow : MonoBehaviour
     {
         if (pages.Count > 0)
         {
-
-
             pageNumber.text = pageIndex + 1 + "/" + pages.Count;
 
             prevBtn.SetActive(pageIndex > 0);
@@ -124,6 +144,8 @@ public class LootWindow : MonoBehaviour
     {
         pages[pageIndex].Remove(loot);
 
+        droppedLoot.Remove(loot);
+
         if (pages[pageIndex].Count == 0)
         {
             //Remove the empty page
@@ -136,5 +158,21 @@ public class LootWindow : MonoBehaviour
 
             AddLoot();
         }
+    }
+
+    public void Close()
+    {
+        pages.Clear();
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
+        ClearButtons();
+    }
+
+
+
+    public void Open()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.blocksRaycasts = true;
     }
 }

@@ -41,7 +41,10 @@ public class Enemy : NPC
     private float initAggroRange;
     public float MyAggroRange { get; set; }
 
-    private bool LeftLooking; 
+    private bool LeftLooking;
+
+    [SerializeField]
+    private LootTable lootTable;
 
     public bool  InRange
     {
@@ -151,6 +154,7 @@ public class Enemy : NPC
         if (IsDead)
         {
             Debug.Log("Looting Enemy");
+            lootTable.ShowLoot();
         }
         
     }

@@ -15,9 +15,11 @@ public class DeathBehavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        Character.MyInstance.IsDead = true;
         timePassed += Time.deltaTime;
+       
 
-        if(timePassed >= 4)
+        if(timePassed >= 15)
         {
             Destroy(animator.gameObject);
         }
