@@ -24,10 +24,12 @@ public class LootWindow : MonoBehaviour
 
     private void AddLoot()
     {
-        int itemIndex = Random.Range(0,5) ;
+        int itemIndex = Random.Range(0,5);
 
         //set loot button icon
         lootButtons[itemIndex].MyIcon.sprite = items[itemIndex].MyIcon;
+
+        lootButtons[itemIndex].MyLoot = items[itemIndex];
 
         //make sure the loot buttons is visible
         lootButtons[itemIndex].gameObject.SetActive(true);

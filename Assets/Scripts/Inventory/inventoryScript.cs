@@ -156,38 +156,31 @@ public class inventoryScript : MonoBehaviour
         Destroy(bag.MyBagsScript.gameObject);
     }
 
-    public void AddItem(Item item)
+    public bool AddItem(Item item)
     {
         if (item.MyStackSize > 0)
         {
             if (PlaceInStack(item))
             {
-                return;
+                return true;
             }
         }
 
-        PlaceInEmpty(item);
-
-        //CHANGED 
-        //foreach (Bags bag in bags)
-        //{
-        //    if (bag.MyBagsScript.AddItem(item))
-        //    {
-        //        return;
-        //    }
-        //}
+        return PlaceInEmpty(item);
     }
 
-    private void PlaceInEmpty(Item item)
+    private bool PlaceInEmpty(Item item)
     {
         foreach (Bags bag in bags)
         {
             if(bag.MyBagsScript.AddItem(item))
             {
                 OnItemCountChanged(item);
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 
     private bool PlaceInStack(Item item)
