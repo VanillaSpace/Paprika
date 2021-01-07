@@ -39476,7 +39476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statValue: {fileID: 2100263534}
-  lerpSpeed: 1.5
+  lerpSpeed: 0.7
 --- !u!114 &1200741310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39957,7 +39957,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0438312, y: -0.0039845817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -39968,7 +39968,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.12}
+  m_Size: {x: 0.12796956, y: 0.12796918}
   m_EdgeRadius: 0
 --- !u!1 &1313015993
 GameObject:
@@ -43456,7 +43456,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.04462868, y: -0.044230342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -43467,7 +43467,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.875, y: 0.6875}
+  m_Size: {x: 0.9642569, y: 0.62454224}
   m_EdgeRadius: 0
 --- !u!95 &1843555457
 Animator:
@@ -43508,7 +43508,7 @@ MonoBehaviour:
   slimeFacing: {fileID: 1843555454}
   healthGroup: {fileID: 1389564169}
   enemyAnim: {fileID: 1843555457}
-  initAggroRange: 1
+  initAggroRange: 1.5
   lootTable: {fileID: 1843555460}
 --- !u!50 &1843555459
 Rigidbody2D:
@@ -52025,7 +52025,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 525364696}
   m_HandleRect: {fileID: 525364695}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 1.0000005
   m_Size: 0.56312376
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -53132,7 +53132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 3389718406288717017}
-  speed: 3.5
+  speed: 2.5
   health: {fileID: 1018756293}
   stamina: {fileID: 1200741309}
   maxHealth: 100

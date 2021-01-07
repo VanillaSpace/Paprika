@@ -29,10 +29,6 @@ public class Player : MonoBehaviour
     public float speed = 3.5f;
 
     private bool isBusy = false;
-    public CharacterStats MyHealth { get => health; set => health = value; }
-    public CharacterStats MyStamina { get => stamina; set => stamina = value; }
-    public Vector2 MyDirection { get => Direction; set => Direction = value; }
-    public bool IsBusy { get => isBusy; set => isBusy = value; }
 
     [SerializeField]
     private CharacterStats health;
@@ -47,6 +43,15 @@ public class Player : MonoBehaviour
     private float maxStamina;
 
     public SpriteRenderer paprikaFace;
+
+    private IInteractable interactable;
+
+    public CharacterStats MyHealth { get => health; set => health = value; }
+    public CharacterStats MyStamina { get => stamina; set => stamina = value; }
+    public Vector2 MyDirection { get => Direction; set => Direction = value; }
+    public bool IsBusy { get => isBusy; set => isBusy = value; }
+    public IInteractable Interactable { get => interactable; set => interactable = value; }
+
 
 
 
@@ -68,6 +73,8 @@ public class Player : MonoBehaviour
         Move();
 
         StopProjectiles();
+
+        
     }
 
     public void Move()
@@ -79,6 +86,13 @@ public class Player : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
+
+        if (stamina.myCurrentValue < 50 && moveHorizontal == 0 && moveVertical == 0)
+        {
+            playerAnim.SetBool("isRun", false);
+            playerAnim.SetBool("isWalk", false);
+            stamina.myCurrentValue += 0.04f;
+        }    
 
         MyDirection = Vector2.zero;
 
@@ -99,32 +113,87 @@ public class Player : MonoBehaviour
             stamina.myCurrentValue += 10;
         }
 
-        //player movement 
-
+        //Running
+        if ((Input.GetKey(KeyCode.LeftShift)))
+        {
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["LEFT"]))
             {
+                speed = 5f;
                 paprikaFace.flipX = true;
+                playerAnim.SetBool("isRun", true);
+                playerAnim.SetBool("isWalk", false);
                 MyDirection += Vector2.left;
-                
+                stamina.myCurrentValue -= 0.005f;
             }
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["RIGHT"]))
             {
+                speed = 5f;
                 paprikaFace.flipX = false;
-                 MyDirection += Vector2.right;
+                playerAnim.SetBool("isRun", true);
+                playerAnim.SetBool("isWalk", false);
+                MyDirection += Vector2.right;
+                stamina.myCurrentValue -= 0.005f;
             }
 
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["UP"]))
             {
+                speed = 5f;
+                paprikaFace.flipX = false;
+                playerAnim.SetBool("isRun", true);
+                playerAnim.SetBool("isWalk", false);
                 MyDirection += Vector2.up;
+                stamina.myCurrentValue -= 0.005f;
             }
+
             if (Input.GetKey(KeybindManager.MyInstance.Keybinds["DOWN"]))
             {
+                speed = 5f;
+                paprikaFace.flipX = false;
+                playerAnim.SetBool("isRun", true);
+                playerAnim.SetBool("isWalk", false);
+                MyDirection += Vector2.down;
+                stamina.myCurrentValue -= 0.005f;
+            }
+
+        }
+
+
+        //Walking
+        else if (Input.GetKey(KeybindManager.MyInstance.Keybinds["LEFT"]))
+            {
+                speed = 3.0f;
+                playerAnim.SetBool("isRun", false);
+                playerAnim.SetBool("isWalk", true);
+                paprikaFace.flipX = true;
+                MyDirection += Vector2.left;
+                
+            }
+        else if(Input.GetKey(KeybindManager.MyInstance.Keybinds["RIGHT"]))
+            {
+                speed = 3.0f;
+                playerAnim.SetBool("isRun", false);
+                playerAnim.SetBool("isWalk", true);
+                paprikaFace.flipX = false;
+                 MyDirection += Vector2.right;
+            }
+
+        else if (Input.GetKey(KeybindManager.MyInstance.Keybinds["UP"]))
+            {
+                speed = 3.0f;
+                playerAnim.SetBool("isRun", false);
+                playerAnim.SetBool("isWalk", true);
+                MyDirection += Vector2.up;
+            }
+        else if (Input.GetKey(KeybindManager.MyInstance.Keybinds["DOWN"]))
+            {
+                speed = 3.0f;
+                playerAnim.SetBool("isRun", false);
+                playerAnim.SetBool("isWalk", true);
                 MyDirection += Vector2.down;
             }
 
 
         //bags - close and open all bags
-
         if (Input.GetKeyDown(KeyCode.B))
         {
             inventoryScript.MyInstance.OpenClose();
@@ -151,11 +220,8 @@ public class Player : MonoBehaviour
 
     public void PlayerAxis()
     {
-
             playerAnim.SetFloat("Vertical", Input.GetAxis("Vertical"));
             playerAnim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-        
-           
     }
 
     public void StopProjectiles()
@@ -185,4 +251,31 @@ public class Player : MonoBehaviour
 
     }
 
+    public void Interact()
+    {
+        if (interactable !=null)
+        {
+            interactable.Interact();
+        }
+    }
+
+    public  void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            interactable = collision.GetComponent<IInteractable>();
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            if (interactable != null)
+            {
+                interactable.StopInteract();
+                interactable = null;
+            }
+        }
+    }
 }

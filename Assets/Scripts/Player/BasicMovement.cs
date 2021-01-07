@@ -105,7 +105,7 @@ public class BasicMovement : MonoBehaviour
         else
         {
 
-            if (MyTarget != null && (Enemy.MyInstance.IsDead is false) && InLineOfSight())
+            if (MyTarget != null && (Enemy.MyInstance.IsDead == false) && InLineOfSight())
             {
                 Debug.Log("Throwing dart!");
                 StartCoroutine(Roll(projectileName));

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : Character
+public class NPC : Character, IInteractable
 {
     public virtual void Deselect()
     {
@@ -35,5 +35,10 @@ public class NPC : Character
     public virtual void Interact()
     {
         Debug.Log("dialogue NPC");
+    }
+
+    public virtual void StopInteract()
+    {
+        
     }
 }

@@ -5,20 +5,6 @@ using UnityEngine;
 
 public class Enemy : NPC
 {
-    public static Enemy instance;
-
-    public static Enemy MyInstance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<Enemy>();
-            }
-            return instance;
-        }
-
-    }
 
     [SerializeField]
     private SpriteRenderer slimeFacing;
@@ -158,5 +144,10 @@ public class Enemy : NPC
         }
         
     }
-   
+
+    public override void StopInteract()
+    {
+        LootWindow.MyInstance.Close();
+    }
+
 }

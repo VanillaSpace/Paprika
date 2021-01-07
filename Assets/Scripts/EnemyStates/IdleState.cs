@@ -25,9 +25,12 @@ class IdleState : IState
         Debug.Log("Idle");
 
         //change into follow state if player is inside the circle
-        if (parent.MyTarget != null)
+        if (parent.MyTarget != null && parent.IsDead == false )
         {
-            parent.ChangeState(new FollowState());
+          
+                parent.ChangeState(new FollowState());
+           
+            
         }
     }
 }

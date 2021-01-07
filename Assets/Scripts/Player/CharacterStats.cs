@@ -47,7 +47,7 @@ public class CharacterStats : MonoBehaviour
 
             if (statValue !=null)
             {
-                statValue.text = currentValue + " / " + MyMaxValue;
+                statValue.text = currentValue.ToString("F0") + " / " + MyMaxValue;
             }
         }
     }

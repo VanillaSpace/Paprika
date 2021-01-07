@@ -21,7 +21,7 @@ class FollowState : IState
     {
         Debug.Log("Follow");
 
-        if (parent.MyTarget != null)
+        if (parent.MyTarget != null && parent.IsDead == false)
         {
             parent.Direction = (parent.MyTarget.transform.position - parent.transform.position).normalized;
 
@@ -34,7 +34,7 @@ class FollowState : IState
                 parent.ChangeState(new AttackState());
             }
         }
-        if (!parent.InRange)
+        if (!parent.InRange && parent.IsDead == false)
         {   
             parent.ChangeState(new EvadeState());
         }

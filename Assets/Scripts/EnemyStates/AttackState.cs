@@ -33,7 +33,8 @@ public class AttackState : IState
         {
             float distance = Vector2.Distance(parent.MyTarget.position, parent.transform.position);
 
-            if (distance >= parent.MyAttackRange)
+            //if dead it wont follow you
+            if (distance >= parent.MyAttackRange && parent.IsDead == false)
             {
                 parent.ChangeState(new FollowState());
             }

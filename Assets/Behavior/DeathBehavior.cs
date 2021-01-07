@@ -19,7 +19,7 @@ public class DeathBehavior : StateMachineBehaviour
         timePassed += Time.deltaTime;
        
 
-        if(timePassed >= 15)
+        if(timePassed >= 30)
         {
             Destroy(animator.gameObject);
         }
