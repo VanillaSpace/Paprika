@@ -86,11 +86,11 @@ public class Player : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        if (stamina.myCurrentValue < 50 && moveHorizontal == 0 && moveVertical == 0)
+        if (stamina.myCurrentValue < 50 && moveHorizontal == 0 && moveVertical == 0 && isBusy == false)
         {
             playerAnim.SetBool("isRun", false);
             playerAnim.SetBool("isWalk", false);
-            stamina.myCurrentValue += 0.04f;
+            stamina.myCurrentValue += 0.01f;
         }    
 
         MyDirection = Vector2.zero;

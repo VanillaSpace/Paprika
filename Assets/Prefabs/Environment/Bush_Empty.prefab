@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016185529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2108979124327539094}
@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loot:
-  - item: {fileID: 11400000, guid: e6d06b054bde1364cafe1989f765806c, type: 2}
-    dropChance: 60
+  - item: {fileID: 11400000, guid: dd01cab6843a19e4699c35d8ba0b845d, type: 2}
+    dropChance: 100
   spriteRender: {fileID: 2108979124327539095}
-  defaultSprite: {fileID: 2432219893055653995, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
-  gatherSprite: {fileID: -7401403916180088506, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
+  defaultSprite: {fileID: 2959462557836931967, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
+  gatherSprite: {fileID: 1490526116862666764, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
 --- !u!58 &1016185531
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -63,9 +63,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.15}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.45
+  m_Radius: 1
 --- !u!1 &2108979124327539093
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 2108979124327539095}
   - component: {fileID: 558347619}
   m_Layer: 0
-  m_Name: Tree_Empty
+  m_Name: Bush_Empty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +92,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108979124327539093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.09, y: -4.26, z: 0}
+  m_LocalPosition: {x: -1.09, y: -4.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1016185530}
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_SortingLayerID: 1062507471
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2432219893055653995, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
+  m_Sprite: {fileID: 2959462557836931967, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,5 +161,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6147875, y: 1.9599264, z: 0.2}
-  m_Center: {x: 0.000000059604645, y: 0.15408504, z: 0}
+  m_Size: {x: 1.0125564, y: 0.9713583, z: 0.2}
+  m_Center: {x: 0.0056815743, y: 0.04613781, z: 0}

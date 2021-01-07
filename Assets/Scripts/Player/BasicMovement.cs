@@ -100,15 +100,16 @@ public class BasicMovement : MonoBehaviour
         Projectile newProjectile = projectileBook.MyInstance.castProjectile(SkillName);
 
         isBusy = true;
-        animator.SetBool("isRoll", true);
-
+        animator.SetBool("isGathering", true);
+       
         yield return new WaitForSeconds(newProjectile.MyCastTime);
 
-        animator.SetBool("isRoll", false);
-
+        animator.SetBool("isGathering", false);
         isBusy = false;
 
         LootWindow.MyInstance.CreatePages(items);
+
+        Player.MyInstance.MyStamina.myCurrentValue -= 10f;
     }
 
 
@@ -157,7 +158,7 @@ public class BasicMovement : MonoBehaviour
     {
         if (!isBusy)
         {
-            Debug.Log("Testing!");
+            Debug.Log("Gathering");
             actionRoutine = StartCoroutine(GatherRoutine(skillName, items));
         }
     }
