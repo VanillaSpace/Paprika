@@ -44,13 +44,13 @@ public class Player : MonoBehaviour
 
     public SpriteRenderer paprikaFace;
 
-    private IInteractable interactable;
+    private List<IInteractable> interactable = new List<IInteractable>();
 
     public CharacterStats MyHealth { get => health; set => health = value; }
     public CharacterStats MyStamina { get => stamina; set => stamina = value; }
     public Vector2 MyDirection { get => Direction; set => Direction = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
-    public IInteractable Interactable { get => interactable; set => interactable = value; }
+    public List<IInteractable> MyInteractables { get => interactable; set => interactable = value; }
 
 
 
@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
 
         StopProjectiles();
 
-        
     }
 
     public void Move()
@@ -251,31 +250,38 @@ public class Player : MonoBehaviour
 
     }
 
-    public void Interact()
-    {
-        if (interactable !=null)
-        {
-            interactable.Interact();
-        }
-    }
-
     public  void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" || collision.tag == "Interactable")
         {
-            interactable = collision.GetComponent<IInteractable>();
+            IInteractable interactable = collision.GetComponent<IInteractable>();
+
+            if (!MyInteractables.Contains(interactable))
+            {
+                MyInteractables.Add(interactable);
+            }
+
+            
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+      if (collision.tag == "Enemy" || collision.tag == "Interactable")
         {
-            if (interactable != null)
+            if (MyInteractables.Count > 0)
             {
-                interactable.StopInteract();
-                interactable = null;
+                IInteractable interactable = MyInteractables.Find(x => x == collision.GetComponent<IInteractable>());
+
+                if (interactable != null)
+                {
+                    interactable.StopInteract();
+                    UIManager.MyInstance.HideToolTip();
+                }
+
+                MyInteractables.Remove(interactable);
             }
         }
+      
     }
 }

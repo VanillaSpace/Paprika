@@ -139,8 +139,19 @@ public class Enemy : NPC
     {
         if (IsDead)
         {
-            Debug.Log("Looting Enemy");
-            lootTable.ShowLoot();
+            List<Drop> drops = new List<Drop>();
+
+            foreach (IInteractable interactable in Player.MyInstance.MyInteractables)
+            {
+                if (interactable is Enemy && !(interactable as Enemy).IsDead == false)
+                {
+                    drops.AddRange((interactable as Enemy).lootTable.GetLoot());
+                }
+            }
+
+            LootWindow.MyInstance.CreatePages(drops);
+            //Debug.Log("Looting Enemy");
+            //lootTable.GetLoot();
         }
         
     }

@@ -34,7 +34,7 @@ public class NPC : Character, IInteractable
 
     public virtual void Interact()
     {
-        Debug.Log("dialogue NPC");
+       
     }
 
     public virtual void StopInteract()

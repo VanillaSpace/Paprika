@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 4334480109868916141, guid: 91fd8ebe7f235ab478903fff483617aa, type: 3}
   stackSize: 5
   title: Juicy Oranges
-  quality: 1
+  quality: 4
   foodType: 1
   gainStamina: 10
   loseStamina: 0

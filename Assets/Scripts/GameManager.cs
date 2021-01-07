@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     private NPC currentTarget;
 
+    //private GatherLoot currentTarget;
+
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
         {
            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero,Mathf.Infinity,512);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.tag == "Enemy")
             {
                 if (currentTarget != null)
                 {
@@ -33,10 +35,11 @@ public class GameManager : MonoBehaviour
                 }
 
                 currentTarget = hit.collider.GetComponent<NPC>();
-
+               
                 playerMovement.MyTarget = currentTarget.Select();
 
             }
+
             else
             {
                 if (currentTarget != null)
@@ -52,9 +55,12 @@ public class GameManager : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
 
-            if (hit.collider != null && hit.collider.tag == "Enemy") 
+            IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
+
+            if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity)) 
             {
-                player.Interact();
+                Debug.Log("Gathering Works!");
+                entity.Interact();
             } 
 
         }

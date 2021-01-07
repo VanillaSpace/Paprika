@@ -37,6 +37,8 @@ public class BasicMovement : MonoBehaviour
 
     private int exitIndex = 0;
 
+    private Coroutine actionRoutine;
+
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +95,23 @@ public class BasicMovement : MonoBehaviour
 
     }
 
+    private IEnumerator GatherRoutine(string SkillName, List<Drop> items)
+    {
+        Projectile newProjectile = projectileBook.MyInstance.castProjectile(SkillName);
+
+        isBusy = true;
+        animator.SetBool("isRoll", true);
+
+        yield return new WaitForSeconds(newProjectile.MyCastTime);
+
+        animator.SetBool("isRoll", false);
+
+        isBusy = false;
+
+        LootWindow.MyInstance.CreatePages(items);
+    }
+
+
     public void CastProjectile(string projectileName)
     {
 
@@ -108,7 +127,7 @@ public class BasicMovement : MonoBehaviour
             if (MyTarget != null && (Enemy.MyInstance.IsDead == false) && InLineOfSight())
             {
                 Debug.Log("Throwing dart!");
-                StartCoroutine(Roll(projectileName));
+                actionRoutine = StartCoroutine(Roll(projectileName));
                 
             }
             else 
@@ -129,6 +148,17 @@ public class BasicMovement : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+
+
+    public void Gather(string skillName,  List<Drop> items)
+    {
+        if (!isBusy)
+        {
+            Debug.Log("Testing!");
+            actionRoutine = StartCoroutine(GatherRoutine(skillName, items));
         }
     }
 

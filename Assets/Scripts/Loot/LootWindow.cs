@@ -23,9 +23,9 @@ public class LootWindow : MonoBehaviour
     [SerializeField]
     private LootButtons[] lootButtons;
 
-    private List<List<Item>> pages = new List<List<Item>>();
+    private List<List<Drop>> pages = new List<List<Drop>>();
 
-    private List<Item> droppedLoot = new List<Item>();
+    private List<Drop> droppedLoot = new List<Drop>();
 
     private int pageIndex = 0;
 
@@ -35,7 +35,9 @@ public class LootWindow : MonoBehaviour
     [SerializeField]
     private GameObject nextBtn, prevBtn;
 
-     //for debuggin only
+    public IInteractable MyInteractable { get; set; }
+
+    //for debuggin only
     [SerializeField]
     private Item[] items;
 
@@ -52,11 +54,11 @@ public class LootWindow : MonoBehaviour
         canvasGroup.alpha = 0;
     }
 
-    public void CreatePages(List<Item> items)
+    public void CreatePages(List<Drop> items)
     {
         if (!IsOpen)
         {
-            List<Item> page = new List<Item>();
+            List<Drop> page = new List<Drop>();
 
             droppedLoot = items;
 
@@ -67,7 +69,7 @@ public class LootWindow : MonoBehaviour
                 if (page.Count == 4 || i == items.Count - 1)
                 {
                     pages.Add(page);
-                    page = new List<Item>();
+                    page = new List<Drop>();
                 }
             }
 
@@ -94,14 +96,14 @@ public class LootWindow : MonoBehaviour
             {
                 if (pages[pageIndex][i] != null)
                 {
-                    lootButtons[i].MyIcon.sprite = pages[pageIndex][i].MyIcon;
+                    lootButtons[i].MyIcon.sprite = pages[pageIndex][i].MyItem.MyIcon;
 
-                    lootButtons[i].MyLoot = pages[pageIndex][i];
+                    lootButtons[i].MyLoot = pages[pageIndex][i].MyItem;
 
                     //make sure the loot buttons is visible
                     lootButtons[i].gameObject.SetActive(true);
 
-                    string title = string.Format("<color={0}>{1}</color>", QualityColor.MyColors[pages[pageIndex][i].MyQuality], pages[pageIndex][i].MyTitle);
+                    string title = string.Format("<color={0}>{1}</color>", QualityColor.MyColors[pages[pageIndex][i].MyItem.MyQuality], pages[pageIndex][i].MyItem.MyTitle);
 
                     //Make sure that the title is correct
                     lootButtons[i].MyTitle.text = title;
@@ -142,10 +144,12 @@ public class LootWindow : MonoBehaviour
 
     public void TakeLoot(Item loot)
     {
-        pages[pageIndex].Remove(loot);
+        Drop drop = pages[pageIndex].Find(x => x.MyItem == loot);
 
-        droppedLoot.Remove(loot);
+        pages[pageIndex].Remove(drop);
 
+        drop.Remove();
+ 
         if (pages[pageIndex].Count == 0)
         {
             //Remove the empty page
@@ -166,6 +170,13 @@ public class LootWindow : MonoBehaviour
         canvasGroup.alpha = 0;
         canvasGroup.blocksRaycasts = false;
         ClearButtons();
+
+        if (MyInteractable != null)
+        {
+            MyInteractable.StopInteract();
+        }
+
+        MyInteractable = null;
     }
 
 
