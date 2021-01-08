@@ -45,10 +45,14 @@ public class UIManager : MonoBehaviour
     {
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
         tooltipText = tooltip.GetComponentInChildren<Text>();
+        keybindMenu.blocksRaycasts = false;
+        projBook.blocksRaycasts = false;
+ 
+
     }
     void Start()
     {
-        OpenClose(projBook);
+        //OpenClose(projBook);
     }
 
     // Update is called once per frame

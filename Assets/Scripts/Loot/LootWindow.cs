@@ -43,7 +43,7 @@ public class LootWindow : MonoBehaviour
 
     public bool IsOpen
     {
-        get { return canvasGroup.alpha > 0; }
+        get { return canvasGroup.alpha > 0;}
     }
 
     private CanvasGroup canvasGroup;
@@ -52,12 +52,15 @@ public class LootWindow : MonoBehaviour
     {
         canvasGroup = GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void CreatePages(List<Drop> items)
     {
         if (!IsOpen)
         {
+            canvasGroup.blocksRaycasts = true;
+
             List<Drop> page = new List<Drop>();
 
             droppedLoot = items;
