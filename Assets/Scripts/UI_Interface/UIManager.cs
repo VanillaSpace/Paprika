@@ -41,6 +41,9 @@ public class UIManager : MonoBehaviour
 
     private Text tooltipText;
 
+    [SerializeField]
+    private RectTransform tooltipRect;
+
     private void Awake()
     {
         keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
@@ -108,8 +111,9 @@ public class UIManager : MonoBehaviour
     }
 
     //show tool tip for items
-    public void ShowToolTip(Vector3 position, IDescribable description)
+    public void ShowToolTip(Vector2 pivot, Vector3 position, IDescribable description)
     {
+        tooltipRect.pivot = pivot;
         tooltip.SetActive(true);
         tooltip.transform.position = position;
         tooltipText.text = description.GetDescription();

@@ -115,6 +115,13 @@ public class inventoryScript : MonoBehaviour
 
         }
 
+        // material
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            RawDrumstick rawdrumS = (RawDrumstick)Instantiate(items[7]);
+            AddItem(rawdrumS);
+        }
+
         //Debugging - Adding FOOD into Inventory
         if (Input.GetKeyDown(KeyCode.U))
         {
@@ -183,7 +190,7 @@ public class inventoryScript : MonoBehaviour
         return false;
     }
 
-    private bool PlaceInStack(Item item)
+    public bool PlaceInStack(Item item)
     {
         foreach (Bags bag in bags)
         {
@@ -235,6 +242,25 @@ public class inventoryScript : MonoBehaviour
         }
 
         return useables;
+    }
+
+    public int GetItemCount(string type)
+    {
+        int itemCount = 0;
+
+        foreach (Bags bag in bags)
+        {
+            foreach (slotScript slot in bag.MyBagsScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+                {
+                    itemCount += slot.MyItems.Count;
+                }
+            }
+        }
+
+        return itemCount;
+
     }
 
     public void OnItemCountChanged(Item item)

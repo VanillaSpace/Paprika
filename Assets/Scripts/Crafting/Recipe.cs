@@ -22,7 +22,7 @@ public class Recipe : MonoBehaviour
 
     public Item Output { get => output; }
     public int OutputCount { get => outputCount; set => outputCount = value; }
-    public string Description { get => description; }
+    public string MyDescription { get => description; }
     public CraftingMaterial[] Materials { get => materials; }
 
     void Start()
