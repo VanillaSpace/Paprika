@@ -4,34 +4,34 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3049145665795848142
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_0
+    second: Raw_Beef
   - first:
       213: -8134819087248466559
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_1
+    second: Raw_Chicken
   - first:
       213: -252286231610441508
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_2
+    second: Raw_Lamb
   - first:
       213: -1164564835284399295
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_3
+    second: Raw_Pork
   - first:
       213: 8791322939960105129
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_4
+    second: Raw_Sausage
   - first:
       213: 7127230277393614918
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_5
+    second: Cooked_Beef
   - first:
       213: 6608681052783819247
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_6
+    second: Cooked_chicken
   - first:
       213: 5753610285324425769
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_7
+    second: Cooked_Lamb
   - first:
       213: -1965993732682183639
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_8
+    second: Cooked_Pork
   - first:
       213: -6049174446358535668
-    second: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_9
+    second: Cook_Sausage
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_0
+      name: Raw_Beef
       rect:
         serializedVersion: 2
         x: 0
@@ -141,7 +141,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_1
+      name: Raw_Chicken
       rect:
         serializedVersion: 2
         x: 32
@@ -162,7 +162,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_2
+      name: Raw_Lamb
       rect:
         serializedVersion: 2
         x: 64
@@ -183,7 +183,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_3
+      name: Raw_Pork
       rect:
         serializedVersion: 2
         x: 96
@@ -204,7 +204,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,7 +217,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_4
+      name: Raw_Sausage
       rect:
         serializedVersion: 2
         x: 128
@@ -225,7 +225,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_5
+      name: Cooked_Beef
       rect:
         serializedVersion: 2
         x: 0
@@ -246,7 +246,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_6
+      name: Cooked_chicken
       rect:
         serializedVersion: 2
         x: 32
@@ -267,7 +267,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,7 +280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_7
+      name: Cooked_Lamb
       rect:
         serializedVersion: 2
         x: 64
@@ -288,7 +288,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,7 +301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_8
+      name: Cooked_Pork
       rect:
         serializedVersion: 2
         x: 96
@@ -309,7 +309,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,7 +322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _pixel_art_food__32x32_meats___free_download_by_anarchisedlute_dd27rf6_9
+      name: Cook_Sausage
       rect:
         serializedVersion: 2
         x: 128
@@ -330,7 +330,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
