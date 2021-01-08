@@ -85,7 +85,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_26
   - first:
       213: 1056460432866646894
-    second: SUNNYSIDE_WORLD_UI 1_27
+    second: right arrow
   - first:
       213: -3378866051824887836
     second: SUNNYSIDE_WORLD_UI 1_28
@@ -121,7 +121,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_38
   - first:
       213: -8294708080133436877
-    second: SUNNYSIDE_WORLD_UI 1_39
+    second: Left Arrow
   - first:
       213: 7166021608301441616
     second: SUNNYSIDE_WORLD_UI 1_40
@@ -157,7 +157,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_50
   - first:
       213: 7502545833710162746
-    second: SUNNYSIDE_WORLD_UI 1_51
+    second: arrow_Up
   - first:
       213: 7513224152180333067
     second: SUNNYSIDE_WORLD_UI 1_52
@@ -880,7 +880,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_27
+      name: right arrow
       rect:
         serializedVersion: 2
         x: 114
@@ -1132,7 +1132,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_39
+      name: Left Arrow
       rect:
         serializedVersion: 2
         x: 114
@@ -1384,7 +1384,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_51
+      name: arrow_Up
       rect:
         serializedVersion: 2
         x: 115
