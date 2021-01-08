@@ -109,7 +109,7 @@ public class BasicMovement : MonoBehaviour
 
         LootWindow.MyInstance.CreatePages(items);
 
-        Player.MyInstance.MyStamina.myCurrentValue -= 10f;
+        Player.MyInstance.MyStamina.myCurrentValue -= 20f;
     }
 
 

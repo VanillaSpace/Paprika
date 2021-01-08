@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity)) 
             {
-                Debug.Log("Gathering Works!");
+               
                 entity.Interact();
             } 
 
