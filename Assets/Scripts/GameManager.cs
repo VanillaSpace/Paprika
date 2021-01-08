@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         }
        else if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
         {
+            Debug.Log("Interactable Selected");
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
 
             IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();

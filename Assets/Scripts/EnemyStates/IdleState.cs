@@ -22,7 +22,7 @@ class IdleState : IState
 
     public void Update()
     {
-        Debug.Log("Idle");
+        
 
         //change into follow state if player is inside the circle
         if (parent.MyTarget != null && parent.IsDead == false )

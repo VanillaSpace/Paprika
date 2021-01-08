@@ -275,9 +275,7 @@ public class Player : MonoBehaviour
 
                 if (interactable != null)
                 {
-                    //REMOVE IT FOR CHEST SO IT WORKS
-
-                    //interactable.StopInteract();
+                    interactable.StopInteract();
                     UIManager.MyInstance.HideToolTip();
                 }
 

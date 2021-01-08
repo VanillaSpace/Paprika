@@ -50,6 +50,20 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         get { return stackSize; }
     }
 
+    public Stack<IUseable> Useables
+    {
+        get
+        {
+            return useables;
+        }
+
+        set
+        {
+            MyUseable = value.Peek();
+            useables = value;
+        }
+    }
+
     private void Awake()
     {
         MyButton = GetComponent<Button>();
@@ -75,9 +89,9 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
             {
                 MyUseable.Use();
             }
-            if (useables != null && useables.Count > 0)
+            if (Useables != null && Useables.Count > 0)
             {
-                useables.Peek().Use();
+                Useables.Peek().Use();
             }
         }
     }
@@ -105,7 +119,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
             //UIManager.MyInstance.ShowToolTip(transform.position);
 
         }
-        else if (useables.Count > 0)
+        else if (Useables.Count > 0)
         {
            
             //UIManager.MyInstance.ShowToolTip(transform.position);
@@ -126,18 +140,21 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     {
         if (useable is Item)
         {
-            useables = inventoryScript.MyInstance.GetUseables(useable);
-            count = useables.Count;
+            Useables = inventoryScript.MyInstance.GetUseables(useable);
+
+            count = Useables.Count;
             inventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
             inventoryScript.MyInstance.FromSlot = null;
         }
         else
         {
+            Useables.Clear();
             this.MyUseable = useable;
         }
-     
 
+        count = Useables.Count;
         UpdateVisual();
+   
     }
 
     public void UpdateVisual()
@@ -153,13 +170,13 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
 
     public void UpdateItemCount(Item item)
     {
-        if (item is IUseable && useables.Count > 0)
+        if (item is IUseable && Useables.Count > 0)
         {
-            if (useables.Peek().GetType() == item.GetType())
+            if (Useables.Peek().GetType() == item.GetType())
             {
-                useables = inventoryScript.MyInstance.GetUseables(item as IUseable);
+                Useables = inventoryScript.MyInstance.GetUseables(item as IUseable);
 
-                count = useables.Count;
+                count = Useables.Count;
 
                 UIManager.MyInstance.UpdateStackSize(this);
             }

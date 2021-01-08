@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loot:
   - item: {fileID: 11400000, guid: e6d06b054bde1364cafe1989f765806c, type: 2}
-    dropChance: 60
+    dropChance: 50
   spriteRender: {fileID: 2108979124327539095}
   defaultSprite: {fileID: 2432219893055653995, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
   gatherSprite: {fileID: -7401403916180088506, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
