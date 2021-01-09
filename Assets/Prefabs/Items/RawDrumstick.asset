@@ -16,3 +16,4 @@ MonoBehaviour:
   stackSize: 20
   title: RAW CHICKEN LEGS
   quality: 1
+  damagedHealth: 15
