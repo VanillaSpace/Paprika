@@ -20,6 +20,8 @@ public class Profession : MonoBehaviour
 
     private List<GameObject> materials = new List<GameObject>();
 
+    private List<int> amounts = new List<int>();
+
     [SerializeField]
     private Recipe selectedRecipe;
 
@@ -29,12 +31,28 @@ public class Profession : MonoBehaviour
     [SerializeField]
     private ItemInfo craftItemInfo;
 
-    private int maxAmmount;
+    private int maxAmount;
 
     private int amount;
 
+    private int MyAmount
+    {
+        set
+        {
+            countTxt.text = value.ToString();
+            amount = value;
+        }
+
+        get
+        {
+            return amount;
+        }
+    }
+
     [SerializeField]
     private CanvasGroup canvasGroup;
+
+    
 
     private void Start()
     {
@@ -81,19 +99,50 @@ public class Profession : MonoBehaviour
 
     private void UpdateMaterialCount(Item item)
     {
+        amounts.Sort();
+
         foreach (GameObject material in materials)
         {
             ItemInfo tmp = material.GetComponent<ItemInfo>();
 
             tmp.UpdateStackCount();
         }
-    }
-
-    public void Craft()
-    {
         if (CanCraft())
         {
-            StartCoroutine(CraftRoutine(0));
+            maxAmount = amounts[0];
+
+            if (countTxt.text == "0")
+            {
+                MyAmount = 1;
+            }
+            else if (int.Parse(countTxt.text) > maxAmount)
+            {
+                MyAmount = maxAmount;
+            }
+        }
+        else
+        {
+            MyAmount = 0;
+            maxAmount = 0;
+        }
+    }
+
+    public void Craft(bool all)
+    {
+        
+        if (CanCraft() && !Player.MyInstance.IsBusy)
+        {
+            if (all)
+            {
+                amounts.Sort();
+                countTxt.text = maxAmount.ToString();
+                StartCoroutine(CraftRoutine(amounts[0]));
+            }
+            else
+            {
+                StartCoroutine(CraftRoutine(MyAmount));
+            }
+            
         }    
         
     }
@@ -102,11 +151,16 @@ public class Profession : MonoBehaviour
     {
         bool canCraft = true;
 
+        //contains all the amount of materials we can craft
+        amounts = new List<int>();
+
         foreach (CraftingMaterial material in selectedRecipe.Materials)
         {
             int count = inventoryScript.MyInstance.GetItemCount(material.MyItem.MyTitle);
+
             if (count >= material.MyCount)
             {
+                amounts.Add(count/material.MyCount);
                 continue;
             }
             else
@@ -119,10 +173,22 @@ public class Profession : MonoBehaviour
         return canCraft;
     }
 
+    public void ChangeAmount(int i)
+    {
+        if ((amount + 1) > 0 && amount + i <= maxAmount)
+        {
+            MyAmount += i;
+        }
+    }
+
 
     private IEnumerator CraftRoutine(int count)
     {
-        yield return BasicMovement.MyInstance.MyInitRoutine = StartCoroutine(BasicMovement.MyInstance.CraftRoutine(selectedRecipe));
+        for (int i = 0; i < count; i++)
+        {
+            yield return BasicMovement.MyInstance.MyInitRoutine = StartCoroutine(BasicMovement.MyInstance.CraftRoutine(selectedRecipe));
+        }
+
     }
 
     public void AddItemToInventory()
@@ -137,8 +203,6 @@ public class Profession : MonoBehaviour
                 }
             }
         }
-
-        inventoryScript.MyInstance.AddItem(craftItemInfo.MyItem);
     }
 
     public void Close()

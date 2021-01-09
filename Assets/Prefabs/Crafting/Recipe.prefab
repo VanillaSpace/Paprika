@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.35739106, g: 0.8207547, b: 0, a: 0}
+  m_Color: {r: 0.35739106, g: 0.8207547, b: 0, a: 0.3}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -87,8 +87,8 @@ GameObject:
   - component: {fileID: 331272783519499743}
   - component: {fileID: 331272783519499742}
   - component: {fileID: 331272783519499741}
-  - component: {fileID: 441584465}
   - component: {fileID: 3141604404409218259}
+  - component: {fileID: 4510501315767039264}
   m_Layer: 5
   m_Name: Recipe
   m_TagString: Untagged
@@ -202,39 +202,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Profession, Assembly-CSharp
-        m_MethodName: ShowDescription
-        m_Mode: 2
+      - m_Target: {fileID: 4510501315767039264}
+        m_TargetAssemblyTypeName: Recipe, Assembly-CSharp
+        m_MethodName: Select
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 441584465}
-          m_ObjectArgumentAssemblyTypeName: Recipe, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &441584465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331272783519499715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cbbe19dadd751f419d6c0298b0cbf56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materials:
-  - item: {fileID: 11400000, guid: caf6411e55545f44e867dbc605ee96ac, type: 2}
-    count: 5
-  output: {fileID: 11400000, guid: eca631d576fdd6c4ca10d5dff358da71, type: 2}
-  outputCount: 1
-  description: Create a
-  hightlight: {fileID: 1234081385}
-  craftTime: 3
-  barColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3141604404409218259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,3 +229,24 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 0.5, y: -0.5}
   m_UseGraphicAlpha: 1
+--- !u!114 &4510501315767039264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331272783519499715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cbbe19dadd751f419d6c0298b0cbf56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - item: {fileID: 11400000, guid: caf6411e55545f44e867dbc605ee96ac, type: 2}
+    count: 10
+  output: {fileID: 11400000, guid: eca631d576fdd6c4ca10d5dff358da71, type: 2}
+  outputCount: 1
+  description: Cook a
+  hightlight: {fileID: 1234081385}
+  craftTime: 1
+  barColor: {r: 0.7830189, g: 0.26782447, b: 0, a: 1}

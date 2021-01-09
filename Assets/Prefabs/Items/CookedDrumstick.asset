@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 6608681052783819247, guid: 40e15dc0ad363ef43930f8d9495e6b99, type: 3}
   stackSize: 20
-  title: BBQ CHICKEN LEGS
+  title: BBQ CHKN  LEGS
   quality: 1

@@ -21,15 +21,20 @@ public class Recipe : MonoBehaviour, ICastable
     private Image hightlight;
 
     public Item Output { get => output; }
-    public int OutputCount { get => outputCount; set => outputCount = value; }
+    public int OutputCount { 
+        
+        get 
+        { 
+            return outputCount; 
+        }
+
+        set 
+        {
+            outputCount = value;
+        }  
+    }
     public string MyDescription { get => description; }
     public CraftingMaterial[] Materials { get => materials; }
-
-    [SerializeField]
-    private float craftTime;
-
-    [SerializeField]
-    private Color barColor;
 
 
     public string MyTitle
@@ -63,6 +68,12 @@ public class Recipe : MonoBehaviour, ICastable
             return barColor;
         }
     }
+
+    [SerializeField]
+    private float craftTime;
+
+    [SerializeField]
+    private Color barColor;
 
     void Start()
     {
