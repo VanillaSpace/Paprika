@@ -263,6 +263,21 @@ public class inventoryScript : MonoBehaviour
 
     }
 
+    public void RemoveItem(Item item)
+    {
+      foreach (Bags bag in bags)
+        {
+            foreach (slotScript slot in bag.MyBagsScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.MyTitle == item.MyTitle)
+                {
+                    slot.RemoveItem(item);
+                    break;
+                }
+            }
+        }
+    }
+
     public void OnItemCountChanged(Item item)
     {
         if (itemCountChangedEvent != null)

@@ -25,6 +25,7 @@ public class BasicMovement : MonoBehaviour
     }
 
     public int ExitIndex { get => exitIndex; set => exitIndex = value; }
+    
 
     public Animator animator;
 
@@ -37,101 +38,92 @@ public class BasicMovement : MonoBehaviour
 
     private int exitIndex = 0;
 
-    private Coroutine actionRoutine;
+    private Coroutine initRoutine;
 
+    private string animNames;
 
-    // Start is called before the first frame update
+    public string MyAnimNames { get => animNames; set => animNames = value; }
+    public Coroutine MyInitRoutine { get => initRoutine; set => initRoutine = value; }
+
+    [SerializeField]
+    private Profession profession;
     void Start()
     {
-
+   
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        actionInputs();
-
+        
     }
 
-    public IEnumerator Attack()
+
+    public IEnumerator AttackRoutine(ICastable castable)
     {
-        isBusy = true;
-        animator.SetBool("ATK", true);
-        yield return new WaitForSeconds(0.6f);
-        animator.SetBool("ATK", false);
-        isBusy = false;
+        Transform currentTarget = MyTarget;
 
-    }
-
-    public IEnumerator Roll(string projectileName)
-    {
-        Projectile newProjectile = projectileBook.MyInstance.castProjectile(projectileName);
-
-        isBusy = true;
-        animator.SetBool("isRoll", true);
-
-        yield return new WaitForSeconds(newProjectile.MyCastTime);
+        yield return MyInitRoutine = StartCoroutine(ActionRoutine(castable));
 
         if (MyTarget != null && InLineOfSight())
         {
+            Projectile newProjectile = projectileBook.MyInstance.GetProjectile(castable.MyTitle);
+
             ProjectileScript s = Instantiate(newProjectile.MyProjectilePrefab, exitPoint[ExitIndex].position, Quaternion.identity).GetComponent<ProjectileScript>();
             s.Initialize(MyTarget, newProjectile.MyDamage, transform);
         }
-       
-        animator.SetBool("isRoll", false);
-        
-        isBusy = false;
-
+               
     }
 
-    public IEnumerator Water()
+   
+    private IEnumerator GatherRoutine(ICastable castable, List<Drop> items)
     {
-        isBusy = true;
-        animator.SetBool("isWatering", true);
-        yield return new WaitForSeconds(0.55f);
-        animator.SetBool("isWatering", false);
-        isBusy = false;
 
-    }
-
-    private IEnumerator GatherRoutine(string SkillName, List<Drop> items)
-    {
-        Projectile newProjectile = projectileBook.MyInstance.castProjectile(SkillName);
-
-        isBusy = true;
-        animator.SetBool("isGathering", true);
-       
-        yield return new WaitForSeconds(newProjectile.MyCastTime);
-
-        animator.SetBool("isGathering", false);
-        isBusy = false;
+        yield return MyInitRoutine = StartCoroutine(ActionRoutine(castable));
 
         LootWindow.MyInstance.CreatePages(items);
 
         Player.MyInstance.MyStamina.myCurrentValue -= 20f;
+
+     }
+
+    public IEnumerator CraftRoutine(ICastable castable)
+    {
+        yield return MyInitRoutine = StartCoroutine(ActionRoutine(castable));
+
+        profession.AddItemToInventory();
     }
 
+    private IEnumerator ActionRoutine(ICastable castable)
+    {
 
-    public void CastProjectile(string projectileName)
+        projectileBook.MyInstance.Cast(castable);
+
+        animCast(castable);
+
+        isBusy = true;
+        animator.SetBool(MyAnimNames, true);
+
+        yield return new WaitForSeconds(castable.MyCastTime);
+
+        animator.SetBool(MyAnimNames, false);
+        isBusy = false;
+        
+    }
+
+    public void CastProjectile(ICastable castable)
     {
 
         Block();
 
-        if (isBusy)
-        {
-            Debug.Log("Busy!");
-        }
-        else
-        {
-
-            if (MyTarget != null && (Enemy.MyInstance.IsDead == false) && InLineOfSight())
+            if (!isBusy && MyTarget != null && (Enemy.MyInstance.IsDead == false) && InLineOfSight())
             {
-                Debug.Log("Throwing dart!");
-                actionRoutine = StartCoroutine(Roll(projectileName));
                 
+                MyInitRoutine = StartCoroutine(AttackRoutine(castable));
+
             }
-            else 
+
+             else 
             {
                 if(Enemy.MyInstance.IsDead is true)
                 {
@@ -148,18 +140,15 @@ public class BasicMovement : MonoBehaviour
                     Debug.Log("Cannot See");
                 }
             }
-
-        }
+  
     }
 
 
-
-    public void Gather(string skillName,  List<Drop> items)
+    public void Gather(ICastable castable,  List<Drop> items)
     {
         if (!isBusy)
         {
-            Debug.Log("Gathering");
-            actionRoutine = StartCoroutine(GatherRoutine(skillName, items));
+            MyInitRoutine = StartCoroutine(GatherRoutine(castable, items));
         }
     }
 
@@ -190,47 +179,39 @@ public class BasicMovement : MonoBehaviour
         blocks[ExitIndex].Activate();
     }
 
-    public void actionInputs()
+    private void StopInit()
     {
-        //Sword Attack
-       //if (Input.GetButtonDown("Fire1"))
-        //{
-        //    if (isBusy)
-        //    {
-        //        Debug.Log("Busy!");
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("Attacking!");
-        //        StartCoroutine(Attack());
-        //    }
-
-        //}
-
-        if (Input.GetKeyDown(KeyCode.C))
+        if (MyInitRoutine != null)
         {
-
-            //Block();
-
-            //if (isBusy)
-            //{
-            //    Debug.Log("Busy!");
-            //}
-            //else
-            //{
-
-            //    if (MyTarget != null && InLineOfSight())
-            //    {
-            //        Debug.Log("Chopping!");
-            //        StartCoroutine(Chop());
-            //    }
-            //    else
-            //    {
-            //        Debug.Log("Cannot See or no Target!");
-            //    }
-
-            //}
-
+            StopCoroutine(MyInitRoutine);
         }
     }
+
+    public void StopAction()
+    {
+        projectileBook.MyInstance.stopCasting();
+
+        isBusy = false;
+
+        if (MyInitRoutine !=null)
+        {
+            StopCoroutine(MyInitRoutine);
+        }
+    }
+
+    //Calls the different animations
+    public void animCast(ICastable castable)
+    {
+        if (castable.MyTitle == "FIRE DART" || castable.MyTitle == "FROST DART" || castable.MyTitle == "THUNDER DART")
+        {
+            MyAnimNames = "isRoll";
+        }
+       else // if (castable.MyTitle == "Gather")
+        {
+            MyAnimNames = "isGathering";
+        }
+    }
+
+
+
 }

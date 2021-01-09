@@ -31,6 +31,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private CanvasGroup projBook;
 
+    [SerializeField]
+    private CanvasGroup CraftingMenu;
+
     private GameObject[] keybindButtons;
 
     [SerializeField]
@@ -50,7 +53,7 @@ public class UIManager : MonoBehaviour
         tooltipText = tooltip.GetComponentInChildren<Text>();
         keybindMenu.blocksRaycasts = false;
         projBook.blocksRaycasts = false;
- 
+        CraftingMenu.blocksRaycasts = false;
 
     }
     void Start()
@@ -70,6 +73,11 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             OpenClose(projBook);
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            OpenClose(CraftingMenu);
         }
     }
 

@@ -46,7 +46,7 @@ public class GatherLoot : LootTable, IInteractable
 
     public void Interact()
     {
-        BasicMovement.MyInstance.Gather("Gather", MyDroppedItems);
+        BasicMovement.MyInstance.Gather(projectileBook.MyInstance.GetProjectile("Gather"), MyDroppedItems);
         LootWindow.MyInstance.MyInteractable = this;
     }
 

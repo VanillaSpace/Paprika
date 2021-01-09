@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
     public Vector2 MyDirection { get => Direction; set => Direction = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
     public List<IInteractable> MyInteractables { get => interactable; set => interactable = value; }
+    public bool IsMoving { get => isMoving; set => isMoving = value; }
 
-
-
+    private bool isMoving;
 
 
     // Start is called before the first frame update
@@ -74,6 +74,8 @@ public class Player : MonoBehaviour
 
         StopProjectiles();
 
+        Debug.Log(isMoving);
+
     }
 
     public void Move()
@@ -86,12 +88,28 @@ public class Player : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        if (stamina.myCurrentValue < 50 && moveHorizontal == 0 && moveVertical == 0 && isBusy == false)
+        //if (moveHorizontal == 0 && moveVertical == 0)
+        //{
+        //    isMoving = false;
+        //}
+        //else
+        //{
+        //    isMoving = true;
+        //}
+
+        if (moveHorizontal == 0 && moveVertical == 0 && isBusy == false)
         {
+
             playerAnim.SetBool("isRun", false);
             playerAnim.SetBool("isWalk", false);
-            stamina.myCurrentValue += 0.01f;
-        }    
+
+            if (stamina.myCurrentValue < 50)
+            {
+                stamina.myCurrentValue += 0.01f;
+            }
+            
+        }
+     
 
         MyDirection = Vector2.zero;
 

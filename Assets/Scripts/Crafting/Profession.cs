@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Profession : MonoBehaviour
 {
+
     [SerializeField]
     private Text title;
 
@@ -32,9 +33,13 @@ public class Profession : MonoBehaviour
 
     private int amount;
 
+    [SerializeField]
+    private CanvasGroup canvasGroup;
+
     private void Start()
     {
         inventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateMaterialCount);
+        ShowDescription(selectedRecipe);
     }
 
     public void ShowDescription(Recipe recipe)
@@ -83,4 +88,63 @@ public class Profession : MonoBehaviour
             tmp.UpdateStackCount();
         }
     }
+
+    public void Craft()
+    {
+        if (CanCraft())
+        {
+            StartCoroutine(CraftRoutine(0));
+        }    
+        
+    }
+
+    private bool CanCraft()
+    {
+        bool canCraft = true;
+
+        foreach (CraftingMaterial material in selectedRecipe.Materials)
+        {
+            int count = inventoryScript.MyInstance.GetItemCount(material.MyItem.MyTitle);
+            if (count >= material.MyCount)
+            {
+                continue;
+            }
+            else
+            {
+                canCraft = false;
+                break;
+            }
+        }
+
+        return canCraft;
+    }
+
+
+    private IEnumerator CraftRoutine(int count)
+    {
+        yield return BasicMovement.MyInstance.MyInitRoutine = StartCoroutine(BasicMovement.MyInstance.CraftRoutine(selectedRecipe));
+    }
+
+    public void AddItemToInventory()
+    {
+        if (inventoryScript.MyInstance.AddItem(craftItemInfo.MyItem))
+        {
+            foreach (CraftingMaterial material in selectedRecipe.Materials)
+            {
+                for (int i = 0; i < material.MyCount; i++)
+                {
+                    inventoryScript.MyInstance.RemoveItem(material.MyItem);
+                }
+            }
+        }
+
+        inventoryScript.MyInstance.AddItem(craftItemInfo.MyItem);
+    }
+
+    public void Close()
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
+    }
+
 }

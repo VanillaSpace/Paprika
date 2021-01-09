@@ -52,28 +52,25 @@ public class projectileBook : MonoBehaviour
         
     }
 
-    public Projectile castProjectile(string projectileName)
+    public void Cast(ICastable castable)
     {
-        Projectile projectile = Array.Find(projectiles, x => x.MyName == projectileName);
-
-        castingBar.color = projectile.MyBarColor;
-
         castingBar.fillAmount = 0;
 
-        currentProjectile.text = projectile.MyName;
+        castingBar.color = castable.MyBarColor;
+                
+        currentProjectile.text = castable.MyTitle;
 
-        projectileRoutine = StartCoroutine(Progress(projectile));
+        projectileRoutine = StartCoroutine(Progress(castable));
 
         fadeRoutine = StartCoroutine(FadeBar());
 
-        return projectile;
     }
 
-    private IEnumerator Progress(Projectile projectile)
+    private IEnumerator Progress(ICastable castable)
     {
         float timePassed = Time.deltaTime;
 
-        float rate = 1.0f / projectile.MyCastTime;
+        float rate = 1.0f / castable.MyCastTime;
 
         float progress = 0.0f;
 
@@ -85,9 +82,9 @@ public class projectileBook : MonoBehaviour
 
             timePassed += Time.deltaTime;
 
-            castTime.text = (projectile.MyCastTime - timePassed).ToString("F2");
+            castTime.text = (castable.MyCastTime - timePassed).ToString("F2");
 
-            if (projectile.MyCastTime - timePassed < 0)
+            if (castable.MyCastTime - timePassed < 0)
             {
                 castTime.text = "0.00";
             }
@@ -131,7 +128,7 @@ public class projectileBook : MonoBehaviour
 
     public Projectile GetProjectile(string projectileName)
     {
-       Projectile projectile =  Array.Find(projectiles, x => x.MyName == projectileName);
+       Projectile projectile =  Array.Find(projectiles, x => x.MyTitle == projectileName);
 
         return projectile;
     }
