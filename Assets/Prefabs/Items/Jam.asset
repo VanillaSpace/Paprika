@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 4034873625481168834, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
   stackSize: 5
-  title: JAM
+  title: FRESH JAM
   quality: 2
   foodType: 1
   gainStamina: 10

@@ -175,7 +175,7 @@ public class Profession : MonoBehaviour
 
     public void ChangeAmount(int i)
     {
-        if ((amount + 1) > 0 && amount + i <= maxAmount)
+        if ((amount + i) > 0 && amount + i <= maxAmount)
         {
             MyAmount += i;
         }

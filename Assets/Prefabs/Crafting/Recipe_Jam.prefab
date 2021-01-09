@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 3141604404409218259}
   - component: {fileID: 4510501315767039264}
   m_Layer: 5
-  m_Name: Recipe
+  m_Name: Recipe_Jam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,11 +242,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-  - item: {fileID: 11400000, guid: caf6411e55545f44e867dbc605ee96ac, type: 2}
-    count: 1
-  output: {fileID: 11400000, guid: eca631d576fdd6c4ca10d5dff358da71, type: 2}
+  - item: {fileID: 11400000, guid: dd01cab6843a19e4699c35d8ba0b845d, type: 2}
+    count: 5
+  output: {fileID: 11400000, guid: ef1b8fd1eb1f22f4fae479a56d9ddb3c, type: 2}
   outputCount: 1
   description: Cook a
   hightlight: {fileID: 1234081385}
-  craftTime: 1
-  barColor: {r: 0.7830189, g: 0.26782447, b: 0, a: 1}
+  craftTime: 2
+  barColor: {r: 0.8301887, g: 0.51228905, b: 0.3485226, a: 1}

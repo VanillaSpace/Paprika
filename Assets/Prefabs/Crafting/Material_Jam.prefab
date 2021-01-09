@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 8523872083102622672}
   - component: {fileID: 8414213647596928756}
   m_Layer: 5
-  m_Name: Material
+  m_Name: Material_Jam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8134819087248466559, guid: 40e15dc0ad363ef43930f8d9495e6b99, type: 3}
+  m_Sprite: {fileID: 4034873625481168834, guid: bd2ab82418733504da3d0e4e30eee672, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -216,8 +216,8 @@ GameObject:
   - component: {fileID: 1863036957830159158}
   - component: {fileID: 3003451524026346173}
   - component: {fileID: 5338585333393123532}
-  - component: {fileID: 200726791}
-  - component: {fileID: 272920038}
+  - component: {fileID: 998597010}
+  - component: {fileID: 1936118107}
   m_Layer: 5
   m_Name: ItemTitle
   m_TagString: Untagged
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -274,7 +274,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ff2a7a112ff90f44e99f435b4135fcd1, type: 3}
-    m_FontSize: 19
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -286,7 +286,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: CHICKEN MEAT
---- !u!114 &200726791
+--- !u!114 &998597010
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &272920038
+--- !u!114 &1936118107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

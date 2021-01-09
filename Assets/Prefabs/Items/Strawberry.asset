@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: -8981190376790367512, guid: 91fd8ebe7f235ab478903fff483617aa, type: 3}
   stackSize: 5
-  title: Wild Strawberries
+  title: Strawberries
   quality: 5
   foodType: 1
   gainStamina: 10
