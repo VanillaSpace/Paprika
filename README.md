@@ -8,7 +8,7 @@
 * **W,A,S,D**: player control
 * **E**: interact with objects
 * **LEFT-CLICK**: select a target to attack
-* **LEFT-SHIFT**: Deselect bags
+* **LEFT-SHIFT**: Deselect inventory bag or item
 
 
 # Roadmap Feature
@@ -43,7 +43,7 @@
 
 * Tools / Weapons
     - [x] Dart system - drag and drop into the hot bar to equip in action bar
-    - [ ] Tool system 
+    - [x] Tool system 
 
 
 * Hot-bar UI 
@@ -51,7 +51,7 @@
     - [x] items and skills can be moved in and out
     - [x] Action Buttons 
     - [x] Moving and placing dart skills
-    - [ ] Other Dart skills   
+    - [x] ~~Other Dart skill~~ Added Gathering & Cooking Skills
 
 * Item tooltip UI
     - [x] Title
@@ -62,20 +62,22 @@
     - [x] Changing keybinding actions
 
 * Loot System
-    - [ ] Loot UI
-    - [ ] Item drops
-    - [ ] Looting items
-    - [ ] Loot table
+    - [x] Loot UI
+    - [x] Item drops
+    - [x] Looting items
+    - [x] Loot table
 
 * Gathering System
-    - [ ] changing Sprite from full to empty 
-    - [ ] Resources
+    - [x] changing Sprite from full to empty 
+    - [x] Resources
 
 * Recipes System
-    - [ ] UI 
-    - [ ] Recipes info
-    - [ ] Material count
-    - [ ] Crafting items
+    - [x] UI 
+    - [x] Recipes info
+    - [x] Material count
+    - [x] Output count
+    - [x] "Craft all" Button
+    - [x] Specific amount of items to be crafted
 
 * Quest System
     - [ ] UI
