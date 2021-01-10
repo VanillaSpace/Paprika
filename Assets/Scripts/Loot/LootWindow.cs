@@ -88,31 +88,34 @@ public class LootWindow : MonoBehaviour
     {
         if (pages.Count > 0)
         {
-            pageNumber.text = pageIndex + 1 + "/" + pages.Count;
+           
+                pageNumber.text = pageIndex + 1 + "/" + pages.Count;
 
-            prevBtn.SetActive(pageIndex > 0);
-            nextBtn.SetActive(pages.Count > 1 && pageIndex < pages.Count - 1);
+                prevBtn.SetActive(pageIndex > 0);
+                nextBtn.SetActive(pages.Count > 1 && pageIndex < pages.Count - 1);
 
-            // int itemIndex = Random.Range(0,5);
+                // int itemIndex = Random.Range(0,5);
 
-            for (int i = 0; i < pages[pageIndex].Count; i++)
-            {
-                if (pages[pageIndex][i] != null)
+                for (int i = 0; i < pages[pageIndex].Count; i++)
                 {
-                    lootButtons[i].MyIcon.sprite = pages[pageIndex][i].MyItem.MyIcon;
+                    if (pages[pageIndex][i] != null)
+                    {
+                        lootButtons[i].MyIcon.sprite = pages[pageIndex][i].MyItem.MyIcon;
 
-                    lootButtons[i].MyLoot = pages[pageIndex][i].MyItem;
+                        lootButtons[i].MyLoot = pages[pageIndex][i].MyItem;
 
-                    //make sure the loot buttons is visible
-                    lootButtons[i].gameObject.SetActive(true);
+                        //make sure the loot buttons is visible
+                        lootButtons[i].gameObject.SetActive(true);
 
-                    string title = string.Format("<color={0}>{1}</color>", QualityColor.MyColors[pages[pageIndex][i].MyItem.MyQuality], pages[pageIndex][i].MyItem.MyTitle);
+                        string title = string.Format("<color={0}>{1}</color>", QualityColor.MyColors[pages[pageIndex][i].MyItem.MyQuality], pages[pageIndex][i].MyItem.MyTitle);
 
-                    //Make sure that the title is correct
-                    lootButtons[i].MyTitle.text = title;
+                        //Make sure that the title is correct
+                        lootButtons[i].MyTitle.text = title;
+                    }
+
                 }
-
-            }
+            
+           
         }
 
     }
@@ -146,25 +149,27 @@ public class LootWindow : MonoBehaviour
     }
 
     public void TakeLoot(Item loot)
-    {
-        Drop drop = pages[pageIndex].Find(x => x.MyItem == loot);
+    { 
 
-        pages[pageIndex].Remove(drop);
+            Drop drop = pages[pageIndex].Find(x => x.MyItem == loot);
 
-        drop.Remove();
- 
-        if (pages[pageIndex].Count == 0)
-        {
-            //Remove the empty page
-            pages.Remove(pages[pageIndex]);
+            pages[pageIndex].Remove(drop);
 
-            if (pageIndex == pages.Count && pageIndex > 0)
+            drop.Remove();
+
+            if (pages[pageIndex].Count == 0)
             {
-                pageIndex--;
-            }
+                //Remove the empty page
+                pages.Remove(pages[pageIndex]);
 
-            AddLoot();
-        }
+                if (pageIndex == pages.Count && pageIndex > 0)
+                {
+                    pageIndex--;
+                }
+
+                AddLoot();
+            }
+        
     }
 
     public void Close()

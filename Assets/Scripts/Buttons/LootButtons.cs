@@ -44,4 +44,5 @@ public class LootButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         UIManager.MyInstance.HideToolTip();
     }
+
 }
