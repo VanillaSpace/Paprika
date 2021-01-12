@@ -2,19 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestGiver : MonoBehaviour
+public class QuestGiver : NPC
 {
     [SerializeField]
     private Quest[] quests;
 
-    // Debugging Only
-    [SerializeField]
-    private Questlog tmpLog;
-
-    private void Awake()
-    {
-        //accept a quest;
-        tmpLog.accpetQuests(quests[0]);
-      
-    }
+    public Quest[] MyQuests { get => quests; }
 }

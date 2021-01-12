@@ -18,8 +18,6 @@ public class Questlog : MonoBehaviour
 
     private List<QuestScript> questScripts = new List<QuestScript>();
 
-    private List<Quest> quests = new List<Quest>();
-
     private static Questlog instance;
     public static Questlog MyInstance 
     
@@ -34,17 +32,17 @@ public class Questlog : MonoBehaviour
         } 
     }
 
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private CanvasGroup canvasGroup;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            OpenClose();
+        }
+    }
     public void accpetQuests(Quest quest)
     {
         foreach (CollectObjective o in quest.MyCollectObjectives)
@@ -99,5 +97,24 @@ public class Questlog : MonoBehaviour
         {
             qs.IsComplete();
         }
+    }
+
+    public void OpenClose()
+    {
+        if (canvasGroup.alpha == 1)
+        {
+            Close();
+        }
+        else
+        {
+            canvasGroup.alpha = 1;
+            canvasGroup.blocksRaycasts = true;
+        }
+    }
+
+    public void Close()
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.blocksRaycasts = false;
     }
 }

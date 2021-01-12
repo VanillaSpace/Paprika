@@ -25,7 +25,6 @@ public class QuestScript : MonoBehaviour
     public void Select()
     {
         GetComponent<Text>().color = Color.blue;
-
         Questlog.MyInstance.ShowDescription(MyQuest);
     }
 

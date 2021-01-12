@@ -103,7 +103,7 @@ public class inventoryScript : MonoBehaviour
         }
 
         //Debugging - Adding POTIONS into Inventory
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             //HP Potion
             HealthPotion potion = (HealthPotion)Instantiate(items[1]);
