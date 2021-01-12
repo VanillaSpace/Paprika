@@ -11,11 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private BasicMovement playerMovement;
 
-    private NPC currentTarget;
+   // private NPC currentTarget;
 
-    //private GatherLoot currentTarget;
+    private Enemy currentTarget;
 
-    // Update is called once per frame
     void Update()
     {
         ClickTarget();
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour
                     currentTarget.Deselect();
                 }
 
-                currentTarget = hit.collider.GetComponent<NPC>();
+                currentTarget = hit.collider.GetComponent<Enemy>();
                
                 playerMovement.MyTarget = currentTarget.Select();
 

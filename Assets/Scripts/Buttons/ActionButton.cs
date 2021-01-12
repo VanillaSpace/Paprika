@@ -59,7 +59,15 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
 
         set
         {
-            MyUseable = value.Peek();
+            if (value.Count > 0 )
+            {
+                MyUseable = value.Peek();
+            }
+            else
+            {
+                MyUseable = null;
+            }
+            
             useables = value;
         }
     }
@@ -89,7 +97,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
             {
                 MyUseable.Use();
             }
-            if (Useables != null && Useables.Count > 0)
+            else if (Useables != null && Useables.Count > 0)
             {
                 Useables.Peek().Use();
             }

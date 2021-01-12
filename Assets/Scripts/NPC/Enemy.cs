@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : NPC
+public class Enemy : Character, IInteractable
 {
 
     [SerializeField]
@@ -63,19 +63,20 @@ public class Enemy : NPC
         currentState.Update();
     }
 
-    public override Transform Select()
+    public Transform Select()
     {
         healthGroup.alpha = 1;
 
-        return base.Select();
+        return hitBox;
     }
 
-    public override void Deselect()
+    public  void Deselect()
     {
         healthGroup.alpha = 0;
-
-        base.Deselect();
+         
     }
+
+
 
    
     public void ChangeState(IState newState)
@@ -135,7 +136,7 @@ public class Enemy : NPC
         
     }
 
-    public override void Interact()
+    public  void Interact()
     {
         if (IsDead)
         {
@@ -150,13 +151,12 @@ public class Enemy : NPC
             }
 
             LootWindow.MyInstance.CreatePages(drops);
-            //Debug.Log("Looting Enemy");
-            //lootTable.GetLoot();
+
         }
         
     }
 
-    public override void StopInteract()
+    public  void StopInteract()
     {
         LootWindow.MyInstance.Close();
     }

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 492a66bca9f6fff4bb7aa902bcb82e52, type: 3}
-  m_Name: Oranges
+  m_Name: straw
   m_EditorClassIdentifier: 
-  icon: {fileID: 4334480109868916141, guid: 91fd8ebe7f235ab478903fff483617aa, type: 3}
+  icon: {fileID: -8981190376790367512, guid: 91fd8ebe7f235ab478903fff483617aa, type: 3}
   stackSize: 5
-  title: Juicy Oranges
-  quality: 4
+  title: Wild berry
+  quality: 5
   foodType: 1
   gainStamina: 10
   loseStamina: 0

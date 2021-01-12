@@ -120,6 +120,12 @@ public class inventoryScript : MonoBehaviour
         {
             RawDrumstick rawdrumS = (RawDrumstick)Instantiate(items[7]);
             AddItem(rawdrumS);
+
+            Food orange = (Food)Instantiate(items[8]);
+            AddItem(orange);
+
+            Food strawberry = (Food)Instantiate(items[9]);
+            AddItem(strawberry);
         }
 
         //Debugging - Adding FOOD into Inventory
@@ -244,6 +250,9 @@ public class inventoryScript : MonoBehaviour
         return useables;
     }
 
+
+
+
     public int GetItemCount(string type)
     {
         int itemCount = 0;
@@ -260,6 +269,33 @@ public class inventoryScript : MonoBehaviour
         }
 
         return itemCount;
+
+    }
+
+    public Stack<Item> GetItems(string type, int count)
+    {
+        Stack<Item> items = new Stack<Item>();
+
+        foreach (Bags bag in bags)
+        {
+            foreach (slotScript slot in bag.MyBagsScript.MySlots)
+            {
+                if (!slot.IsEmpty && slot.MyItem.MyTitle == type)
+                {
+                    foreach (Item item in slot.MyItems)
+                    {
+                        items.Push(item);
+
+                        if (items.Count == count)
+                        {
+                            return items;
+                        }
+                    }
+                }
+            }
+        }
+
+        return items;
 
     }
 
