@@ -81,10 +81,16 @@ public class CollectObjective : Objective
         {
             MyCurrentAmount = inventoryScript.MyInstance.GetItemCount(item.MyTitle);
             Questlog.MyInstance.UpdateSelected();
-            Debug.Log(IsComplete);
             Questlog.MyInstance.CheckCompletion();
 
         }
+    }
+
+    public void UpdateItemCount()
+    {
+        MyCurrentAmount = inventoryScript.MyInstance.GetItemCount(MyType);
+        Questlog.MyInstance.UpdateSelected();
+        Questlog.MyInstance.CheckCompletion();
     }
 
     public void Complete()

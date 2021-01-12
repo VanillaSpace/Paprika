@@ -16,7 +16,7 @@ public class Window : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
     }
 
-    public void Close()
+    public virtual void Close()
     {
         npc.IsInteracting = false;
         canvasGroup.alpha = 0;

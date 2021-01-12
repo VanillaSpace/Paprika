@@ -8,7 +8,7 @@ public class QuestGiverWindow : Window
     private static QuestGiverWindow instance;
 
     [SerializeField]
-    private GameObject backBtn, acceptBtn, questDescription;
+    private GameObject backBtn, acceptBtn, completeBtn, questDescription;
 
     public static QuestGiverWindow MyInstance
     {
@@ -49,12 +49,28 @@ public class QuestGiverWindow : Window
 
         foreach (Quest quest in questGiver.MyQuests)
         {
-            GameObject go = Instantiate(questPrefab, questArea);
-            go.GetComponent<Text>().text = quest.MyTitle;
+            if (quest != null)
+            {
+                GameObject go = Instantiate(questPrefab, questArea);
+                go.GetComponent<Text>().text = quest.MyTitle;
 
-            go.GetComponent<QGQScript>().MyQuest = quest;
+                go.GetComponent<QGQScript>().MyQuest = quest;
 
-            quests.Add(go);
+                quests.Add(go);
+                if (Questlog.MyInstance.HasQuest(quest) && quest.IsComplete)
+                {
+                    go.GetComponent<Text>().text += " (C)";
+                }
+                else if (Questlog.MyInstance.HasQuest(quest))
+                {
+                    Color c = go.GetComponent<Text>().color;
+
+                    c.a = 0.5f;
+
+                    go.GetComponent<Text>().color = c;
+                }
+            }
+
         }
     }
 
@@ -68,8 +84,18 @@ public class QuestGiverWindow : Window
     {
         this.selectedQuest = quest;
 
+        if (Questlog.MyInstance.HasQuest(quest) && quest.IsComplete)
+        {
+            acceptBtn.SetActive(false);
+            completeBtn.SetActive(true);
+        }
+        else if (!Questlog.MyInstance.HasQuest(quest))
+        {
+            acceptBtn.SetActive(true);
+        }
+
         backBtn.SetActive(true);
-        acceptBtn.SetActive(true);
+        
         questArea.gameObject.SetActive(false);
         questDescription.SetActive(true);
 
@@ -87,13 +113,35 @@ public class QuestGiverWindow : Window
     {
         backBtn.SetActive(false);
         acceptBtn.SetActive(false);
-
         ShowQuests(questGiver);
+        completeBtn.SetActive(false);
     }
 
     public void Accept()
     {
         Questlog.MyInstance.accpetQuests(selectedQuest);
         Back();
+    }
+
+    public override void Close()
+    {
+        completeBtn.SetActive(false);
+        base.Close();
+    }
+
+    public void CompleteQuest()
+    {
+        if (selectedQuest.IsComplete)
+        {
+            for (int i = 0; i < questGiver.MyQuests.Length; i++)
+            {
+                if (selectedQuest == questGiver.MyQuests[i])
+                {
+                    questGiver.MyQuests[i] = null;
+                }
+            }
+
+            Back();
+        }
     }
 }

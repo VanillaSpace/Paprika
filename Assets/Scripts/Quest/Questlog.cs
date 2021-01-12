@@ -18,6 +18,8 @@ public class Questlog : MonoBehaviour
 
     private List<QuestScript> questScripts = new List<QuestScript>();
 
+    private List<Quest> quests = new List<Quest>();
+
     private static Questlog instance;
     public static Questlog MyInstance 
     
@@ -48,7 +50,11 @@ public class Questlog : MonoBehaviour
         foreach (CollectObjective o in quest.MyCollectObjectives)
         {
             inventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
+
+            o.UpdateItemCount();
         }
+
+        quests.Add(quest);
 
         GameObject go = Instantiate(questPrefab, questParent);
 
@@ -116,5 +122,15 @@ public class Questlog : MonoBehaviour
     {
         canvasGroup.alpha = 0;
         canvasGroup.blocksRaycasts = false;
+    }
+
+    public void AbandonQuest()
+    {
+        //Remove player quest from the quest log
+    }
+
+    public bool HasQuest(Quest quest)
+    {
+        return quests.Exists(x => x.MyTitle == quest.MyTitle);
     }
 }
