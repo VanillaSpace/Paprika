@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public delegate void KillConfirmed(Character character);
+
 public class GameManager : MonoBehaviour
 {
+    public event KillConfirmed killConfirmedEvent;
+
     [SerializeField]
     private Player player;
 
@@ -14,6 +18,19 @@ public class GameManager : MonoBehaviour
    // private NPC currentTarget;
 
     private Enemy currentTarget;
+
+    private static GameManager instance;
+
+    public static GameManager MyInstance { 
+        get 
+        { 
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<GameManager>();
+            }
+            return instance;
+        } 
+    }
 
     void Update()
     {
@@ -63,6 +80,14 @@ public class GameManager : MonoBehaviour
                 entity.Interact();
             } 
 
+        }
+    }
+
+    public void OnKillConfirmed(Character character)
+    {
+        if (killConfirmedEvent != null)
+        {
+            killConfirmedEvent(character);
         }
     }
 }

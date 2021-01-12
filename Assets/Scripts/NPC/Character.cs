@@ -46,12 +46,16 @@ public abstract class Character : MonoBehaviour
 
     public Animator animator;
 
+    [SerializeField]
+    private string type;
+
     public Transform MyTarget { get; set; }
 
     public Vector2 Direction { get => direction; set => direction = value; }
     public float Speed { get => speed; set => speed = value; }
     public bool IsAttacking { get => isAttacking; set => isAttacking = value; }
     public bool IsDead { get => isDead; set => isDead = value; }
+    public string MyType { get => type; set => type = value; }
 
     void Start()
     {
@@ -75,6 +79,7 @@ public abstract class Character : MonoBehaviour
 
         if (health.myCurrentValue <= 0)
         {
+            GameManager.MyInstance.OnKillConfirmed(this);
             animator.SetTrigger("Dead");
             isDead = true;
         }

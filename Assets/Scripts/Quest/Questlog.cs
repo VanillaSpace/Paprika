@@ -54,6 +54,11 @@ public class Questlog : MonoBehaviour
             o.UpdateItemCount();
         }
 
+        foreach (KillObjective o in quest.MyKillObjectives)
+        {
+            GameManager.MyInstance.killConfirmedEvent += new KillConfirmed(o.UpdateKillCount);
+        }
+
         quests.Add(quest);
 
         GameObject go = Instantiate(questPrefab, questParent);
@@ -88,6 +93,10 @@ public class Questlog : MonoBehaviour
             string title = quest.MyTitle;
 
             foreach (Objective obj in quest.MyCollectObjectives)
+            {
+                objectives += obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
+            }
+            foreach (Objective obj in quest.MyKillObjectives)
             {
                 objectives += obj.MyType + ": " + obj.MyCurrentAmount + "/" + obj.MyAmount + "\n";
             }

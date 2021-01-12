@@ -9,19 +9,6 @@ public class QuestScript : MonoBehaviour
 
     public bool markedCompelte = false;
 
-
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-  
-    }
-
     public void Select()
     {
         GetComponent<Text>().color = Color.blue;
@@ -40,6 +27,7 @@ public class QuestScript : MonoBehaviour
         {
             markedCompelte = true;
             GetComponent<Text>().text += " (DONE!)";
+            MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: Complete!", MyQuest.MyTitle));
         }
        else if(!MyQuest.IsComplete)
         {

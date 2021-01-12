@@ -141,6 +141,18 @@ public class QuestGiverWindow : Window
                 }
             }
 
+
+            foreach (CollectObjective o in selectedQuest.MyCollectObjectives)
+            {
+                inventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
+                o.Complete();
+            }
+
+            foreach (KillObjective o in selectedQuest.MyKillObjectives)
+            {
+                GameManager.MyInstance.killConfirmedEvent -= new KillConfirmed(o.UpdateKillCount);
+            }
+
             Back();
         }
     }

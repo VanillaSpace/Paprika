@@ -75,15 +75,6 @@ public class inventoryScript : MonoBehaviour
     }
 
 
-
-
-    //Debugging purposes
-    private void Awake()
-    {
-      
-
-    }
-
     private void Update()
     {
         //Debugging - Adding bagsslotScriptslotScript
@@ -271,6 +262,7 @@ public class inventoryScript : MonoBehaviour
         return itemCount;
 
     }
+
 
     public Stack<Item> GetItems(string type, int count)
     {

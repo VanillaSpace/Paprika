@@ -14,10 +14,16 @@ public class Quest
     [SerializeField]
     private CollectObjective[] collectObjectives;
 
+    [SerializeField]
+    private KillObjective[] killObjectives;
+
     public QuestScript MyQuestScript { get; set; }
 
     public string MyTitle { get => title; set => title = value; }
     public string MyDescription { get => description; set => description = value; }
+
+    public KillObjective[] MyKillObjectives { get => killObjectives;}
+
     public CollectObjective[] MyCollectObjectives
     {
         get
@@ -39,10 +45,20 @@ public class Quest
                 }
             }
 
+            foreach (Objective o in MyKillObjectives)
+            {
+                if (!o.IsComplete)
+                {
+                    return false;
+
+                }
+            }
+
             return true;
         }
     }
 
+    
 }
 
 
@@ -80,6 +96,12 @@ public class CollectObjective : Objective
         if (MyType.ToLower() == item.MyTitle.ToLower())
         {
             MyCurrentAmount = inventoryScript.MyInstance.GetItemCount(item.MyTitle);
+
+            if (MyCurrentAmount <= MyAmount)
+            {
+                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", item.MyTitle, MyCurrentAmount, MyAmount));
+            }
+
             Questlog.MyInstance.UpdateSelected();
             Questlog.MyInstance.CheckCompletion();
 
@@ -100,6 +122,26 @@ public class CollectObjective : Objective
         foreach (Item item in items)
         {
             item.Remove();
+        }
+    }
+}
+
+[System.Serializable]
+public class KillObjective : Objective
+{
+    public void UpdateKillCount(Character character)
+    {
+        if (MyType == character.MyType)
+        {
+            MyCurrentAmount++;
+
+            if (MyCurrentAmount <= MyAmount)
+            {
+                MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", character.MyType, MyCurrentAmount, MyAmount));
+            }
+
+            Questlog.MyInstance.CheckCompletion();
+            Questlog.MyInstance.UpdateSelected();
         }
     }
 }
