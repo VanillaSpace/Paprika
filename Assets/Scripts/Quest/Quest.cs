@@ -19,6 +19,8 @@ public class Quest
 
     public QuestScript MyQuestScript { get; set; }
 
+    public QuestGiver MyQuestGiver { get; set; }
+
     public string MyTitle { get => title; set => title = value; }
     public string MyDescription { get => description; set => description = value; }
 
@@ -133,15 +135,14 @@ public class KillObjective : Objective
     {
         if (MyType == character.MyType)
         {
-            MyCurrentAmount++;
-
-            if (MyCurrentAmount <= MyAmount)
+            if (MyCurrentAmount < MyAmount)
             {
+                MyCurrentAmount++;
                 MessageFeedManager.MyInstance.WriteMessage(string.Format("{0}: {1}/{2}", character.MyType, MyCurrentAmount, MyAmount));
+                Questlog.MyInstance.CheckCompletion();
+                Questlog.MyInstance.UpdateSelected();
             }
 
-            Questlog.MyInstance.CheckCompletion();
-            Questlog.MyInstance.UpdateSelected();
         }
     }
 }

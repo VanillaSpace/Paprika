@@ -142,7 +142,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_45
   - first:
       213: -7049030459181825961
-    second: SUNNYSIDE_WORLD_UI 1_46
+    second: exclamationMark
   - first:
       213: -2582612901953936591
     second: SUNNYSIDE_WORLD_UI 1_47
@@ -178,7 +178,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_57
   - first:
       213: 8754177475941434560
-    second: SUNNYSIDE_WORLD_UI 1_58
+    second: questionmark
   - first:
       213: -3755013500235310901
     second: SUNNYSIDE_WORLD_UI 1_59
@@ -205,7 +205,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_66
   - first:
       213: 2588184613857943271
-    second: SUNNYSIDE_WORLD_UI 1_67
+    second: TalkIcon
   - first:
       213: -4347168421647468603
     second: SUNNYSIDE_WORLD_UI 1_68
@@ -1279,7 +1279,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_46
+      name: exclamationMark
       rect:
         serializedVersion: 2
         x: 246
@@ -1531,7 +1531,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_58
+      name: questionmark
       rect:
         serializedVersion: 2
         x: 245
@@ -1720,7 +1720,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_67
+      name: TalkIcon
       rect:
         serializedVersion: 2
         x: 243

@@ -153,6 +153,7 @@ public class QuestGiverWindow : Window
                 GameManager.MyInstance.killConfirmedEvent -= new KillConfirmed(o.UpdateKillCount);
             }
 
+            Questlog.MyInstance.RemoveQuest(selectedQuest.MyQuestScript);
             Back();
         }
     }
