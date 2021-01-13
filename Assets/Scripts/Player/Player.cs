@@ -302,4 +302,16 @@ public class Player : MonoBehaviour
         }
       
     }
+
+    public void GetHealth(int recoveredHealth)
+    {
+        health.myCurrentValue += recoveredHealth;
+        CombatTextManager.MyInstance.CreateText(transform.position, recoveredHealth.ToString(), SCTTYPE.HEAL);
+    }
+
+    public void GetDamage(int damage)
+    {
+        health.myCurrentValue += damage;
+        CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(), SCTTYPE.DAMAGE);
+    }
 }

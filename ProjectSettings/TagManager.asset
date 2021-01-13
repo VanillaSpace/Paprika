@@ -63,3 +63,9 @@ TagManager:
   - name: Player
     uniqueID: 2633703133
     locked: 0
+  - name: SCT
+    uniqueID: 1505497735
+    locked: 0
+  - name: UI
+    uniqueID: 392948547
+    locked: 0

@@ -76,6 +76,7 @@ public abstract class Character : MonoBehaviour
     public virtual void TakeDamage(float damage, Transform source)
     {
         health.myCurrentValue -= damage;
+        CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(), SCTTYPE.DAMAGE);
 
         if (health.myCurrentValue <= 0)
         {
@@ -89,5 +90,7 @@ public abstract class Character : MonoBehaviour
     {
 
     }
+
+
 }
 

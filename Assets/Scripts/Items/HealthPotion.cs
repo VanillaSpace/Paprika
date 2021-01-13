@@ -13,7 +13,7 @@ public class HealthPotion : Item, IUseable
     {
         Remove();
 
-        Player.MyInstance.MyHealth.myCurrentValue += recoveredHealth;
+        Player.MyInstance.GetHealth(recoveredHealth);
 
     }
 

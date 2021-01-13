@@ -6,18 +6,18 @@ using UnityEngine;
 public class Poison : Item, IUseable
 {
     [SerializeField]
-    private int poisonLevel;
+    private int damage;
 
     public void Use()
     {
         Remove();
 
-        Player.MyInstance.MyHealth.myCurrentValue -= poisonLevel;
-        Player.MyInstance.MyStamina.myCurrentValue -= poisonLevel;
+        Player.MyInstance.GetDamage(damage);
+        Player.MyInstance.MyStamina.myCurrentValue -= damage;
     }
 
     public override string GetDescription()
     {
-        return base.GetDescription() + string.Format("\n<color=#00ff00ff>USE: {0} DAMAGE TO HP AND STAMINA</color>", poisonLevel);
+        return base.GetDescription() + string.Format("\n<color=#00ff00ff>USE: {0} DAMAGE TO HP AND STAMINA</color>", damage);
     }
 }
