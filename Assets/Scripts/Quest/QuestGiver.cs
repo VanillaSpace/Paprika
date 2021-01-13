@@ -34,25 +34,25 @@ public class QuestGiver : NPC
             {
                 if (quest.IsComplete && Questlog.MyInstance.HasQuest(quest))
                 {
+                    //Completed quest that can be handed in
                     statusRenderer.sprite = question;
                     break;
                 }
                 else if (!Questlog.MyInstance.HasQuest(quest))
                 {
-                    //if the quest giver has a quest the player doesnt have
+                    //Quest-giver has a quest for the player
                     statusRenderer.sprite = Exclamation;
                     break;
                 }
                 else if (!quest.IsComplete && Questlog.MyInstance.HasQuest(quest))
                 {
-                    //the player is on the quest but hasn't completed yet
+                    //All quests are in progress
                     statusRenderer.sprite = talkUI;
                 }
             }
-            else
+            else //No more quests
             {
                 count++;
-
                 if (count == quests.Length)
                 {
                     statusRenderer.enabled = false;
