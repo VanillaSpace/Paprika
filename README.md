@@ -98,6 +98,7 @@
 
 
 ### Resource
+* [Sunnyside World - Daniel Diggle](https://itch.store/assets/other/boxy-bold-font/)
 * [Font - BitScript](https://opengameart.org/content/bitscript-true-type-font)
 * [Font - Boxy Bold](https://itch.store/assets/other/boxy-bold-font/)
 
