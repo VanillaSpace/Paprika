@@ -80,10 +80,10 @@
     - [x] Specific amount of items to be crafted
 
 * Quest System
-    - [ ] UI
-    - [ ] Quest giver
-    - [ ] Add, selecting 
-    - [ ] Update objectives
+    - [x] UI
+    - [x] Quest giver
+    - [x] Add, selecting 
+    - [x] Update objectives
 
 * Level System
     - [ ] XP gain
