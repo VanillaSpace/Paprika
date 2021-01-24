@@ -2,8 +2,8 @@
   
 <p align="center">
   <a href="#features">Features</a> |
-  <a href="#installation">Installation</a> |
-  <a href="#multiplayer">Multiplayer</a>
+  <a href="#game controls">Controls</a> |
+  <a href="#roadmap">Roadmap</a>
 </p>
 
 <p align="center">
@@ -15,6 +15,7 @@
 ---
 
 # Game Controls
+
 * **W,A,S,D**: player control
 * **E**: interact with objects
 * **LEFT-CLICK**: select a target to attack
