@@ -2,7 +2,7 @@
   
 <p align="center">
   <a href="#features">Features</a> |
-  <a href="#gamecontrols">Controls</a> |
+  <a href="#controls">Controls</a> |
   <a href="#roadmap">Roadmap</a>
 </p>
 
@@ -14,7 +14,7 @@
 
 ---
 
-# Game Controls
+# Controls
 
 * **W,A,S,D**: player control
 * **E**: interact with objects
