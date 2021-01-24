@@ -2,7 +2,7 @@
   
 <p align="center">
   <a href="#features">Features</a> |
-  <a href="#game controls">Controls</a> |
+  <a href="#gamecontrols">Controls</a> |
   <a href="#roadmap">Roadmap</a>
 </p>
 
