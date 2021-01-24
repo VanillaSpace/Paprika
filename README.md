@@ -35,7 +35,7 @@
 <img align="right" width="50%"  src="https://camo.githubusercontent.com/f6cadde6bb99362fd4faf6ce3adf1babcb2d0e3f8f9bf0b27a8cf09624d57ab4/68747470733a2f2f696d616765732e7a656e68756275736572636f6e74656e742e636f6d2f3566663132386338373666653235343566323539336532662f66323664626234632d343166352d343431392d383864662d393230373166633333663663" ></img>
 
 
-* Paprika
+* Combat
     - [x] Throwing projectile - fire, frost and lightening darts
     - [x] Line of sight - Enemies must be seen to attack
     - [x] Paprika is able to target specifically select an enemy
@@ -64,7 +64,6 @@
 * Tools / Weapons
     - [x] Dart system - drag and drop into the hot bar to equip in action bar
     - [x] Tool system 
-
 
 * Hot-bar UI 
     - [x] Has three slots
