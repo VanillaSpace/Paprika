@@ -36,41 +36,34 @@
 
 
 * Combat
-    - [x] Throwing projectile - fire, frost and lightening darts
+    - [x] Dart projectile - fire, frost and lightening 
     - [x] Line of sight - Enemies must be seen to attack
-    - [x] Paprika is able to target specifically select an enemy
+    - [x] Selecting a target using Raycast
 
 * Animation 
     - [x] Paprika (idle, attack, chop, watering)
     - [x] Enemy slimes (idle, attack, death, hurt)
 
-* Inventory UI 
+* Inventory system & UI 
     - [x] Stackable 
-    - [x] Open and Close 
-    - [x] clickable and usable 
-    - [x] bags have different numbers of slots
-    - [x] Tool tip for items inside the inventory
-    - [x] Moveable item
-    - [x] Merging item
+    - [x] Usable 
+    - [x] Slots inside bag can be modified
     - [x] Dequipping Bags
 
-* Enemy 
-    - [x] slime enemy animation
+* Enemy System
     - [x] slime enemy health system and UI
     - [x] slime enemy health regen when not in combat
-    - [x] slime enemy pathing
+    - [x] slime enemy follow the player
     - [x] slime enemy different IState (attack,aggro, evade)
 
-* Tools / Weapons
-    - [x] Dart system - drag and drop into the hot bar to equip in action bar
-    - [x] Tool system 
+* Action System
+    - [x] Dart system 
+    - [x] Gather system 
 
 * Hot-bar UI 
-    - [x] Has three slots
-    - [x] items and skills can be moved in and out
-    - [x] Action Buttons 
-    - [x] Moving and placing dart skills
-    - [x] ~~Other Dart skill~~ Added Gathering & Cooking Skills
+    - [x] drop and drag
+    - [x] Action Buttons can be pressed on or use 1 , 2 , 3
+    - [x] Darts or items can be placed inside the hot-bag
 
 * Item tooltip UI
     - [x] Title
@@ -78,11 +71,11 @@
     - [x] Description
 
 * Keybinding Menu
-    - [x] Changing keybinding actions
+    - [x] Changing keybinding action
+    - [x] Changing keybinding movement
 
-* Loot System
-    - [x] Loot UI
-    - [x] Item drops
+* Loot System & UI
+    - [x] Randomized Item drops
     - [x] Looting items
     - [x] Loot table
 
