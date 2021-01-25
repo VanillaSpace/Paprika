@@ -2,7 +2,7 @@
   
 <p align="center">
   <a href="#features">Features</a> |
-  <a href="#controls">Controls</a> |
+  <a href="#tools">Tools</a> |
   <a href="#roadmap">Roadmap</a>
 </p>
 
@@ -34,11 +34,12 @@
 
 <img align="right" width="50%"  src="https://camo.githubusercontent.com/f6cadde6bb99362fd4faf6ce3adf1babcb2d0e3f8f9bf0b27a8cf09624d57ab4/68747470733a2f2f696d616765732e7a656e68756275736572636f6e74656e742e636f6d2f3566663132386338373666653235343566323539336532662f66323664626234632d343166352d343431392d383864662d393230373166633333663663" ></img>
 
+> Here is a brief overview of the game feature implented
 
-* Combat
+* Combat System
     - [x] Dart projectile - fire, frost and lightening 
     - [x] Line of sight - Enemies must be seen to attack
-    - [x] Selecting a target using Raycast
+    - [x] Selecting a target using Raycast2D
 
 * Animation 
     - [x] Paprika (idle, attack, chop, watering)
@@ -50,15 +51,11 @@
     - [x] Slots inside bag can be modified
     - [x] Dequipping Bags
 
-* Enemy System
+* Enemy System & UI
     - [x] slime enemy health system and UI
     - [x] slime enemy health regen when not in combat
     - [x] slime enemy follow the player
     - [x] slime enemy different IState (attack,aggro, evade)
-
-* Action System
-    - [x] Dart system 
-    - [x] Gather system 
 
 * Hot-bar UI 
     - [x] drop and drag
@@ -66,26 +63,19 @@
     - [x] Darts or items can be placed inside the hot-bag
 
 * Item tooltip UI
-    - [x] Title
-    - [x] Rarity
-    - [x] Description
+    - [x] Title, Rarity & Description
 
 * Keybinding Menu
-    - [x] Changing keybinding action
-    - [x] Changing keybinding movement
+    - [x] Changing keybinding action & player movement
 
 * Loot System & UI
-    - [x] Randomized Item drops
-    - [x] Looting items
-    - [x] Loot table
+    - [x] Randomized item drops
+    - [x] Looting items 
 
 * Gathering System
-    - [x] changing Sprite from full to empty 
-    - [x] Resources
+    - [x] Sprite changes based on empty or full tree / bushes
 
 * Recipes System
-    - [x] UI 
-    - [x] Recipes info
     - [x] Material count
     - [x] Output count
     - [x] "Craft all" Button
@@ -97,7 +87,20 @@
     - [x] Add, selecting 
     - [x] Update objectives
 
+
+# Tools 
+
+<img align="right" width="25%"  src="https://user-images.githubusercontent.com/26191487/105654564-44f0db80-5e8c-11eb-9e1d-967ce618c8e1.JPG" ></img>
+
+> Tools used to make life easier
+
+- [x] Spawner
+- [x] Sriptable Objects - Used for items
+
+
 # Roadmap
+
+> Future roadmap and additional systems / tools that will be added
 
 * Level System
     - [ ] XP gain
