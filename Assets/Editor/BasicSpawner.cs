@@ -10,7 +10,7 @@ public class BasicSpawner : EditorWindow
     float spawnRadius = 5f;
     Vector3 spawnArea;
 
-    [MenuItem("Tools/SpawnPrefabs")]
+    [MenuItem("Tools/Object Prefab Spawner")]
     public static void ShowWindow()
     {
         GetWindow(typeof(BasicSpawner));
@@ -18,7 +18,9 @@ public class BasicSpawner : EditorWindow
 
     private void OnGUI()
     {
-        GUILayout.Label("Spawn!", EditorStyles.boldLabel);
+        GUILayout.Label("Spawner", EditorStyles.boldLabel);
+
+        EditorGUILayout.Space();
 
         BaseName = EditorGUILayout.TextField("Name", BaseName);
         ObjID = EditorGUILayout.IntField("Obj ID", ObjID);
@@ -42,10 +44,15 @@ public class BasicSpawner : EditorWindow
 
         if (BaseName == string.Empty)
         {
-            Debug.Log("Missing: Missing NAME, please assign a name.");
+            Debug.Log("Missing: Missing NAME, please assign a X & Y.");
             return;
         }
 
+        if (spawnArea == Vector3.zero)
+        {
+            Debug.Log("Missing: Position, please assign a name.");
+            return;
+        }
 
         Vector2 spawnCircle = spawnArea + (Random.insideUnitSphere * spawnRadius);
         Vector3 spawnPos = new Vector3(spawnCircle.x, spawnCircle.y, 0f);

@@ -52,7 +52,6 @@ public class Quest
                 if (!o.IsComplete)
                 {
                     return false;
-
                 }
             }
 

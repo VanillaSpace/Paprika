@@ -43,7 +43,11 @@ public abstract class Character : MonoBehaviour
 
     [SerializeField]
     private float initHealth;
-
+    public float EnemyHealth
+    {
+        get { return initHealth; }
+        set { initHealth = value; }
+    }
     public Animator animator;
 
     [SerializeField]
@@ -59,7 +63,7 @@ public abstract class Character : MonoBehaviour
 
     void Start()
     {
-        health.Initialize(initHealth, initHealth);
+        health.Initialize(EnemyHealth, EnemyHealth);
     }
 
     private void FixedUpdate()

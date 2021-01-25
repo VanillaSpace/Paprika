@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 2334666170564433753}
   - component: {fileID: 2334666170564433754}
   - component: {fileID: 2334666170564433755}
+  - component: {fileID: -6370775667543633760}
   m_Layer: 9
   m_Name: Enemy Aqua
   m_TagString: Enemy
@@ -316,15 +317,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d17a3cbe824a09945accbecc7bfa6b94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.8
+  speed: 1
   hitBox: {fileID: 2334666170085229028}
   health: {fileID: 2334666170887938986}
-  initHealth: 50
+  initHealth: 0
   animator: {fileID: 2334666170564433753}
+  type: 
   slimeFacing: {fileID: 2334666170564433751}
   healthGroup: {fileID: 2334666170027904669}
   enemyAnim: {fileID: 2334666170564433753}
   initAggroRange: 1
+  lootTable: {fileID: -6370775667543633760}
 --- !u!50 &2334666170564433755
 Rigidbody2D:
   serializedVersion: 4
@@ -346,6 +349,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6370775667543633760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2334666170564433756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6655ac2dcb7224c8c331bc31532ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot: []
 --- !u!1 &2334666170887938990
 GameObject:
   m_ObjectHideFlags: 0
