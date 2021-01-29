@@ -19,7 +19,11 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
 
     [SerializeField]
     private Quality quality;
-
+    public Quality MyQuality
+    {
+        get { return quality; }
+        set { quality = value; }
+    }
     private slotScript slot;
 
 
@@ -29,6 +33,11 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         { 
             return icon; 
         }
+        set
+        {
+            icon = value;
+
+        }
     
     }
 
@@ -37,6 +46,11 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         get
         {
             return stackSize;
+        }
+
+        set
+        {
+            stackSize = value;
         }
     }
 
@@ -53,8 +67,12 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         }
     }
 
-    public Quality MyQuality { get => quality; }
-    public string MyTitle { get => title; }
+
+    public string MyTitle { get => title; set
+        {
+            title = value;
+        }
+    }
 
     public virtual string GetDescription()
     {
