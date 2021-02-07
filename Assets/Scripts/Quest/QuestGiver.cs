@@ -11,10 +11,16 @@ public class QuestGiver : NPC
     private Sprite question, talkUI, Exclamation;
 
     [SerializeField]
+    private Sprite miniquestion, minitalkUI, miniExclamation;
+
+    [SerializeField]
     private SpriteRenderer statusRenderer;
 
 
     public Quest[] MyQuests { get => quests; }
+
+    [SerializeField]
+    private SpriteRenderer minimapRender;
 
     private void Start()
     {
@@ -36,18 +42,21 @@ public class QuestGiver : NPC
                 {
                     //Completed quest that can be handed in
                     statusRenderer.sprite = question;
+                    minimapRender.sprite = miniquestion;
                     break;
                 }
                 else if (!Questlog.MyInstance.HasQuest(quest))
                 {
                     //Quest-giver has a quest for the player
                     statusRenderer.sprite = Exclamation;
+                    minimapRender.sprite = miniExclamation;
                     break;
                 }
                 else if (!quest.IsComplete && Questlog.MyInstance.HasQuest(quest))
                 {
                     //All quests are in progress
                     statusRenderer.sprite = talkUI;
+                    minimapRender.sprite = minitalkUI;
                 }
             }
             else //No more quests
@@ -56,6 +65,7 @@ public class QuestGiver : NPC
                 if (count == quests.Length)
                 {
                     statusRenderer.enabled = false;
+                    minimapRender.enabled = false;
                 }
             }
         }

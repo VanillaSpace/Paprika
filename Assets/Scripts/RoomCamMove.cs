@@ -9,6 +9,9 @@ public class RoomCamMove : MonoBehaviour
     public Vector3 playerChange;
     private CameraMovement cam;
 
+    [SerializeField]
+    private CameraMovement minimap_cam;
+
     public bool needText;
     public string placeName;
     public GameObject text;
@@ -17,7 +20,7 @@ public class RoomCamMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main.GetComponent<CameraMovement>();
+        cam = Camera.main.GetComponent<CameraMovement>();  
     }
 
     // Update is called once per frame
@@ -32,8 +35,14 @@ public class RoomCamMove : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            //main cam
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
+
+            ////minimap cam
+            minimap_cam.minPosition += cameraChange;
+            minimap_cam.maxPosition += cameraChange;
+
             other.transform.position += playerChange;
             if (needText)
             {
