@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,10 +37,25 @@ public class Player : MonoBehaviour
     private CharacterStats stamina;
 
     [SerializeField]
+    private CharacterStats xpStat;
+
+    [SerializeField]
     private float maxHealth;
 
     [SerializeField]
     private float maxStamina;
+
+    [SerializeField]
+    private float maxXP;
+
+    [SerializeField]
+    private float startXP;
+
+    [SerializeField]
+    private int level;
+
+    [SerializeField]
+    private Text levelTXT;
 
     public SpriteRenderer paprikaFace;
 
@@ -52,6 +67,9 @@ public class Player : MonoBehaviour
     public bool IsBusy { get => isBusy; set => isBusy = value; }
     public List<IInteractable> MyInteractables { get => interactable; set => interactable = value; }
     public bool IsMoving { get => isMoving; set => isMoving = value; }
+    public CharacterStats MyXP { get => xpStat; set => xpStat = value; }
+
+    public int MyLevel { get => level; set => level = value; }
 
     private bool isMoving;
 
@@ -61,6 +79,10 @@ public class Player : MonoBehaviour
     {
         health.Initialize(maxHealth, maxHealth);
         stamina.Initialize(maxStamina, maxStamina);
+
+        //level system going upwards 
+        xpStat.Initialize(Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.2f)), 0);
+        levelTXT.text = MyLevel.ToString();
     }
 
     // Update is called once per frame
@@ -74,7 +96,7 @@ public class Player : MonoBehaviour
 
         StopProjectiles();
 
-        Debug.Log(isMoving);
+        //Debug.Log(isMoving);
 
     }
 
@@ -87,15 +109,6 @@ public class Player : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
-        //if (moveHorizontal == 0 && moveVertical == 0)
-        //{
-        //    isMoving = false;
-        //}
-        //else
-        //{
-        //    isMoving = true;
-        //}
 
         if (moveHorizontal == 0 && moveVertical == 0 && isBusy == false)
         {
@@ -215,6 +228,11 @@ public class Player : MonoBehaviour
         {
             inventoryScript.MyInstance.OpenClose();
         }
+        //gain XP 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            GainXP(100);
+        }
 
         //Action Button
         foreach (string action in KeybindManager.MyInstance.ActionBinds.Keys)
@@ -313,5 +331,32 @@ public class Player : MonoBehaviour
     {
         health.myCurrentValue += damage;
         CombatTextManager.MyInstance.CreateText(transform.position, damage.ToString(), SCTTYPE.DAMAGE);
+    }
+
+    public void GainXP(int xp)
+    {
+        xpStat.myCurrentValue += xp;
+        CombatTextManager.MyInstance.CreateText(transform.position, xp.ToString(), SCTTYPE.XP);
+        if (xpStat.myCurrentValue >= xpStat.MyMaxValue)
+        {
+            StartCoroutine(levelUp());
+        }
+    }
+
+    private IEnumerator levelUp()
+    {
+        while(!xpStat.IsFull)
+        {
+            yield return null;
+        }
+
+        //Level up and XP increases
+        MyLevel++;
+        levelTXT.text = MyLevel.ToString();
+        xpStat.MyMaxValue = 100 * MyLevel * Mathf.Pow(MyLevel, 0.5f);
+        xpStat.MyMaxValue = Mathf.Floor(xpStat.MyMaxValue);
+        xpStat.myCurrentValue = xpStat.MyOverflow;
+        xpStat.Reset();
+        
     }
 }

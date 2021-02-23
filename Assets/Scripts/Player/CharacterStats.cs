@@ -19,6 +19,13 @@ public class CharacterStats : MonoBehaviour
 
     private float currentValue;
 
+    public bool IsFull
+    {
+        get { return content.fillAmount == 1;  }
+    }
+
+    private float overflow;
+
     public float myCurrentValue 
     {
       get 
@@ -31,6 +38,7 @@ public class CharacterStats : MonoBehaviour
             //our current value will never go over max value
             if (value > MyMaxValue)
             {
+                overflow = value - MyMaxValue;
                 currentValue = MyMaxValue;
             }
             // our current value will never go negative
@@ -52,6 +60,16 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public float MyOverflow 
+    { 
+        get
+        {
+            float tmp = overflow;
+            overflow = 0;
+            return tmp;
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,15 +83,19 @@ public class CharacterStats : MonoBehaviour
         //this will make the animation smoother when increasing and decreasing
         if (currentFill != content.fillAmount)
         {
-            content.fillAmount = Mathf.Lerp(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
+            content.fillAmount = Mathf.MoveTowards(content.fillAmount, currentFill, Time.deltaTime * lerpSpeed);
         }
 
-           // content.fillAmount = currentFill;
     }
 
     public void Initialize(float maxValue, float currentValue)
     {
         MyMaxValue = maxValue;
         myCurrentValue = currentValue;
+    }
+
+    public void Reset()
+    {
+        content.fillAmount = 0;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SCTTYPE {DAMAGE, HEAL}
+public enum SCTTYPE {DAMAGE, HEAL, XP}
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -41,6 +41,10 @@ public class CombatTextManager : MonoBehaviour
             case SCTTYPE.HEAL:
                 operation += "+";
                 sct.color = Color.green;
+                break;
+            case SCTTYPE.XP:
+                operation += "+";
+                sct.color = Color.yellow;
                 break;
            
         }

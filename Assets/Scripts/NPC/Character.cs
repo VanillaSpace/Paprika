@@ -53,6 +53,7 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     private string type;
 
+
     public Transform MyTarget { get; set; }
 
     public Vector2 Direction { get => direction; set => direction = value; }
@@ -60,6 +61,7 @@ public abstract class Character : MonoBehaviour
     public bool IsAttacking { get => isAttacking; set => isAttacking = value; }
     public bool IsDead { get => isDead; set => isDead = value; }
     public string MyType { get => type; set => type = value; }
+
 
     void Start()
     {

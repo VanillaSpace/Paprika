@@ -72,18 +72,19 @@ public class GameManager : MonoBehaviour
             Debug.Log("Interactable Selected");
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, Mathf.Infinity, 512);
 
-
-            IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
-
-
-            if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity)) 
+            if(hit.collider != null)
             {
-                
-                entity.Interact();
+                IInteractable entity = hit.collider.gameObject.GetComponent<IInteractable>();
+
+                if (hit.collider != null && (hit.collider.tag == "Enemy" || hit.collider.tag == "Interactable") && player.MyInteractables.Contains(entity))
+                {
+
+                    entity.Interact();
+                }
             }
             else
             {
-                Debug.Log("nothing to interact with");
+                Debug.Log("hit collider is null!");
             }
 
         }
