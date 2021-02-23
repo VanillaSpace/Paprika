@@ -103,11 +103,11 @@
 > Future roadmap and additional systems / tools that will be added
 
 * Level System
-    - [ ] XP gain
-    - [ ] UI
+    - [x] XP gain
+    - [x] UI
     - [ ] Mob XP
     - [ ] Quest XP
-    - [ ] Level up event
+    - [x] Level up event
 
 * Loading and Saving System
     - [ ] Save player stats
