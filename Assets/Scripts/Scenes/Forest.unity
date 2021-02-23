@@ -59159,7 +59159,7 @@ MonoBehaviour:
   maxStamina: 50
   maxXP: 10
   startXP: 0
-  level: 3
+  level: 1
   levelTXT: {fileID: 1531031888}
   paprikaFace: {fileID: 3389718406288717019}
 --- !u!1001 &3756766496689442673
