@@ -94,6 +94,15 @@ public class BasicMovement : MonoBehaviour
         profession.AddItemToInventory();
     }
 
+    private IEnumerator ChopRoutine(ICastable castable)
+    {
+
+        yield return MyInitRoutine = StartCoroutine(ActionRoutine(castable));
+
+        Player.MyInstance.MyStamina.myCurrentValue -= 30f;
+
+    }
+
     private IEnumerator ActionRoutine(ICastable castable)
     {
 
@@ -152,6 +161,14 @@ public class BasicMovement : MonoBehaviour
         }
     }
 
+    public void Chop(ICastable castable)
+    {
+        if (!isBusy)
+        {
+            MyInitRoutine = StartCoroutine(ChopRoutine(castable));
+        }
+    }
+
     private bool InLineOfSight()
     {
         if (MyTarget != null)
@@ -206,10 +223,15 @@ public class BasicMovement : MonoBehaviour
         {
             MyAnimNames = "isRoll";
         }
-       else // if (castable.MyTitle == "Gather")
+        else if (castable.MyTitle == "Gather")
         {
             MyAnimNames = "isGathering";
         }
+        else if (castable.MyTitle == "Chop")
+        {
+            MyAnimNames = "isChopping";
+        }
+
     }
 
 

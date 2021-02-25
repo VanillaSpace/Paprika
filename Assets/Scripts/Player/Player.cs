@@ -343,6 +343,14 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void GetItem(string name)
+    {
+        CombatTextManager.MyInstance.CreateText(transform.position, name.ToString(), SCTTYPE.ITEM);
+
+        //for debug
+        Debug.Log("collected" + name);
+    }
+
     private IEnumerator levelUp()
     {
         while(!xpStat.IsFull)
@@ -359,4 +367,6 @@ public class Player : MonoBehaviour
         xpStat.Reset();
         
     }
+
+  
 }

@@ -74,13 +74,19 @@ public class inventoryScript : MonoBehaviour
         }
     }
 
-
+    public Item[] Myitems { get => items; set => items = value; }
+    private void Start()
+    {
+        Bags bag = (Bags)Instantiate(Myitems[0]);
+        bag.Initialize(8);
+        bag.Use();
+    }
     private void Update()
     {
         //Debugging - Adding bagsslotScriptslotScript
         if (Input.GetKeyDown(KeyCode.J))
         {
-            Bags bag = (Bags)Instantiate(items[0]);
+            Bags bag = (Bags)Instantiate(Myitems[0]);
             bag.Initialize(8);
             bag.Use();
         }
@@ -88,7 +94,7 @@ public class inventoryScript : MonoBehaviour
         //Debugging - Adding items inside the slots
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Bags bag = (Bags)Instantiate(items[0]);
+            Bags bag = (Bags)Instantiate(Myitems[0]);
             bag.Initialize(8);
             AddItem(bag);
         }
@@ -97,11 +103,11 @@ public class inventoryScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             //HP Potion
-            HealthPotion potion = (HealthPotion)Instantiate(items[1]);
+            HealthPotion potion = (HealthPotion)Instantiate(Myitems[1]);
             AddItem(potion);
 
             //Poison
-            Poison poison = (Poison)Instantiate(items[6]);
+            Poison poison = (Poison)Instantiate(Myitems[6]);
             AddItem(poison);
 
         }
@@ -109,13 +115,13 @@ public class inventoryScript : MonoBehaviour
         // material
         if (Input.GetKeyDown(KeyCode.M))
         {
-            RawDrumstick rawdrumS = (RawDrumstick)Instantiate(items[7]);
+            RawDrumstick rawdrumS = (RawDrumstick)Instantiate(Myitems[7]);
             AddItem(rawdrumS);
 
-            Food orange = (Food)Instantiate(items[8]);
+            Food orange = (Food)Instantiate(Myitems[8]);
             AddItem(orange);
 
-            Food strawberry = (Food)Instantiate(items[9]);
+            Food strawberry = (Food)Instantiate(Myitems[9]);
             AddItem(strawberry);
         }
 
@@ -123,19 +129,19 @@ public class inventoryScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             //Beer
-            Food beer = (Food)Instantiate(items[2]);
+            Food beer = (Food)Instantiate(Myitems[2]);
             AddItem(beer);
 
             //Apple
-            Food apple = (Food)Instantiate(items[3]);
+            Food apple = (Food)Instantiate(Myitems[3]);
             AddItem(apple);
 
             //David
-            Food dumbass = (Food)Instantiate(items[4]);
+            Food dumbass = (Food)Instantiate(Myitems[4]);
             AddItem(dumbass);
 
             //Jam
-            Food jam = (Food)Instantiate(items[5]);
+            Food jam = (Food)Instantiate(Myitems[5]);
             AddItem(jam);
         }
     }

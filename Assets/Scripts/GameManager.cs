@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private Enemy currentTarget;
 
+    private Resource currentTree;
+
     private static GameManager instance;
 
     public static GameManager MyInstance { 
@@ -55,10 +57,10 @@ public class GameManager : MonoBehaviour
                 playerMovement.MyTarget = currentTarget.Select();
 
             }
-
+            
             else
             {
-                if (currentTarget != null)
+                if (currentTarget != null && currentTree != null)
                 {
                     currentTarget.Deselect();
                 }

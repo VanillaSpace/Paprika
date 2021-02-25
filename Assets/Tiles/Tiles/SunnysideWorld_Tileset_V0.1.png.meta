@@ -745,7 +745,7 @@ TextureImporter:
     second: SunnysideWorld_Tileset_V0.1_246
   - first:
       213: -1963414115657682169
-    second: SunnysideWorld_Tileset_V0.1_247
+    second: stump
   - first:
       213: -4674932295553494511
     second: SunnysideWorld_Tileset_V0.1_248
@@ -1249,13 +1249,13 @@ TextureImporter:
     second: SunnysideWorld_Tileset_V0.1_414
   - first:
       213: 1520451181664079847
-    second: SunnysideWorld_Tileset_V0.1_415
+    second: Fish
   - first:
       213: -3315762825940278678
-    second: SunnysideWorld_Tileset_V0.1_416
+    second: Log
   - first:
       213: 4253521925559600133
-    second: SunnysideWorld_Tileset_V0.1_417
+    second: carrot
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -6544,7 +6544,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_247
+      name: stump
       rect:
         serializedVersion: 2
         x: 32
@@ -9757,7 +9757,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_415
+      name: Fish
       rect:
         serializedVersion: 2
         x: 16
@@ -9778,7 +9778,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_416
+      name: Log
       rect:
         serializedVersion: 2
         x: 32
@@ -9799,7 +9799,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_417
+      name: carrot
       rect:
         serializedVersion: 2
         x: 48

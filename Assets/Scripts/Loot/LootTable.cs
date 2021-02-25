@@ -38,4 +38,5 @@ public class LootTable : MonoBehaviour
 
         rolled = true;
     }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GatherLoot : LootTable, IInteractable
 {
     [SerializeField]
-    private SpriteRenderer spriteRender;
+    public SpriteRenderer spriteRender;
 
     [SerializeField]
     private Sprite defaultSprite;
@@ -15,10 +15,36 @@ public class GatherLoot : LootTable, IInteractable
 
     [SerializeField]
     private GameObject gatherIndicator;
+
+    //chopping the tree
+    public bool canChop = false;
+
+    [SerializeField]
+    private Resource resource;
+
+    private static GatherLoot instance;
+
+    public static GatherLoot MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<GatherLoot>();
+            }
+            return instance;
+        }
+    }
+
+
     private void Start()
     {
         RollLoot();
      
+    }
+    public void Update()
+    {
+
     }
     protected override void RollLoot()
     {
@@ -40,11 +66,15 @@ public class GatherLoot : LootTable, IInteractable
 
                 spriteRender.sprite = gatherSprite;
                 gatherIndicator.SetActive(true);
+                canChop = false;
             }
             else
             {
-                gameObject.SetActive(false);
+                //if there are no fruits , Paprika can chop
+                gameObject.SetActive(true);
                 gatherIndicator.SetActive(false);
+                canChop = true;
+
             }
         }
 
@@ -52,9 +82,18 @@ public class GatherLoot : LootTable, IInteractable
 
     public void Interact()
     {
-        BasicMovement.MyInstance.Gather(projectileBook.MyInstance.GetProjectile("Gather"), MyDroppedItems);
-        LootWindow.MyInstance.MyInteractable = this;
+        if (canChop)
+        {
+            resource.Interact();
+        }
+        else
+        {
+
+          BasicMovement.MyInstance.Gather(projectileBook.MyInstance.GetProjectile("Gather"), MyDroppedItems);
+          LootWindow.MyInstance.MyInteractable = this;
+        }
     }
+
 
     public void StopInteract()
     {
@@ -63,8 +102,9 @@ public class GatherLoot : LootTable, IInteractable
         if (MyDroppedItems.Count == 0)
         {
             spriteRender.sprite = defaultSprite;
-            gameObject.SetActive(false);
+            gameObject.SetActive(true);
             gatherIndicator.SetActive(false);
+            canChop = true;
         }
 
         LootWindow.MyInstance.Close();

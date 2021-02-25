@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SCTTYPE {DAMAGE, HEAL, XP}
+public enum SCTTYPE {DAMAGE, HEAL, XP, ITEM}
 
 public class CombatTextManager : MonoBehaviour
 {
@@ -46,7 +46,11 @@ public class CombatTextManager : MonoBehaviour
                 operation += "+";
                 sct.color = Color.yellow;
                 break;
-           
+            case SCTTYPE.ITEM:
+                operation += "Collected ";
+                sct.color = Color.cyan;
+                break;
+
         }
 
         sct.text = operation + text;
