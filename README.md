@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img alt="Preview" width="860" alt="preview" src="https://media1.tenor.com/images/8f841f01f675e508290dc4f1af652af0/tenor.gif">
+  <img alt="Preview" width="860" alt="preview" src="https://user-images.githubusercontent.com/26191487/109257610-85fb4900-77c6-11eb-8691-f9d22cc30f35.gif">
 <p align="center">
 
 <p align="center">A farming + cooking game I am creating for my personal project on Unity 2020.2.1f1.</p>
