@@ -5,18 +5,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler,IPointerExitHandler
+public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler,IPointerExitHandler
 {
 
-    public static slotScript instance;
+    public static SlotScript instance;
 
-    public static slotScript MyInstance
+    public static SlotScript MyInstance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<slotScript>();
+                instance = FindObjectOfType<SlotScript>();
             }
             return instance;
         }
@@ -32,7 +32,7 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     [SerializeField]
     private Text stackSize;
 
-    public bagScript MyBag { get; set; } //reference to the slot the bag is sitting on
+    public BagScript MyBag { get; set; } //reference to the slot the bag is sitting on
 
     public int MyIndex { get; set; }
 
@@ -140,7 +140,7 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     {
         if (!IsEmpty)
         {
-          inventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
+          InventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
         }
     }
 
@@ -153,7 +153,7 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
             for (int i = 0; i < initCount; i++)
             {
-                inventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
+                InventoryScript.MyInstance.OnItemCountChanged(MyItems.Pop());
             }
 
         }
@@ -164,16 +164,16 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
     {
         if (eventData.button == PointerEventData.InputButton.Left) //if we dont have something to move
         {
-            if (inventoryScript.MyInstance.FromSlot == null && !IsEmpty)
+            if (InventoryScript.MyInstance.FromSlot == null && !IsEmpty)
             {
                 HandScript.MyInstance.TakeMoveable(MyItem as IMoveable);
-                inventoryScript.MyInstance.FromSlot = this;
+                InventoryScript.MyInstance.FromSlot = this;
             }
-            else if (inventoryScript.MyInstance.FromSlot == null && IsEmpty && (HandScript.MyInstance.MyMoveable is Bags))
+            else if (InventoryScript.MyInstance.FromSlot == null && IsEmpty && (HandScript.MyInstance.MyMoveable is Bag))
             {
-                Bags bag = (Bags)HandScript.MyInstance.MyMoveable;
+                Bag bag = (Bag)HandScript.MyInstance.MyMoveable;
 
-                if (bag.MyBagsScript != MyBag && inventoryScript.MyInstance.MyEmptySlotCount - bag.Slots > 0)
+                if (bag.MyBagScript != MyBag && InventoryScript.MyInstance.MyEmptySlotCount - bag.MySlotCount > 0)
                 {
                     AddItem(bag);
                     bag.MyBagButton.RemoveBag();
@@ -181,12 +181,12 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
                 }
               
             }
-            else if (inventoryScript.MyInstance.FromSlot != null) // if we have something to move
+            else if (InventoryScript.MyInstance.FromSlot != null) // if we have something to move
             {
-                if (PutItemBack() || MergeItems(inventoryScript.MyInstance.FromSlot) || SwapItems(inventoryScript.MyInstance.FromSlot) || AddItems(inventoryScript.MyInstance.FromSlot.MyItems))
+                if (PutItemBack() || MergeItems(InventoryScript.MyInstance.FromSlot) || SwapItems(InventoryScript.MyInstance.FromSlot) || AddItems(InventoryScript.MyInstance.FromSlot.MyItems))
                 {
                     HandScript.MyInstance.Drop();
-                    inventoryScript.MyInstance.FromSlot = null;
+                    InventoryScript.MyInstance.FromSlot = null;
                 }
             }
 
@@ -227,16 +227,16 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     private bool PutItemBack()
     {
-        if (inventoryScript.MyInstance.FromSlot == this)
+        if (InventoryScript.MyInstance.FromSlot == this)
         {
-            inventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
+            InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
             return true;
         }
 
         return false;
     }
 
-    private bool SwapItems(slotScript from)
+    private bool SwapItems(SlotScript from)
     {
         if (IsEmpty)
         {
@@ -256,7 +256,7 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
         return false;
     }
 
-    private bool MergeItems(slotScript from)
+    private bool MergeItems(SlotScript from)
     {
         if (IsEmpty)
         {

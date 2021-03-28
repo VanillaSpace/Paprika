@@ -56,7 +56,7 @@ public class Profession : MonoBehaviour
 
     private void Start()
     {
-        inventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateMaterialCount);
+        InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateMaterialCount);
         ShowDescription(selectedRecipe);
     }
 
@@ -156,7 +156,7 @@ public class Profession : MonoBehaviour
 
         foreach (CraftingMaterial material in selectedRecipe.Materials)
         {
-            int count = inventoryScript.MyInstance.GetItemCount(material.MyItem.MyTitle);
+            int count = InventoryScript.MyInstance.GetItemCount(material.MyItem.MyTitle);
 
             if (count >= material.MyCount)
             {
@@ -193,13 +193,13 @@ public class Profession : MonoBehaviour
 
     public void AddItemToInventory()
     {
-        if (inventoryScript.MyInstance.AddItem(craftItemInfo.MyItem))
+        if (InventoryScript.MyInstance.AddItem(craftItemInfo.MyItem))
         {
             foreach (CraftingMaterial material in selectedRecipe.Materials)
             {
                 for (int i = 0; i < material.MyCount; i++)
                 {
-                    inventoryScript.MyInstance.RemoveItem(material.MyItem);
+                    InventoryScript.MyInstance.RemoveItem(material.MyItem);
                 }
             }
         }

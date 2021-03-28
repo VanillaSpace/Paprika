@@ -144,7 +144,7 @@ public class QuestGiverWindow : Window
 
             foreach (CollectObjective o in selectedQuest.MyCollectObjectives)
             {
-                inventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
+                InventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
                 o.Complete();
             }
 

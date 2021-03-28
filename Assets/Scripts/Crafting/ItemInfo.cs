@@ -32,7 +32,7 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (count > 1)
         {
             stack.enabled = true;
-            stack.text = inventoryScript.MyInstance.GetItemCount(item.MyTitle).ToString() + "/" + count.ToString();
+            stack.text = InventoryScript.MyInstance.GetItemCount(item.MyTitle).ToString() + "/" + count.ToString();
             
         }
     }
@@ -40,7 +40,7 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void UpdateStackCount()
     {
 
-        stack.text = inventoryScript.MyInstance.GetItemCount(MyItem.MyTitle) + "/" + count.ToString();
+        stack.text = InventoryScript.MyInstance.GetItemCount(MyItem.MyTitle) + "/" + count.ToString();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

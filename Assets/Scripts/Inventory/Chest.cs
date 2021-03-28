@@ -18,10 +18,10 @@ public class Chest : MonoBehaviour, IInteractable
     private List<Item> items;
 
     [SerializeField]
-    private bagScript bag;
+    private BagScript bag;
 
     public List<Item> MyItems { get => items; set => items = value; }
-    public bagScript MyBag { get => bag; set => bag = value; }
+    public BagScript MyBag { get => bag; set => bag = value; }
 
 
     private void Awake()

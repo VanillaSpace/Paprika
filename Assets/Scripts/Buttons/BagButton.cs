@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class BagButton : MonoBehaviour, IPointerClickHandler
 {
-    private Bags bag;
+    private Bag bag;
 
     [SerializeField]
     private Sprite full, empty;
 
-    public Bags MyBag {
+    [SerializeField]
+    private int bagIndex;
+
+    public Bag MyBag {
         get
         {
             return bag;
@@ -31,31 +34,62 @@ public class BagButton : MonoBehaviour, IPointerClickHandler
         } 
     }
 
+    public int MyBagIndex
+    {
+        get
+        {
+            return bagIndex;
+        }
+
+        set
+        {
+            bagIndex = value;
+        }
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            //holding down left shift and clicking will de-equip the bag
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (InventoryScript.MyInstance.FromSlot != null && HandScript.MyInstance.MyMoveable != null && HandScript.MyInstance.MyMoveable is Bag)
+            {
+                if (MyBag != null)
+                {
+                    InventoryScript.MyInstance.SwapBags(MyBag, HandScript.MyInstance.MyMoveable as Bag);
+                }
+                else
+                {
+                    Bag tmp = (Bag)HandScript.MyInstance.MyMoveable;
+                    tmp.MyBagButton = this;
+                    tmp.Use();
+                    MyBag = tmp;
+                    HandScript.MyInstance.Drop();
+                    InventoryScript.MyInstance.FromSlot = null;
+                }
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
             {
                 HandScript.MyInstance.TakeMoveable(MyBag);
             }
-            else if (bag != null)
+            else if (bag != null)//If we have a bag equipped
             {
-                bag.MyBagsScript.OpenClose();
+                //Open or close the bag
+                bag.MyBagScript.OpenClose();
             }
+
         }
-                
+
+
     }
 
     public void RemoveBag()
     {
-        inventoryScript.MyInstance.RemoveBag(MyBag);
+        InventoryScript.MyInstance.RemoveBag(MyBag);
         MyBag.MyBagButton = null;
 
-        foreach (Item item in MyBag.MyBagsScript.GetItems())
+        foreach (Item item in MyBag.MyBagScript.GetItems())
         {
-            inventoryScript.MyInstance.AddItem(item);
+            InventoryScript.MyInstance.AddItem(item);
         }
 
         MyBag = null;

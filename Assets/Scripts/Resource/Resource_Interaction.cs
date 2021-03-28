@@ -36,10 +36,10 @@ public class Resource_Interaction : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         //it will give the player a log in their bag
-        Resource_Items resouce = (Resource_Items)Instantiate(inventoryScript.MyInstance.Myitems[10]);
-        inventoryScript.MyInstance.AddItem(resouce);
+        Resource_Items resouce = (Resource_Items)Instantiate(InventoryScript.MyInstance.MyItems[10]);
+        InventoryScript.MyInstance.AddItem(resouce);
         
-        name = inventoryScript.MyInstance.Myitems[10].MyTitle;
+        name = InventoryScript.MyInstance.MyItems[10].MyTitle;
         
         Player.MyInstance.GetItem(name);
 

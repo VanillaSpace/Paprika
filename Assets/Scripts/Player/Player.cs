@@ -228,7 +228,7 @@ public class Player : MonoBehaviour
         //bags - close and open all bags
         if (Input.GetKeyDown(KeyCode.B))
         {
-            inventoryScript.MyInstance.OpenClose();
+            InventoryScript.MyInstance.OpenClose();
         }
         //gain XP 
         if (Input.GetKeyDown(KeyCode.X))

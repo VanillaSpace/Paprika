@@ -44169,8 +44169,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a08a1b809356c149a9ea48c19f0f0e0, type: 2}
   - {fileID: 11400000, guid: caf6411e55545f44e867dbc605ee96ac, type: 2}
   - {fileID: 11400000, guid: dd01cab6843a19e4699c35d8ba0b845d, type: 2}
-  chests:
-  - {fileID: 1780618228}
 --- !u!1001 &1283819214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47045,6 +47043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   full: {fileID: 21300000, guid: 03e9e6b92994f7241adfb92b13ea0590, type: 3}
   empty: {fileID: 21300000, guid: 9b6ec843622393b49a338004913f6cac, type: 3}
+  bagIndex: 3
 --- !u!4 &1569568834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2108979124327539094, guid: 1afa96ff3d6759341ac37bdce4aeb130, type: 3}
@@ -47185,6 +47184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   full: {fileID: 21300000, guid: 03e9e6b92994f7241adfb92b13ea0590, type: 3}
   empty: {fileID: 21300000, guid: 9b6ec843622393b49a338004913f6cac, type: 3}
+  bagIndex: 2
 --- !u!1 &1593338065
 GameObject:
   m_ObjectHideFlags: 0
@@ -55998,6 +55998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   full: {fileID: 21300000, guid: 03e9e6b92994f7241adfb92b13ea0590, type: 3}
   empty: {fileID: 21300000, guid: 9b6ec843622393b49a338004913f6cac, type: 3}
+  bagIndex: 1
 --- !u!1 &1968152977
 GameObject:
   m_ObjectHideFlags: 0
@@ -57500,6 +57501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   full: {fileID: 21300000, guid: 03e9e6b92994f7241adfb92b13ea0590, type: 3}
   empty: {fileID: 21300000, guid: 9b6ec843622393b49a338004913f6cac, type: 3}
+  bagIndex: 0
 --- !u!114 &2104208506
 MonoBehaviour:
   m_ObjectHideFlags: 0

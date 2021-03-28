@@ -96,7 +96,7 @@ public class CollectObjective : Objective
     {
         if (MyType.ToLower() == item.MyTitle.ToLower())
         {
-            MyCurrentAmount = inventoryScript.MyInstance.GetItemCount(item.MyTitle);
+            MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(item.MyTitle);
 
             if (MyCurrentAmount <= MyAmount)
             {
@@ -111,14 +111,14 @@ public class CollectObjective : Objective
 
     public void UpdateItemCount()
     {
-        MyCurrentAmount = inventoryScript.MyInstance.GetItemCount(MyType);
+        MyCurrentAmount = InventoryScript.MyInstance.GetItemCount(MyType);
         Questlog.MyInstance.UpdateSelected();
         Questlog.MyInstance.CheckCompletion();
     }
 
     public void Complete()
     {
-        Stack<Item> items = inventoryScript.MyInstance.GetItems(MyType, MyAmount);
+        Stack<Item> items = InventoryScript.MyInstance.GetItems(MyType, MyAmount);
 
         foreach (Item item in items)
         {

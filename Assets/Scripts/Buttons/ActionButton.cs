@@ -76,7 +76,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     {
         MyButton = GetComponent<Button>();
         MyButton.onClick.AddListener(OnClick);
-        inventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateItemCount);
+        InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateItemCount);
     }
     void Start()
     {
@@ -148,11 +148,11 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     {
         if (useable is Item)
         {
-            Useables = inventoryScript.MyInstance.GetUseables(useable);
+            Useables = InventoryScript.MyInstance.GetUseables(useable);
 
             count = Useables.Count;
-            inventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
-            inventoryScript.MyInstance.FromSlot = null;
+            InventoryScript.MyInstance.FromSlot.MyIcon.color = Color.white;
+            InventoryScript.MyInstance.FromSlot = null;
         }
         else
         {
@@ -182,7 +182,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         {
             if (Useables.Peek().GetType() == item.GetType())
             {
-                Useables = inventoryScript.MyInstance.GetUseables(item as IUseable);
+                Useables = InventoryScript.MyInstance.GetUseables(item as IUseable);
 
                 count = Useables.Count;
 

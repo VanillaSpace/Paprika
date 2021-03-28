@@ -66,7 +66,7 @@ public class Questlog : MonoBehaviour
 
             foreach (CollectObjective o in quest.MyCollectObjectives)
             {
-                inventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
+                InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(o.UpdateItemCount);
 
                 o.UpdateItemCount();
             }
@@ -157,7 +157,7 @@ public class Questlog : MonoBehaviour
     {
         foreach (CollectObjective o in selected.MyCollectObjectives)
         {
-            inventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
+            InventoryScript.MyInstance.itemCountChangedEvent -= new ItemCountChanged(o.UpdateItemCount);
 
         }
 

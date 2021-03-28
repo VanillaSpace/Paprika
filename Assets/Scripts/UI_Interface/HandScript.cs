@@ -73,14 +73,14 @@ public class HandScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && MyInstance.MyMoveable != null)
         {
-            if (MyMoveable is Item && inventoryScript.MyInstance.FromSlot != null)
+            if (MyMoveable is Item && InventoryScript.MyInstance.FromSlot != null)
             {
                 (MyMoveable as Item).MySlot.Clear();
             }
 
             Drop();
 
-            inventoryScript.MyInstance.FromSlot = null;
+            InventoryScript.MyInstance.FromSlot = null;
         }
     }
 }

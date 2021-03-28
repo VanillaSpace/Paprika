@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bagScript : MonoBehaviour
+public class BagScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject slotPrefab;
 
     private CanvasGroup canvasGroup;
 
-    private List<slotScript> slots = new List<slotScript>();
+    private List<SlotScript> slots = new List<SlotScript>();
 
+    public int MyBagIndex { get; set; }
     public bool IsOpen
     {
         get { return canvasGroup.alpha > 0; }
     }
 
-    public List<slotScript> MySlots { get => slots; }
+    public List<SlotScript> MySlots { get => slots; }
 
     public int MyEmptySlotCount
     {
@@ -24,7 +25,7 @@ public class bagScript : MonoBehaviour
         {
             int count = 0;
 
-            foreach (slotScript slot in MySlots)
+            foreach (SlotScript slot in MySlots)
             {
                 if(slot.IsEmpty)
                 {
@@ -36,6 +37,7 @@ public class bagScript : MonoBehaviour
     }
 
 
+
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -45,7 +47,7 @@ public class bagScript : MonoBehaviour
     {
         List<Item> items = new List<Item>();
 
-        foreach (slotScript slot in slots)
+        foreach (SlotScript slot in slots)
         {
             if (!slot.IsEmpty)
             {
@@ -63,7 +65,7 @@ public class bagScript : MonoBehaviour
     {
         for (int i = 0; i < slotCount; i++)
         {
-            slotScript slot =  Instantiate(slotPrefab, transform).GetComponent<slotScript>();
+            SlotScript slot =  Instantiate(slotPrefab, transform).GetComponent<SlotScript>();
             slot.MyIndex = i;
             slot.MyBag = this; 
             MySlots.Add(slot);
@@ -72,7 +74,7 @@ public class bagScript : MonoBehaviour
 
     public bool AddItem(Item item)
     {
-        foreach (slotScript slot in MySlots)
+        foreach (SlotScript slot in MySlots)
         {
             if (slot.IsEmpty)
             {
@@ -94,7 +96,7 @@ public class bagScript : MonoBehaviour
 
     public void Clear()
     {
-        foreach (slotScript slot in slots)
+        foreach (SlotScript slot in slots)
         {
             slot.Clear();
         }

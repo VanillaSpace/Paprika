@@ -24,7 +24,7 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         get { return quality; }
         set { quality = value; }
     }
-    private slotScript slot;
+    private SlotScript slot;
 
 
     public Sprite MyIcon 
@@ -54,7 +54,7 @@ public abstract class Item : ScriptableObject, IMoveable, IDescribable
         }
     }
 
-    public slotScript MySlot 
+    public SlotScript MySlot 
     {
         get 
         { 

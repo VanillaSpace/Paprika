@@ -27,7 +27,7 @@ public class LootButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerClick(PointerEventData eventData)
     {
         //loot item
-       if (inventoryScript.MyInstance.AddItem(MyLoot))
+       if (InventoryScript.MyInstance.AddItem(MyLoot))
         {
             gameObject.SetActive(false);
             lootWindow.TakeLoot(MyLoot);

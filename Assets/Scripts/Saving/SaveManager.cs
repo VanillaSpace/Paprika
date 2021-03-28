@@ -43,6 +43,8 @@ public class SaveManager : MonoBehaviour
 
             SaveData data = new SaveData();
 
+            SaveBags(data);
+
             SavePlayer(data);
 
             SaveChests(data);
@@ -55,6 +57,7 @@ public class SaveManager : MonoBehaviour
         catch (System.Exception)
         {
             //this is for handling errors
+            throw;
         }
     }
     private void SavePlayer(SaveData data)
@@ -65,7 +68,8 @@ public class SaveManager : MonoBehaviour
             Player.MyInstance.MyHealth.myCurrentValue,
             Player.MyInstance.MyHealth.MyMaxValue,
             Player.MyInstance.MyStamina.myCurrentValue,
-            Player.MyInstance.MyStamina.MyMaxValue);
+            Player.MyInstance.MyStamina.MyMaxValue,
+            Player.MyInstance.transform.position);
     }
 
     private void SaveChests(SaveData data)
@@ -84,6 +88,13 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public void SaveBags(SaveData data)
+    {
+        for (int i = 1; i < InventoryScript.MyInstance.MyBags.Count; i++)
+        {
+            data.MyInventoryData.MyBags.Add(new BagData(InventoryScript.MyInstance.MyBags[i].MySlotCount, InventoryScript.MyInstance.MyBags[i].MyBagButton.MyBagIndex));
+        }
+    }
 
     private void Load()
     {
@@ -96,6 +107,8 @@ public class SaveManager : MonoBehaviour
             SaveData data = (SaveData)bf.Deserialize(file);
 
             file.Close();
+
+            LoadBags(data);
 
             LoadPlayer(data);
 
@@ -115,6 +128,7 @@ public class SaveManager : MonoBehaviour
         Player.MyInstance.MyHealth.Initialize(data.MyPlayerData.MyHealth, data.MyPlayerData.MyMaxHealth);
         Player.MyInstance.MyStamina.Initialize(data.MyPlayerData.MyStamina, data.MyPlayerData.MyMaxStamina);
         Player.MyInstance.MyXP.Initialize(data.MyPlayerData.MyXp, data.MyPlayerData.MyMaxXP);
+        Player.MyInstance.transform.position = new Vector2(data.MyPlayerData.MyX, data.MyPlayerData.MyY); 
     }
 
     private void LoadChests(SaveData data)
@@ -131,6 +145,18 @@ public class SaveManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void LoadBags(SaveData data)
+    {
+        foreach (BagData bagData in data.MyInventoryData.MyBags)
+        {
+            Bag newBag = (Bag)Instantiate(items[0]);
+
+            newBag.Initialize(bagData.MySlotCount);
+
+            InventoryScript.MyInstance.AddBag(newBag, bagData.MyBagIndex);
+        }
     }
 
 }
