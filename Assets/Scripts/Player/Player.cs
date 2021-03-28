@@ -69,7 +69,11 @@ public class Player : MonoBehaviour
     public bool IsMoving { get => isMoving; set => isMoving = value; }
     public CharacterStats MyXP { get => xpStat; set => xpStat = value; }
 
-    public int MyLevel { get => level; set => level = value; }
+    public int MyLevel { get => level; set { level = value; } }
+
+    public float MymaxXP { get => maxXP; set => maxXP = value; }
+    public float MyMaxHealth { get => maxHealth; set => maxHealth = value; }
+    public float MyMaxStamina { get => maxStamina; set => maxStamina = value; }
 
     private bool isMoving;
 
@@ -77,8 +81,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health.Initialize(maxHealth, maxHealth);
-        stamina.Initialize(maxStamina, maxStamina);
+        health.Initialize(MyMaxHealth, MyMaxHealth);
+        stamina.Initialize(MyMaxStamina, MyMaxStamina);
 
         //level system going upwards 
         xpStat.Initialize(Mathf.Floor(100 * MyLevel * Mathf.Pow(MyLevel, 0.2f)), 0);
@@ -95,8 +99,6 @@ public class Player : MonoBehaviour
         Move();
 
         StopProjectiles();
-
-        //Debug.Log(isMoving);
 
     }
 
@@ -349,6 +351,11 @@ public class Player : MonoBehaviour
 
         //for debug
         Debug.Log("collected" + name);
+    }
+
+    public void UpdateLevel()
+    {
+        levelTXT.text = MyLevel.ToString();
     }
 
     private IEnumerator levelUp()
