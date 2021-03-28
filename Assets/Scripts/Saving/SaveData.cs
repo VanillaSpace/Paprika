@@ -1,13 +1,15 @@
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class SaveData 
 { 
     public PlayerData MyPlayerData { get; set; }
 
+    public List<ChestData> MyChestData { get; set; }
     public SaveData()
     {
-
+        MyChestData = new List<ChestData>();
     }
 }
 
@@ -37,5 +39,39 @@ public class PlayerData
         this.MyMaxHealth = maxHealth;
         this.MyStamina = stamina;
         this.MyMaxStamina = maxStamina;
+    }
+
+}
+
+[Serializable]
+public class ItemData
+{
+    public string MyTitle { get; set; }
+
+    public int MyStackCount { get; set; }
+
+    public int MySlotIndex { get; set; }
+
+    public ItemData(string title, int stackCount = 0, int slotIndex = 0)
+    {
+        MyTitle = title;
+        MyStackCount = stackCount;
+        MySlotIndex = slotIndex;
+
+    }
+}
+
+[Serializable]
+public class ChestData
+{
+    public string MyName { get; set; }
+
+    public List<ItemData> MyItems { get; set; }
+
+    public ChestData(string name)
+    {
+        MyName = name;
+
+        MyItems = new List<ItemData>();
     }
 }

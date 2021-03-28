@@ -34,6 +34,8 @@ public class slotScript : MonoBehaviour, IPointerClickHandler, IClickable, IPoin
 
     public bagScript MyBag { get; set; } //reference to the slot the bag is sitting on
 
+    public int MyIndex { get; set; }
+
     public bool IsEmpty
     {
         get

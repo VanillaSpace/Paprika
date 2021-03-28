@@ -64,6 +64,7 @@ public class bagScript : MonoBehaviour
         for (int i = 0; i < slotCount; i++)
         {
             slotScript slot =  Instantiate(slotPrefab, transform).GetComponent<slotScript>();
+            slot.MyIndex = i;
             slot.MyBag = this; 
             MySlots.Add(slot);
         }
