@@ -77,6 +77,16 @@
     - [x] Add, selecting 
     - [x] Update objectives
 
+* Level System
+    - [x] XP gain
+    - [x] UI
+    - [x] Quest XP
+    - [x] Level up event
+
+* Loading and Saving System
+    - [x] Save player stats
+    - [x] Saving chests
+
 
 # Tools 
 
@@ -92,19 +102,13 @@
 
 > Future roadmap and additional systems / tools that will be added
 
-* Level System
-    - [x] XP gain
-    - [x] UI
-    - [ ] Mob XP
-    - [ ] Quest XP
-    - [x] Level up event
-
-* Loading and Saving System
-    - [ ] Save player stats
-    - [ ] Saving chests
-
 * Skeleton Enemies
 
+* Farming Mechanics 
+    - [ ] Plowing
+    - [ ] Seeding
+    - [ ] Growing Crops
+    - [ ] Harvesting
 
 ### Resource
 * [Sunnyside World - Daniel Diggle](https://itch.store/assets/other/boxy-bold-font/)
