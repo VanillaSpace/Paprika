@@ -83,7 +83,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeLife: 3
+  spriteRender: {fileID: 0}
   treeStump: {fileID: -1963414115657682169, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
+  spawnRadius: 2.5
+  treeArea: {fileID: 0}
+  logPrefab: {fileID: 0}
+  stopAfterSpawns: 5
+  currSpawns: 0
 --- !u!1 &354356005762357839
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +140,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -216,7 +222,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -302,7 +308,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

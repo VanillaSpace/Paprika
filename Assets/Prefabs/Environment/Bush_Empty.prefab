@@ -51,6 +51,8 @@ MonoBehaviour:
   defaultSprite: {fileID: 2959462557836931967, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
   gatherSprite: {fileID: 1490526116862666764, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
   gatherIndicator: {fileID: 5617367395938521830}
+  canChop: 0
+  resource: {fileID: 0}
 --- !u!58 &1016185531
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +119,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +205,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,7 +300,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

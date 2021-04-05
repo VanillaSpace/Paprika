@@ -320,7 +320,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,10 +414,12 @@ MonoBehaviour:
   health: {fileID: 953813815395199603}
   initHealth: 50
   animator: {fileID: 953813815851962099}
+  type: 
   slimeFacing: {fileID: 953813815851962097}
   healthGroup: {fileID: 953813815244068321}
   enemyAnim: {fileID: 953813815851962099}
   initAggroRange: 1
+  lootTable: {fileID: 0}
 --- !u!50 &953813815851961613
 Rigidbody2D:
   serializedVersion: 4
