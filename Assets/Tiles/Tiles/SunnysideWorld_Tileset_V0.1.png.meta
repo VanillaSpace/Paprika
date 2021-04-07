@@ -136,13 +136,13 @@ TextureImporter:
     second: SunnysideWorld_Tileset_V0.1_43
   - first:
       213: 73485061911033797
-    second: SunnysideWorld_Tileset_V0.1_44
+    second: p_4
   - first:
       213: -3478798325191866620
-    second: SunnysideWorld_Tileset_V0.1_45
+    second: plowable_3
   - first:
       213: 493805736459250188
-    second: SunnysideWorld_Tileset_V0.1_46
+    second: p_5
   - first:
       213: -1145169518409626001
     second: SunnysideWorld_Tileset_V0.1_47
@@ -229,7 +229,7 @@ TextureImporter:
     second: SunnysideWorld_Tileset_V0.1_74
   - first:
       213: -6568554116529688910
-    second: SunnysideWorld_Tileset_V0.1_75
+    second: plowable_1
   - first:
       213: -8880976660499680026
     second: SunnysideWorld_Tileset_V0.1_76
@@ -310,13 +310,13 @@ TextureImporter:
     second: SunnysideWorld_Tileset_V0.1_101
   - first:
       213: -6018776184288221811
-    second: SunnysideWorld_Tileset_V0.1_102
+    second: p_7
   - first:
       213: 2804027954953021645
-    second: SunnysideWorld_Tileset_V0.1_103
+    second: plowable_2
   - first:
       213: 2132632493538424827
-    second: SunnysideWorld_Tileset_V0.1_104
+    second: p_6
   - first:
       213: 1327640728771462450
     second: SunnysideWorld_Tileset_V0.1_105
@@ -2281,7 +2281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_44
+      name: p_4
       rect:
         serializedVersion: 2
         x: 304
@@ -2302,7 +2302,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_45
+      name: plowable_3
       rect:
         serializedVersion: 2
         x: 320
@@ -2323,7 +2323,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_46
+      name: p_5
       rect:
         serializedVersion: 2
         x: 336
@@ -2932,7 +2932,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_75
+      name: plowable_1
       rect:
         serializedVersion: 2
         x: 320
@@ -3499,7 +3499,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_102
+      name: p_7
       rect:
         serializedVersion: 2
         x: 304
@@ -3520,7 +3520,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_103
+      name: plowable_2
       rect:
         serializedVersion: 2
         x: 320
@@ -3541,7 +3541,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SunnysideWorld_Tileset_V0.1_104
+      name: p_6
       rect:
         serializedVersion: 2
         x: 336

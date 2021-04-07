@@ -61,7 +61,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_18
   - first:
       213: -5265046902589722738
-    second: SUNNYSIDE_WORLD_UI 1_19
+    second: Marker
   - first:
       213: -1757013981780754325
     second: SUNNYSIDE_WORLD_UI 1_20
@@ -712,7 +712,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_19
+      name: Marker
       rect:
         serializedVersion: 2
         x: 116

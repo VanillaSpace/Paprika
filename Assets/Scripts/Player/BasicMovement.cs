@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,12 +27,10 @@ public class BasicMovement : MonoBehaviour
 
     public int ExitIndex { get => exitIndex; set => exitIndex = value; }
     
-
     public Animator animator;
 
     [SerializeField]
     private Blocks[] blocks;
-
 
     [SerializeField]
     private Transform[] exitPoint;
@@ -47,6 +46,12 @@ public class BasicMovement : MonoBehaviour
 
     [SerializeField]
     private Profession profession;
+
+    [Space]
+    [Header("Marker Manager")]
+    [SerializeField] MarkerManager markermanager;
+    [SerializeField] TileMapReadController tileMapeReadcontroller;
+
     void Start()
     {
    
@@ -55,9 +60,14 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Marker(); 
     }
 
+    private void Marker()
+    {
+        Vector3Int gridPosition = tileMapeReadcontroller.GetGridPostion(Input.mousePosition, true);
+        markermanager.markedCellPosition = gridPosition;
+    }
 
     public IEnumerator AttackRoutine(ICastable castable)
     {
