@@ -21,8 +21,11 @@ public class TileMapReadController : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
 
-    public Vector3Int GetGridPostion(Vector2 position, bool mousePosition = false)
+    }
+    public Vector3Int GetGridPostion(Vector2 position, bool mousePosition)
     {
         Vector3 worldPosition;
 
@@ -34,7 +37,7 @@ public class TileMapReadController : MonoBehaviour
         {
             worldPosition = position;
         }
-
+  
         Vector3Int gridPos = tilemap.WorldToCell(worldPosition);
 
         return gridPos;
@@ -42,7 +45,6 @@ public class TileMapReadController : MonoBehaviour
     
     public TileBase GetTileBase(Vector3Int gridPosition)
     {
-
         TileBase tile = tilemap.GetTile(gridPosition);
 
         return tile;

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loot:
   - item: {fileID: 11400000, guid: e6d06b054bde1364cafe1989f765806c, type: 2}
-    dropChance: 50
+    dropChance: 0
   spriteRender: {fileID: 2108979124327539095}
   defaultSprite: {fileID: 2432219893055653995, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
   gatherSprite: {fileID: -7401403916180088506, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
@@ -69,7 +69,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.88
 --- !u!114 &1811478833200084676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,11 +83,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeLife: 3
-  spriteRender: {fileID: 0}
+  spriteRender: {fileID: 2108979124327539095}
   treeStump: {fileID: -1963414115657682169, guid: 94f29fce8492a7c468eaa39fab98b0f4, type: 3}
   spawnRadius: 2.5
-  treeArea: {fileID: 0}
-  logPrefab: {fileID: 0}
+  treeArea: {fileID: 2108979124327539093}
+  logPrefab: {fileID: 731845254720762670, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
   stopAfterSpawns: 5
   currSpawns: 0
 --- !u!1 &354356005762357839
@@ -348,8 +348,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108979124327539093}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7997231, y: 1.9599264, z: 0.2}
-  m_Center: {x: -0.06, y: 0.15408504, z: 0}
+  m_Size: {x: 1.4107852, y: 1.8247948, z: 0.2}
+  m_Center: {x: -0.05325818, y: 0.14747667, z: 0}

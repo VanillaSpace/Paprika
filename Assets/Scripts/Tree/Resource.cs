@@ -61,18 +61,7 @@ public class Resource : MonoBehaviour, IInteractable
 
     public void StopInteract()
     {
-        //if (treeLife == 0)
-        //{
-        //    // spawn logs 
 
-        //    //change to stump
-        //    GatherLoot.MyInstance.spriteRender.sprite = treeStump;
-
-        //    //make the game object false
-
-        //}
-
-        throw new NotImplementedException();
     }
 
     public void SpawnLogs()

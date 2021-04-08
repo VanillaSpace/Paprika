@@ -55,6 +55,7 @@ public class BasicMovement : MonoBehaviour
     [SerializeField] float maxDistance = 1.5f;
     [SerializeField] CropsManager cropsManager;
     [SerializeField] TileData plowableTile;
+    [SerializeField] TileData Non_plowableTile;
 
     Vector3Int selectedTilePosition;
     bool selectable; 
@@ -70,6 +71,7 @@ public class BasicMovement : MonoBehaviour
         SelectTile();
         CanSelectCheck();
         Marker();
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -271,9 +273,13 @@ public class BasicMovement : MonoBehaviour
     {
         if (selectable == true)
         {
-            TileBase tileBase = tileMapeReadcontroller.GetTileBase(selectedTilePosition);
-            TileData tileData = tileMapeReadcontroller.GetTileData(tileBase);
-            if(tileData != plowableTile) { return; }
+           TileBase tileBase = tileMapeReadcontroller.GetTileBase(selectedTilePosition);
+           TileData tileData = tileMapeReadcontroller.GetTileData(tileBase);
+           
+            if (tileData != plowableTile) 
+            { 
+                return; 
+            }
 
             if (cropsManager.Check(selectedTilePosition))
             {
