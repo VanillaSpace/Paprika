@@ -75,7 +75,7 @@ public class BasicMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            UseToolGrid();
+            //UseToolGrid();
         }
     }
 

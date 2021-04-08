@@ -10766,6 +10766,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197293052}
   m_CullTransparentMesh: 1
+--- !u!1 &198062099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2108979124327539093, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
+  m_PrefabInstance: {fileID: 877570494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &198062101
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198062099}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05913979, y: 0.15376306}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 3}
+    newSize: {x: 2, y: 3}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3612922, y: 1.6989284}
+  m_EdgeRadius: 0
+--- !u!114 &198062102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198062099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6be611fcf08564e98da0ec13ea2bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resource_drop: {fileID: 731845254720762670, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
+  dropCount: 5
+  spread: 0.7
 --- !u!4 &232400428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2108979124327539094, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
@@ -41212,6 +41258,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 28619125}
     m_Modifications:
+    - target: {fileID: 1811478833200084676, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2108979124327539093, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
       propertyPath: m_Name
       value: Tree_Empty
@@ -41260,7 +41310,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 558347619, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
 --- !u!1 &887483291
 GameObject:
@@ -47631,6 +47682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80d0a32c310f6a4ebdbf4b585165458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Paprika: {fileID: 3389718406288717021}
   player: {fileID: 3389718406288717022}
   playerMovement: {fileID: 3389718406288717018}
 --- !u!4 &1564325212
@@ -58795,7 +58847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 731845254720762668, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.61
+      value: 5.72
       objectReference: {fileID: 0}
     - target: {fileID: 731845254720762668, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
       propertyPath: m_LocalPosition.y
@@ -58836,6 +58888,10 @@ PrefabInstance:
     - target: {fileID: 731845254720762670, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
       propertyPath: m_Name
       value: Logs
+      objectReference: {fileID: 0}
+    - target: {fileID: 2637682197977983744, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
+      propertyPath: pickUpDistance
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5594808e0c28e846b38d591a2458d21, type: 3}
@@ -60556,6 +60612,7 @@ GameObject:
   - component: {fileID: 751074407}
   - component: {fileID: 751074406}
   - component: {fileID: 3389718406288717022}
+  - component: {fileID: 3389718406288717023}
   m_Layer: 0
   m_Name: Paprika
   m_TagString: Player
@@ -60587,6 +60644,21 @@ MonoBehaviour:
   level: 1
   levelTXT: {fileID: 1531031888}
   paprikaFace: {fileID: 3389718406288717019}
+  lastMotionVector: {x: 0, y: 0}
+--- !u!114 &3389718406288717023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3389718406288717021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06549914b0c5224c8b1dce536c2b025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsetDistance: 1
+  sizeOfInteractableArea: 1.2
 --- !u!1 &3756766496763282528
 GameObject:
   m_ObjectHideFlags: 0
@@ -60731,6 +60803,10 @@ PrefabInstance:
     - target: {fileID: 4499727406802738854, guid: 082821b47d1cfcf4a91f4dddc6d293d1, type: 3}
       propertyPath: m_Name
       value: Signs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238145288701686951, guid: 082821b47d1cfcf4a91f4dddc6d293d1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 082821b47d1cfcf4a91f4dddc6d293d1, type: 3}

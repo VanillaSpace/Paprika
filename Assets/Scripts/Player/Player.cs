@@ -77,6 +77,8 @@ public class Player : MonoBehaviour
 
     private bool isMoving;
 
+    public Vector2 lastMotionVector;
+
 
     // Start is called before the first frame update
     void Start()
@@ -114,7 +116,6 @@ public class Player : MonoBehaviour
 
         if (moveHorizontal == 0 && moveVertical == 0 && isBusy == false)
         {
-
             playerAnim.SetBool("isRun", false);
             playerAnim.SetBool("isWalk", false);
 
@@ -124,7 +125,15 @@ public class Player : MonoBehaviour
             }
             
         }
-     
+
+        if (moveHorizontal != 0 || moveVertical != 0)
+        {
+            lastMotionVector = new Vector2(
+                moveHorizontal,
+                moveVertical
+            ).normalized;
+        }
+
 
         MyDirection = Vector2.zero;
 

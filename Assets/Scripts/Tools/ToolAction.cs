@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class ToolAction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+     public virtual bool OnApply()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.LogWarning("OnApply is not implemented");
+        return true;
     }
 }

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public event KillConfirmed killConfirmedEvent;
 
+    [SerializeField] public GameObject Paprika;
+
     [SerializeField]
     private Player player;
 
