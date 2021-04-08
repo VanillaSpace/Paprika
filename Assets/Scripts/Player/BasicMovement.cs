@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class BasicMovement : MonoBehaviour
     [SerializeField] MarkerManager markermanager;
     [SerializeField] TileMapReadController tileMapeReadcontroller;
     [SerializeField] float maxDistance = 1.5f;
+    [SerializeField] CropsManager cropsManager;
+    [SerializeField] TileData plowableTile;
 
     Vector3Int selectedTilePosition;
     bool selectable; 
@@ -66,7 +69,12 @@ public class BasicMovement : MonoBehaviour
     {
         SelectTile();
         CanSelectCheck();
-        Marker(); 
+        Marker();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            UseToolGrid();
+        }
     }
 
     private void SelectTile()
@@ -259,6 +267,23 @@ public class BasicMovement : MonoBehaviour
 
     }
 
+    private void UseToolGrid()
+    {
+        if (selectable == true)
+        {
+            TileBase tileBase = tileMapeReadcontroller.GetTileBase(selectedTilePosition);
+            TileData tileData = tileMapeReadcontroller.GetTileData(tileBase);
+            if(tileData != plowableTile) { return; }
 
+            if (cropsManager.Check(selectedTilePosition))
+            {
+                cropsManager.Seed(selectedTilePosition);
+            }
+            else
+            {
+                cropsManager.Plow(selectedTilePosition);
+            }
+        }
+    }
 
 }
