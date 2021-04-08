@@ -51,6 +51,10 @@ public class BasicMovement : MonoBehaviour
     [Header("Marker Manager")]
     [SerializeField] MarkerManager markermanager;
     [SerializeField] TileMapReadController tileMapeReadcontroller;
+    [SerializeField] float maxDistance = 1.5f;
+
+    Vector3Int selectedTilePosition;
+    bool selectable; 
 
     void Start()
     {
@@ -60,13 +64,27 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SelectTile();
+        CanSelectCheck();
         Marker(); 
+    }
+
+    private void SelectTile()
+    {
+        selectedTilePosition = tileMapeReadcontroller.GetGridPostion(Input.mousePosition, true);
+    }
+
+    void CanSelectCheck()
+    {
+        Vector2 characterPos = transform.position;
+        Vector2 cameraPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        selectable = Vector2.Distance(characterPos, cameraPos) < maxDistance;
+        markermanager.Show(selectable);
     }
 
     private void Marker()
     {
-        Vector3Int gridPosition = tileMapeReadcontroller.GetGridPostion(Input.mousePosition, true);
-        markermanager.markedCellPosition = gridPosition;
+        markermanager.markedCellPosition = selectedTilePosition;
     }
 
     public IEnumerator AttackRoutine(ICastable castable)
@@ -84,8 +102,6 @@ public class BasicMovement : MonoBehaviour
         }
                
     }
-
-   
     private IEnumerator GatherRoutine(ICastable castable, List<Drop> items)
     {
 
@@ -161,7 +177,6 @@ public class BasicMovement : MonoBehaviour
             }
   
     }
-
 
     public void Gather(ICastable castable,  List<Drop> items)
     {
