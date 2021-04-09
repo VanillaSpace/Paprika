@@ -58650,10 +58650,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Axe
       objectReference: {fileID: 0}
+    - target: {fileID: 1405205336286473296, guid: 14bdc7da792526d48ba33d0e05810e92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1405205336286473300, guid: 14bdc7da792526d48ba33d0e05810e92, type: 3}
       propertyPath: tools
       value: 
-      objectReference: {fileID: 11400000, guid: 7c313b73780dbc0499e60fc1a61408c4, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1405205336286473301, guid: 14bdc7da792526d48ba33d0e05810e92, type: 3}
       propertyPath: m_RootOrder
       value: 15
