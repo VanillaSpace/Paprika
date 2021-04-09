@@ -138,12 +138,12 @@ public class Player : MonoBehaviour
         MyDirection = Vector2.zero;
 
         //health
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            Debug.Log("Should be losing HP");
-            health.myCurrentValue -= 10;
-            stamina.myCurrentValue -= 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    Debug.Log("Should be losing HP");
+        //    health.myCurrentValue -= 10;
+        //    stamina.myCurrentValue -= 10;
+        //}
         if (Input.GetKeyDown(KeyCode.O))
         {
             Debug.Log("Should be gaining HP");

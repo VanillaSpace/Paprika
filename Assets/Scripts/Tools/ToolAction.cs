@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolAction : MonoBehaviour
+public class ToolAction : ScriptableObject
 {
-     public virtual bool OnApply()
+     public virtual bool OnApply(Vector2 worldPoint)
     {
         Debug.LogWarning("OnApply is not implemented");
         return true;

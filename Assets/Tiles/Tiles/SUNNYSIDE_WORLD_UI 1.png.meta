@@ -43,7 +43,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_12
   - first:
       213: 6279638035663827065
-    second: SUNNYSIDE_WORLD_UI 1_13
+    second: WaterCan_Icon
   - first:
       213: -1745318065613382244
     second: SUNNYSIDE_WORLD_UI 1_14
@@ -70,7 +70,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_21
   - first:
       213: 7344765217072571903
-    second: SUNNYSIDE_WORLD_UI 1_22
+    second: Axe_Icon
   - first:
       213: -4330500249420649291
     second: SUNNYSIDE_WORLD_UI 1_23
@@ -94,7 +94,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_29
   - first:
       213: -4123145047290769281
-    second: SUNNYSIDE_WORLD_UI 1_30
+    second: Hammer_Icon
   - first:
       213: 2372408564036309331
     second: SUNNYSIDE_WORLD_UI 1_31
@@ -124,7 +124,7 @@ TextureImporter:
     second: Left Arrow
   - first:
       213: 7166021608301441616
-    second: SUNNYSIDE_WORLD_UI 1_40
+    second: Sword_Icon
   - first:
       213: -4391179866136158701
     second: SUNNYSIDE_WORLD_UI 1_41
@@ -163,10 +163,10 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI 1_52
   - first:
       213: 7279370650438791861
-    second: SUNNYSIDE_WORLD_UI 1_53
+    second: Pikaxe_Icon
   - first:
       213: -7251480685640561946
-    second: SUNNYSIDE_WORLD_UI 1_54
+    second: Shovel_Icon
   - first:
       213: 4260436987119028425
     second: SUNNYSIDE_WORLD_UI 1_55
@@ -586,7 +586,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_13
+      name: WaterCan_Icon
       rect:
         serializedVersion: 2
         x: 161
@@ -775,7 +775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_22
+      name: Axe_Icon
       rect:
         serializedVersion: 2
         x: 160
@@ -943,7 +943,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_30
+      name: Hammer_Icon
       rect:
         serializedVersion: 2
         x: 161
@@ -1153,7 +1153,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_40
+      name: Sword_Icon
       rect:
         serializedVersion: 2
         x: 161
@@ -1426,7 +1426,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_53
+      name: Pikaxe_Icon
       rect:
         serializedVersion: 2
         x: 145
@@ -1447,7 +1447,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI 1_54
+      name: Shovel_Icon
       rect:
         serializedVersion: 2
         x: 161

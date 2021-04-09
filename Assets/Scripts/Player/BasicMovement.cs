@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
+
 
 public class BasicMovement : MonoBehaviour
 {
@@ -48,17 +48,6 @@ public class BasicMovement : MonoBehaviour
     [SerializeField]
     private Profession profession;
 
-    [Space]
-    [Header("Marker Manager")]
-    [SerializeField] MarkerManager markermanager;
-    [SerializeField] TileMapReadController tileMapeReadcontroller;
-    [SerializeField] float maxDistance = 1.5f;
-    [SerializeField] CropsManager cropsManager;
-    [SerializeField] TileData plowableTile;
-    [SerializeField] TileData Non_plowableTile;
-
-    Vector3Int selectedTilePosition;
-    bool selectable; 
 
     void Start()
     {
@@ -68,33 +57,7 @@ public class BasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SelectTile();
-        CanSelectCheck();
-        Marker();
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            //UseToolGrid();
-        }
-    }
-
-    private void SelectTile()
-    {
-        selectedTilePosition = tileMapeReadcontroller.GetGridPostion(Input.mousePosition, true);
-    }
-
-    void CanSelectCheck()
-    {
-        Vector2 characterPos = transform.position;
-        Vector2 cameraPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        selectable = Vector2.Distance(characterPos, cameraPos) < maxDistance;
-        markermanager.Show(selectable);
-    }
-
-    private void Marker()
-    {
-        markermanager.markedCellPosition = selectedTilePosition;
     }
 
     public IEnumerator AttackRoutine(ICastable castable)
@@ -267,29 +230,6 @@ public class BasicMovement : MonoBehaviour
             MyAnimNames = "isChopping";
         }
 
-    }
-
-    private void UseToolGrid()
-    {
-        if (selectable == true)
-        {
-           TileBase tileBase = tileMapeReadcontroller.GetTileBase(selectedTilePosition);
-           TileData tileData = tileMapeReadcontroller.GetTileData(tileBase);
-           
-            if (tileData != plowableTile) 
-            { 
-                return; 
-            }
-
-            if (cropsManager.Check(selectedTilePosition))
-            {
-                cropsManager.Seed(selectedTilePosition);
-            }
-            else
-            {
-                cropsManager.Plow(selectedTilePosition);
-            }
-        }
     }
 
 }

@@ -6,20 +6,6 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPointerEnterHandler, IPointerExitHandler
 {
-    public IUseable MyUseable { get; set; }
-
-    [SerializeField]
-    private Text stackSize;
-
-    private Stack<IUseable> useables = new Stack<IUseable>();
-
-    private int count;
-
-    public Button MyButton { get; private set; }
-
-    [SerializeField]
-    private Image icon;
-
     public static ActionButton instance;
 
     public static ActionButton MyInstance
@@ -34,6 +20,20 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         }
 
     }
+    public IUseable MyUseable { get; set; }
+
+    [SerializeField]
+    private Text stackSize;
+
+    private Stack<IUseable> useables = new Stack<IUseable>();
+
+    private int count;
+
+    public Button MyButton { get; private set; }
+
+    [SerializeField]
+    private Image icon;
+
 
     public Image MyIcon { get => icon; set => icon = value; }
 
@@ -72,11 +72,23 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
         }
     }
 
+    tools_Interactable tools_i;
+
+    public Tools_Scriptable GetTool
+    {
+        get
+        {
+            return (Tools_Scriptable)InventoryScript.MyInstance.MyItems[11];
+        }
+    }
+
     private void Awake()
     {
         MyButton = GetComponent<Button>();
+        tools_i = GetComponent<tools_Interactable>();
         MyButton.onClick.AddListener(OnClick);
         InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateItemCount);
+
     }
     void Start()
     {
@@ -86,7 +98,7 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(GetTool);
     }
 
     public void OnClick()
