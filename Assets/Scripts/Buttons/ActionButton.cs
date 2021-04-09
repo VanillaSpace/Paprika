@@ -34,7 +34,6 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     [SerializeField]
     private Image icon;
 
-
     public Image MyIcon { get => icon; set => icon = value; }
 
     public int MyCount
@@ -78,14 +77,15 @@ public class ActionButton : MonoBehaviour, IPointerClickHandler, IClickable, IPo
     {
         get
         {
-            return (Tools_Scriptable)InventoryScript.MyInstance.MyItems[11];
+            return tools_Interactable.MyInstance.tools;
+            //return (Tools_Scriptable)InventoryScript.MyInstance.MyItems[tools_Interactable.MyInstance.inv_item_list];
         }
     }
 
     private void Awake()
     {
-        MyButton = GetComponent<Button>();
         tools_i = GetComponent<tools_Interactable>();
+        MyButton = GetComponent<Button>();
         MyButton.onClick.AddListener(OnClick);
         InventoryScript.MyInstance.itemCountChangedEvent += new ItemCountChanged(UpdateItemCount);
 

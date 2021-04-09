@@ -63,9 +63,11 @@ public class ToolsCharacterController : MonoBehaviour
 
     private bool UseWorldTool()
     {
+        
         Vector2 position = rgbd2d.position + character.lastMotionVector * offsetDistance;
 
         Tools_Scriptable tool = ActionButton.MyInstance.GetTool;
+        
         if(tool == null) { return false; }
         if(tool.OnAction == null) { return false; }
 

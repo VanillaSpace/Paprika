@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class tools_Interactable : MonoBehaviour
 {
-    public string name;
-
     public static tools_Interactable instance;
     public static tools_Interactable MyInstance
     {
@@ -19,23 +17,40 @@ public class tools_Interactable : MonoBehaviour
         }
 
     }
-
+    public string name;
 
     [SerializeField] private int Inventory_Item_List;
     public int inv_item_list { get => Inventory_Item_List; set => Inventory_Item_List = value; }
 
+    public Tools_Scriptable tools;
+
+    private SpriteRenderer sprite;
+
+    private BoxCollider2D boxCollider;
+
+    public const string LAYER_NAME = "Default";
+
+    private void Start()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+    }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         //it will give the player a tool in their bag
-        Tools_Scriptable tools = (Tools_Scriptable)Instantiate(InventoryScript.MyInstance.MyItems[inv_item_list]);
+        tools = (Tools_Scriptable)Instantiate(InventoryScript.MyInstance.MyItems[inv_item_list]);
+
         InventoryScript.MyInstance.AddItem(tools);
         
         name = InventoryScript.MyInstance.MyItems[inv_item_list].MyTitle;
         
         Player.MyInstance.GetItem(name);
 
-        Destroy(gameObject);
+        sprite.sortingLayerName = LAYER_NAME;
+        boxCollider.enabled = false;
+
+        //Destroy(gameObject);
 
     }
 }
