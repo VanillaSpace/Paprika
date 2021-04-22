@@ -48,6 +48,7 @@ public class tools_Interactable : MonoBehaviour
         Player.MyInstance.GetItem(name);
 
         //if we dont hide this and just destroy it, it will become NULL!
+
         sprite.sortingLayerName = LAYER_NAME;
         boxCollider.enabled = false;
 

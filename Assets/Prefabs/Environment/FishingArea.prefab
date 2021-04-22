@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4897640555036702108}
   - component: {fileID: 4897640555036702107}
   - component: {fileID: 4897640555036702106}
+  - component: {fileID: 1265715451}
   m_Layer: 0
   m_Name: FishingArea
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4897640555036702105}
-  m_LocalRotation: {x: 0, y: -0, z: -0.00069049717, w: 0.99999976}
+  m_LocalRotation: {x: 0, y: 0, z: -0.0006894673, w: 0.99999976}
   m_LocalPosition: {x: 11.51, y: -5.4, z: -1.0164052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -71,3 +72,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInRange: 0
+--- !u!114 &1265715451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897640555036702105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6be611fcf08564e98da0ec13ea2bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resource_drop: {fileID: 0}
+  dropCount: 5
+  spread: 0.7
