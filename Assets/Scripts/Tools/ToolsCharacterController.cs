@@ -34,7 +34,7 @@ public class ToolsCharacterController : MonoBehaviour
         CanSelectCheck();
         Marker();
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (UseWorldTool() == true)
             {

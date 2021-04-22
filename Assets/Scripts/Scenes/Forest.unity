@@ -12372,7 +12372,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &368285588
@@ -41845,7 +41845,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &1006587880
@@ -44018,7 +44018,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1205291266
@@ -57943,7 +57943,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &2114886341
@@ -58699,7 +58699,7 @@ PrefabInstance:
     - target: {fileID: 1405205336286473300, guid: 14bdc7da792526d48ba33d0e05810e92, type: 3}
       propertyPath: tools
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 7c313b73780dbc0499e60fc1a61408c4, type: 2}
     - target: {fileID: 1405205336286473301, guid: 14bdc7da792526d48ba33d0e05810e92, type: 3}
       propertyPath: m_RootOrder
       value: 15
