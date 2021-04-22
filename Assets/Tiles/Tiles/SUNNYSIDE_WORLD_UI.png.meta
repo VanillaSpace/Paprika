@@ -157,7 +157,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI_50
   - first:
       213: -3356899529644309997
-    second: SUNNYSIDE_WORLD_UI_51
+    second: Clock
   - first:
       213: 49222829758987097
     second: SUNNYSIDE_WORLD_UI_52
@@ -190,7 +190,7 @@ TextureImporter:
     second: SUNNYSIDE_WORLD_UI_61
   - first:
       213: 9113482942505720981
-    second: SUNNYSIDE_WORLD_UI_62
+    second: FishingRod
   - first:
       213: -6549912944012261706
     second: SUNNYSIDE_WORLD_UI_63
@@ -1381,7 +1381,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI_51
+      name: Clock
       rect:
         serializedVersion: 2
         x: 131
@@ -1612,7 +1612,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SUNNYSIDE_WORLD_UI_62
+      name: FishingRod
       rect:
         serializedVersion: 2
         x: 144

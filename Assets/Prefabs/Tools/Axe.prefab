@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Axe
   Inventory_Item_List: 11
+  tools: {fileID: 11400000, guid: 7c313b73780dbc0499e60fc1a61408c4, type: 2}
 --- !u!61 &3251952504917848159
 BoxCollider2D:
   m_ObjectHideFlags: 0
