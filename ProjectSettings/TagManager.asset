@@ -8,6 +8,8 @@ TagManager:
   - HitBox
   - Keybind
   - Interactable
+  - Canvas
+  - Fishing
   layers:
   - Default
   - TransparentFX

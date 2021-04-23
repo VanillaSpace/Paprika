@@ -10813,6 +10813,7 @@ MonoBehaviour:
   dropCount: 5
   spread: 0.7
   nodeType: 1
+  fishingMiniGame: {fileID: 0}
 --- !u!4 &232400428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2108979124327539094, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
@@ -13889,7 +13890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.53, y: -6.85, z: -0.63}
+  m_LocalPosition: {x: 0.53, y: -6.85, z: -24.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1199875371}
@@ -16836,6 +16837,10 @@ PrefabInstance:
     - target: {fileID: 2321856686206938913, guid: c2ac77ff5c71d1d4aa15404ab3a4eb18, type: 3}
       propertyPath: m_Name
       value: FishingRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321856686206938913, guid: c2ac77ff5c71d1d4aa15404ab3a4eb18, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2321856686206938916, guid: c2ac77ff5c71d1d4aa15404ab3a4eb18, type: 3}
       propertyPath: m_RootOrder
@@ -41556,6 +41561,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38ca5f530324d9b4a95385cc3bf830cf, type: 3}
+--- !u!1 &940671703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940671704}
+  m_Layer: 5
+  m_Name: ------------ Fishing ------
+  m_TagString: Fishing
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &940671704
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940671703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1434562169}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 142, y: -33}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &944245023
 GameObject:
   m_ObjectHideFlags: 0
@@ -44040,6 +44080,7 @@ Transform:
   m_Children:
   - {fileID: 314114438}
   - {fileID: 1454583436}
+  - {fileID: 1272916485}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44495,6 +44536,36 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7a08a1b809356c149a9ea48c19f0f0e0, type: 2}
   - {fileID: 11400000, guid: caf6411e55545f44e867dbc605ee96ac, type: 2}
   - {fileID: 11400000, guid: dd01cab6843a19e4699c35d8ba0b845d, type: 2}
+--- !u!1 &1272916484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1272916485}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1272916485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272916484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.51, y: -0.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1200984248}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1283819214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46406,7 +46477,7 @@ GameObject:
   - component: {fileID: 1434562166}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46498,6 +46569,7 @@ RectTransform:
   - {fileID: 1940335997}
   - {fileID: 346768332}
   - {fileID: 1622519194}
+  - {fileID: 940671704}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60783,6 +60855,10 @@ PrefabInstance:
       propertyPath: resource_drop
       value: 
       objectReference: {fileID: 5496459957261010319, guid: a4fc2dbc2d999954c9eca86d081b8a0b, type: 3}
+    - target: {fileID: 1265715451, guid: be6b4f9162e6464438b37fe7fafea04c, type: 3}
+      propertyPath: fishingMiniGame
+      value: 
+      objectReference: {fileID: 5677104672664241349, guid: c4bc6aafb52f19549b082f7a2891c3b1, type: 3}
     - target: {fileID: 4897640555036702105, guid: be6b4f9162e6464438b37fe7fafea04c, type: 3}
       propertyPath: m_Name
       value: FishingArea

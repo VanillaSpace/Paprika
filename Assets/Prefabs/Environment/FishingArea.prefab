@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4897640555036702105}
-  m_LocalRotation: {x: 0, y: 0, z: -0.0006894673, w: 0.99999976}
-  m_LocalPosition: {x: 11.51, y: -5.4, z: -1.0164052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.51, y: -0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.079}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4897640555036702107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -87,3 +87,5 @@ MonoBehaviour:
   resource_drop: {fileID: 0}
   dropCount: 5
   spread: 0.7
+  nodeType: 0
+  fishingMiniGame: {fileID: 0}
